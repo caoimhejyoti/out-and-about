@@ -24,6 +24,21 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 5
+  },
+  username: { 
+    type: String,
+    required: true,
+    minlengh: 5,
+    trim: true
+  },
+  collectedBadges: {
+    type: Schema.Types.ObjectId,
+    ref: 'Badge'
+  },
+  currentTier: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Tier'
   }
 });
 

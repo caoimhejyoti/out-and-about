@@ -11,14 +11,18 @@ const badgeSchema = new Schema({
     description: { 
         type: String,
     },
-    quantity: { 
-        type: Number,
-        min: 0, 
-        default: null
-    },
-    category: {
+    // quantity: { 
+    //     type: Number,
+    //     min: 0, 
+    //     default: null
+    // },
+    quest: {
         type: Schema.Types.ObjectId,
         ref: 'Quest',
+        required: true
+    },
+    image: { 
+        type: String,
         required: true
     }
 });

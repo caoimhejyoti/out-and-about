@@ -12,15 +12,48 @@ const questSchema = new Schema({
     type: Date,
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
+    required: true
+  },
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'User'
   },
   description: {
-    type: String
+    type: String,
+    required: true
   },
-  quantity: {
-    type: Number,
-    min: 0, 
-    default: null
+  // quantity: {
+  //   type: Number,
+  //   min: 0, 
+  //   default: null
+  // }
+  tier: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Tier'
+  },
+  location: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Location'
+  },
+  badge: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Badge'
+  },
+  riddle: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'Riddle'
+  },
+  qrCode: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'QRCode'
   }
+
 
 });
 
