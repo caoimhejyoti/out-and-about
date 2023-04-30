@@ -28,7 +28,7 @@ function Header() {
           <a href="##" style={navStyle}>
             Friends
           </a>
-          <a href="##" style={navStyle}>
+          <a href="/profile" style={navStyle}>
             Profile
           </a>
           <button>Logout</button>
