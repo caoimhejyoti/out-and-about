@@ -1,9 +1,9 @@
 const User = require('./user');
 const Quest = require('./quest');
 const Badge = require('./badge');
-const Location = require('./lo');
-const QRCode = require('./badge');
-const Tier = require('./badge');
-const Riddle = require('./badge');
+const Location = require('./location');
+const QRCode = require('./qrcode');
+const Tier = require('./tier');
+const Riddle = require('./riddle');
 
-module.exports = { User, Quest, Badge };
+module.exports = { User, Quest, Badge, Location, QRCode, Tier, Riddle };
