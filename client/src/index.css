@@ -21,6 +21,10 @@ body {
   margin: 0;
 }
 
+header {
+  border-bottom: 0.2px solid #fff;
+}
+
 /**
  * Render the `main` element consistently in IE.
  */
