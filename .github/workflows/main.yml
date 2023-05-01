@@ -1,5 +1,5 @@
 #  Name of workflow
-name: Lint workflow
+name: Actions workflow
 # Trigger workflow on all pull requests
 on:
   pull_request:
@@ -25,5 +25,4 @@ jobs:
       - name: 🧰 install deps
         run: npm install
       - run: npm ci
-      - run: npm run build --if-present
       - run: npm test
