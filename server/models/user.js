@@ -37,7 +37,7 @@ const userSchema = new Schema({
   },
   currentTier: {
     type: Schema.Types.ObjectId,
-    required: true,
+    default: 1,
     ref: 'Tier'
   }
 });
