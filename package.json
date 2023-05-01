@@ -1,7 +1,7 @@
 {
   "name": "out-and-about",
   "version": "0.1.0",
-  "description": "",
+  "description": "It is time to go on a Quest, it is time to get out and about!",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",

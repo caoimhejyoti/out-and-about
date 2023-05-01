@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
 import geoJSON from "./map-data/mandurah-foreshore-markers.json";
+import Tooltip from "@mui/material/Tooltip";
 
 import "./../../style/map.css";
 
@@ -12,23 +13,26 @@ const Marker = ({ onClick, children, feature }) => {
   const _onClick = () => {
     onClick(feature.properties.name);
   };
+
+  const name = feature.properties.name;
+
   return (
-    <button onClick={_onClick} className="marker">
-      {children}
-    </button>
+    <Tooltip title={name} placement="top">
+      <button onClick={_onClick} className="marker">
+        {children}
+      </button>
+    </Tooltip>
   );
 };
 
 export default function MandurahMap() {
   const mapContainer = useRef(null);
-  //   const map = useRef(null);
   const [lng, setLng] = useState(115.7187);
   const [lat, setLat] = useState(-32.533499);
   const [zoom, setZoom] = useState(13);
   const [projection, setProjection] = useState("globe");
 
   useEffect(() => {
-    // if (map.current) return; // initialize map only once
     const map = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
@@ -38,24 +42,25 @@ export default function MandurahMap() {
     });
 
     // Create default markers
-    geoJSON.features.forEach((feature) =>{
-        const ref = React.createRef();
-        ref.current = document.createElement("div");
+    geoJSON.features.forEach((feature) => {
+      const ref = React.createRef();
+      ref.current = document.createElement("div");
 
-        ReactDOM.render(
-            <Marker onClick={markerClicked} feature={feature} />,
-            ref.current
-        );
+      ReactDOM.render(
+        <Marker feature={feature} />,
 
-      new mapboxgl.Marker(ref.current).setLngLat(feature.geometry.coordinates).addTo(map);
-  });
-
+        ref.current
+      );
+      new mapboxgl.Marker(ref.current)
+        .setLngLat(feature.geometry.coordinates)
+        .addTo(map);
+    });
     return () => map.remove();
   }, []);
 
-  const markerClicked = (title) => {
-    window.alert(title);
-  }
+  //   const markerClicked = (title) => {
+  //     window.alert(title);
+  //   }
 
   return (
     <div>
