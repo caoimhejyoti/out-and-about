@@ -2,14 +2,15 @@
   "name": "out-and-about",
   "version": "0.1.0",
   "description": "It is time to go on a Quest, it is time to get out and about!",
-  "private": true,
+  "main": "server/server.js",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.12.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0"
+    "@testing-library/user-event": "^13.5.0",
+    "webpack-dev-middleware": "^6.0.2"
   },
   "devDependencies": {
     "concurrently": "^5.1.0"
