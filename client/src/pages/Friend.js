@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dashboard = () => {
+const Friend = () => {
   return (
     <div
       style={{
@@ -9,9 +9,9 @@ const Dashboard = () => {
         alignItems: "Right",
       }}
     >
-      <h1>Dashboard</h1>
+      <h1>Friends</h1>
     </div>
   );
 };
 
-export default Dashboard;
+export default Friend;
