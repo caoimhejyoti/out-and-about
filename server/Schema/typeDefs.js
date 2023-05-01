@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Badge {
@@ -6,14 +6,14 @@ const typeDefs = gql`
     name: String!
     description: String
     quest: Quest!
-    image: String! 
+    image: String!
   }
 
   # input BadgeInput {
   #   name: String
   #   description: String
   #   quest: QuestInput
-  #   image: String 
+  #   image: String
   # }
 
   type Quest {
@@ -28,7 +28,6 @@ const typeDefs = gql`
     riddle: Riddle!
   }
 
-
   type User {
     _id: ID
     firstName: String!
@@ -37,10 +36,10 @@ const typeDefs = gql`
     password: String!
     username: String!
     collectedBadges: [Badge]
-    currentTier: Tier!
+    currentTier: Tier
   }
 
-  type Tier { 
+  type Tier {
     _id: ID
     name: Int!
     description: String
@@ -61,10 +60,10 @@ const typeDefs = gql`
   #   country: String
   # }
 
-  type Riddle { 
+  type Riddle {
     _id: ID
     question: String!
-    answer: String! 
+    answer: String!
     quest: Quest
   }
 
@@ -95,9 +94,9 @@ const typeDefs = gql`
   # input QuestInput {
   #   name: String
   #   createdAt: String
-  #   createdBy: String 
+  #   createdBy: String
   #   description: String
-  #   tier: String 
+  #   tier: String
   #   location: String
   #   badge: String
   #   riddle: String
@@ -124,7 +123,13 @@ const typeDefs = gql`
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): User
+    addUser(
+      firstName: String!
+      lastName: String!
+      username: String!
+      email: String!
+      password: String!
+    ): Auth
     # addQuest(input: QuestInput): Quest
     # addBadge(input: BadgeInput): Badge
     # addTier(input: TierInput): Tier
