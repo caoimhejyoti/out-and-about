@@ -15,10 +15,10 @@ const navStyle = {
 };
 
 const Header = () => {
-  // const logout = (event) => {
-  //   event.preventDefault();
-  //   Auth.logout();
-  // };
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <header className="mb-4 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
@@ -29,24 +29,24 @@ const Header = () => {
         </div>
 
         <div>
-          {/* {Auth.loggedIn() ? (
-            <> */}
-          <Link to="/dashboard" style={navStyle}>
-            Dashboard
-          </Link>
-          <Link to="/me" style={navStyle}>
-            Profile
-          </Link>
-          {/* <button style={buttonStyle} onClick={logout}> */}
-          <button style={buttonStyle}>Logout</button>
-          {/* </>
+          {Auth.loggedIn() ? (
+            <>
+              <Link to="/dashboard" style={navStyle}>
+                Dashboard
+              </Link>
+              <Link to="/me" style={navStyle}>
+                Profile
+              </Link>
+              <button style={buttonStyle} onClick={logout}>Logout</button>
+              {/* <button style={buttonStyle}>Logout</button> */}
+            </>
           ) : (
-            // <>
-            //   <Link to="/login">Login</Link>
+             <>
+             <Link to="/login">Login</Link>
 
-            //   <Link to="/signup">Signup</Link>
-            // </>
-          )} */}
+              <Link to="/signup">Signup</Link>
+             </>
+          )}
         </div>
       </div>
     </header>
