@@ -13,7 +13,7 @@ const QRCodeSchema = new Schema({
    },
    quest: {
     type: Schema.Types.ObjectId,
-    required: true,
+    // required: true,
     ref: 'Quest'
    }
  });

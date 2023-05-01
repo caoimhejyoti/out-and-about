@@ -14,7 +14,7 @@ const RiddleSchema = new Schema({
     quest: {
         type: Schema.Types.ObjectId,
         ref: 'Quest',
-        required: true
+        // required: true
     }
  });
 

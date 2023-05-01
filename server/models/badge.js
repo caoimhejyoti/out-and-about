@@ -19,7 +19,7 @@ const badgeSchema = new Schema({
     quest: {
         type: Schema.Types.ObjectId,
         ref: 'Quest',
-        required: true
+        // required: true
     },
     image: { 
         type: String,
