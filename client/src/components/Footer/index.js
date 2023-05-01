@@ -1,6 +1,5 @@
 import React from "react";
 import github from "../../assets/github.png";
-import Box from "@mui/material/Box";
 
 const Footer = () => {
   const container = {

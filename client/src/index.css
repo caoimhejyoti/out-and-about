@@ -25,6 +25,9 @@ header {
   border-bottom: 0.2px solid #fff;
 }
 
+nav {
+  list-style-type: none;
+}
 /**
  * Render the `main` element consistently in IE.
  */

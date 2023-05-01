@@ -3,7 +3,7 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import Auth from "../../utils/auth";
 
-function Header() {
+function Header({ currentPage, handlePageChange }) {
   const navStyle = {
     paddingLeft: 10,
     paddingRight: 10,
@@ -18,19 +18,51 @@ function Header() {
     <header className="text-light mb-4 py-3 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
-          <img href="/" className="m-0" src={logo} alt="logo" />
+          <a href="/">
+            <img className="m-0" src={logo} alt="logo" />
+          </a>
         </div>
 
         <div>
-          <a href="##" style={navStyle}>
-            Dashboard
-          </a>
-          <a href="##" style={navStyle}>
-            Friends
-          </a>
-          <a href="/profile" style={navStyle}>
-            Profile
-          </a>
+          <ul className="nav nav-tabs">
+            <li className="nav-item">
+              <a
+                href="dashboard"
+                style={navStyle}
+                onClick={() => handlePageChange("Dashboard")}
+                className={
+                  currentPage === "Dashboard" ? "nav-link active" : "nav-link"
+                }
+              >
+                Dashboard
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="friends"
+                style={navStyle}
+                onClick={() => handlePageChange("Friends")}
+                className={
+                  currentPage === "Friends" ? "nav-link active" : "nav-link"
+                }
+              >
+                Friends
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="profile"
+                style={navStyle}
+                onClick={() => handlePageChange("Profile")}
+                className={
+                  currentPage === "Profile" ? "nav-link active" : "nav-link"
+                }
+              >
+                Profile
+              </a>
+            </li>
+          </ul>
+
           <button>Logout</button>
         </div>
       </div>
