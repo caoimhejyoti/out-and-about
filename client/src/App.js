@@ -1,17 +1,41 @@
 import React, { useState } from "react";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./style/app.css";
 
+import Dashboard from "./pages/Dashboard";
+import Friend from "./pages/Friend";
+import Profile from "./pages/Profile";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Home from "./components/Home";
-import Dashboard from "./components/pages/Dashboard";
-import Friend from "./components/pages/Friend";
-import Profile from "./components/pages/Profile";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import background from "./assets/bg.png";
 
-const client = new ApolloClient({
+// Construct our main GraphQL API endpoint
+const httpLink = createHttpLink({
   uri: "/graphql",
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -21,36 +45,28 @@ export default function App() {
     backgroundSize: "cover",
   };
 
-  const [currentPage, setCurrentPage] = useState("Home");
-
-  const renderPage = () => {
-    if (currentPage === "Home") {
-      return <Home />;
-    }
-    if (currentPage === "Dashboard") {
-      return <Dashboard />;
-    }
-    if (currentPage === "Friends") {
-      return <Friend />;
-    }
-    if (currentPage === "Profile") {
-      return <Profile />;
-    }
-    return <Profile />;
-  };
-
-  const handlePageChange = (page) => setCurrentPage(page);
-
   return (
     <ApolloProvider client={client}>
-      <div
-        className="flex-column justify-flex-start min-100-vh"
-        style={bgStyle}
-      >
-        <Header currentPage={currentPage} handlePageChange={handlePageChange} />
-        <div className="container">{renderPage()}</div>
-        <Footer />
-      </div>
+      <Router>
+        <div
+          className="flex-column justify-flex-start min-100-vh"
+          style={bgStyle}
+        >
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/me" element={<Profile />} />
+              <Route path="/profiles/:username" element={<Profile />} />
+              <Route path="/me/friends" element={<Friend />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </div>
+          <Footer />
+        </div>
+      </Router>
     </ApolloProvider>
   );
 }

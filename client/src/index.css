@@ -12,11 +12,8 @@
   /* 2 */
 }
 
-/* Sections
+/* Custom CSS
    ========================================================================== */
-/**
- * Remove the margin in all browsers.
- */
 body {
   margin: 0;
 }
@@ -25,15 +22,23 @@ header {
   border-bottom: 0.2px solid #fff;
 }
 
-nav-link active {
-  background-color: #31e1bd;
-  opacity: 0.5;
+.nav-link {
+  opacity: 0.7;
 }
 
+.nav-link:hover, .active {
+  opacity: 1;
+}
 
 ul {
   list-style-type: none;
 }
+
+.footerLink:hover {
+  text-shadow: -4px 4px 15px #fff, 4px -4px 15px #fff;
+  opacity: 1 !important;
+}
+
 /**
  * Render the `main` element consistently in IE.
  */
@@ -442,7 +447,7 @@ a {
 
 a:hover {
   color: #065b83;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* HEIGHT / WIDTH UTILS */
