@@ -4,7 +4,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "start_end",
+        "name": "Start and End",
         "route": "mandurah_forshore",
         "marker-color": "#16c049",
         "marker-size": "medium"
@@ -21,7 +21,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "car-park",
+        "name": "Car Park",
         "route": "mandurah-forshore",
         "car-park-hours": "24/7",
         "car-park-cost": "Free - 2 hours max, Monday - Saturday",
@@ -40,7 +40,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "cafe",
+        "name": "Cafe",
         "route": "mandurah-forshore",
         "business-name": "DPM Cafe",
         "business-hours": [
@@ -68,7 +68,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "toilets",
+        "name": "Toilets",
         "route": "mandurah-forshore",
         "business-cost": "free",
         "marker-color": "#ffae00",
@@ -87,7 +87,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "toilet-2",
+        "name": "Toilets",
         "route": "mandurah-forshore",
         "business-cost": "free",
         "marker-color": "#ffae00",
@@ -105,7 +105,7 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "QRC",
+        "name": "QR Code",
         "route": "mandurah-forshore",
         "marker-color": "#ff0000",
         "marker-size": "medium"
