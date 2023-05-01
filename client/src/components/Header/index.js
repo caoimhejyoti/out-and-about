@@ -24,44 +24,37 @@ function Header({ currentPage, handlePageChange }) {
         </div>
 
         <div>
-          <ul className="nav nav-tabs">
-            <li className="nav-item">
-              <a
-                href="#dashboard"
-                style={navStyle}
-                onClick={() => handlePageChange("Dashboard")}
-                className={
-                  currentPage === "Dashboard" ? "nav-link active" : "nav-link"
-                }
-              >
-                Dashboard
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="#friends"
-                style={navStyle}
-                onClick={() => handlePageChange("Friends")}
-                className={
-                  currentPage === "Friends" ? "nav-link active" : "nav-link"
-                }
-              >
-                Friends
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                href="#profile"
-                style={navStyle}
-                onClick={() => handlePageChange("Profile")}
-                className={
-                  currentPage === "Profile" ? "nav-link active" : "nav-link"
-                }
-              >
-                Profile
-              </a>
-            </li>
-          </ul>
+          <a
+            href="#dashboard"
+            style={navStyle}
+            onClick={() => handlePageChange("Dashboard")}
+            className={
+              currentPage === "Dashboard" ? "nav-link active" : "nav-link"
+            }
+          >
+            Dashboard
+          </a>
+
+          <a
+            href="#friends"
+            style={navStyle}
+            onClick={() => handlePageChange("Friends")}
+            className={
+              currentPage === "Friends" ? "nav-link active" : "nav-link"
+            }
+          >
+            Friends
+          </a>
+          <a
+            href="#profile"
+            style={navStyle}
+            onClick={() => handlePageChange("Profile")}
+            className={
+              currentPage === "Profile" ? "nav-link active" : "nav-link"
+            }
+          >
+            Profile
+          </a>
 
           <button>Logout</button>
         </div>

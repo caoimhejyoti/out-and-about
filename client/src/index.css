@@ -25,7 +25,13 @@ header {
   border-bottom: 0.2px solid #fff;
 }
 
-nav {
+nav-link active {
+  background-color: #31e1bd;
+  opacity: 0.5;
+}
+
+
+ul {
   list-style-type: none;
 }
 /**

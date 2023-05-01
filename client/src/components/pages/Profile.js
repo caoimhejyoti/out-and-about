@@ -5,9 +5,8 @@ const Profile = () => {
     <div
       style={{
         display: "flex",
-        justifyContent: "Right",
-        alignItems: "Right",
-        height: "100vh",
+        justifyContent: "Left",
+        alignItems: "Left",
       }}
     >
       <h1>Profile</h1>
