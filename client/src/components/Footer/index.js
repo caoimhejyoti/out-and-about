@@ -1,6 +1,5 @@
 import React from "react";
 import github from "../../assets/github.png";
-import Box from "@mui/material/Box";
 
 const Footer = () => {
   const container = {
@@ -9,6 +8,7 @@ const Footer = () => {
   const styleObj = {
     width: "150px",
     color: "white",
+    opacity: "0.5",
     target: "_blank",
     display: "flex",
     flexDirection: "row",
@@ -27,6 +27,7 @@ const Footer = () => {
         target="_blank"
         style={styleObj}
         rel="noreferrer"
+        className="footerLink"
       >
         <img style={githubStyle} src={github} alt="github" />
         <h6>Caoimhe</h6>
@@ -36,6 +37,7 @@ const Footer = () => {
         target="_blank"
         style={styleObj}
         rel="noreferrer"
+        className="footerLink"
       >
         <img style={githubStyle} src={github} alt="github" />
         <h6>Harry</h6>
@@ -45,6 +47,7 @@ const Footer = () => {
         target="_blank"
         style={styleObj}
         rel="noreferrer"
+        className="footerLink"
       >
         <img style={githubStyle} src={github} alt="github" />
         <h6>Joe</h6>
@@ -54,6 +57,7 @@ const Footer = () => {
         target="_blank"
         style={styleObj}
         rel="noreferrer"
+        className="footerLink"
       >
         <img style={githubStyle} src={github} alt="github" />
         <h6>Steph</h6>
