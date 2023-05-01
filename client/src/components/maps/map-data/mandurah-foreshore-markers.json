@@ -1,0 +1,123 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "start_end",
+        "route": "mandurah_forshore",
+        "marker-color": "#16c049",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "coordinates": [
+          115.71840675634445,
+          -32.533641841130716
+        ],
+        "type": "Point"
+      },
+      "id": 1
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "car-park",
+        "route": "mandurah-forshore",
+        "car-park-hours": "24/7",
+        "car-park-cost": "Free - 2 hours max, Monday - Saturday",
+        "marker-color": "#6ad0fb",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "coordinates": [
+          115.71875989272235,
+          -32.533722004271546
+        ],
+        "type": "Point"
+      },
+      "id": 2
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "cafe",
+        "route": "mandurah-forshore",
+        "business-name": "DPM Cafe",
+        "business-hours": [
+            "Monday: 6am - 12pm", 
+            "Tuesday: 6am - 12pm", 
+            "Wednesday: 6am - 12pm", 
+            "Thursday: 6am - 12pm", 
+            "Friday: 6am - 12pm", 
+            "Saturday: 7am - 12pm", 
+            "Sunday: 7am - 12pm" 
+        ],
+        "marker-color": "#ea34db",
+        "marker-size": "medium",
+        "business-socials": "https://www.instagram.com/dpm_cafe/"
+      },
+      "geometry": {
+        "coordinates": [
+          115.71903636017322,
+          -32.53368621952966
+        ],
+        "type": "Point"
+      },
+      "id": 3
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "toilets",
+        "route": "mandurah-forshore",
+        "business-cost": "free",
+        "marker-color": "#ffae00",
+        "marker-size": "medium",
+        "business-hours": "24/7"
+      },
+      "geometry": {
+        "coordinates": [
+          115.7193813511401,
+          -32.532344483582406
+        ],
+        "type": "Point"
+      },
+      "id": 4
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "toilet-2",
+        "route": "mandurah-forshore",
+        "business-cost": "free",
+        "marker-color": "#ffae00",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "coordinates": [
+          115.71790492027475,
+          -32.52600126127086
+        ],
+        "type": "Point"
+      },
+      "id": 5
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "QRC",
+        "route": "mandurah-forshore",
+        "marker-color": "#ff0000",
+        "marker-size": "medium"
+      },
+      "geometry": {
+        "coordinates": [
+          115.71244548372204,
+          -32.52598706414641
+        ],
+        "type": "Point"
+      },
+      "id": 6
+    }
+  ]
+}
