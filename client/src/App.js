@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-// import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import "./style/app.css";
 
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Friend from "./pages/Friend";
-import Profile from "./pages/Profile";
+import Home from "./components/Home";
+import Dashboard from "./components/pages/Dashboard";
+import Friend from "./components/pages/Friend";
+import Profile from "./components/pages/Profile";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import background from "./assets/bg.png";
 
-// const client = new ApolloClient({
-//   uri: "/graphql",
-//   cache: new InMemoryCache(),
-// });
+const client = new ApolloClient({
+  uri: "/graphql",
+  cache: new InMemoryCache(),
+});
 
 export default function App() {
   const bgStyle = {
@@ -25,6 +25,9 @@ export default function App() {
 
   const renderPage = () => {
     if (currentPage === "Home") {
+      return <Home />;
+    }
+    if (currentPage === "Dashboard") {
       return <Dashboard />;
     }
     if (currentPage === "Friends") {
@@ -33,17 +36,21 @@ export default function App() {
     if (currentPage === "Profile") {
       return <Profile />;
     }
-    return <Home />;
+    return <Profile />;
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
 
   return (
-    <div className="flex-column justify-flex-start min-100-vh" style={bgStyle}>
-      {/* <div> */}
-      <Header currentPage={currentPage} handlePageChange={handlePageChange} />
-      {renderPage()}
-      <Footer />
-    </div>
+    <ApolloProvider client={client}>
+      <div
+        className="flex-column justify-flex-start min-100-vh"
+        style={bgStyle}
+      >
+        <Header currentPage={currentPage} handlePageChange={handlePageChange} />
+        <div className="container">{renderPage()}</div>
+        <Footer />
+      </div>
+    </ApolloProvider>
   );
 }

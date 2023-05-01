@@ -27,7 +27,7 @@ function Header({ currentPage, handlePageChange }) {
           <ul className="nav nav-tabs">
             <li className="nav-item">
               <a
-                href="dashboard"
+                href="#dashboard"
                 style={navStyle}
                 onClick={() => handlePageChange("Dashboard")}
                 className={
@@ -39,7 +39,7 @@ function Header({ currentPage, handlePageChange }) {
             </li>
             <li className="nav-item">
               <a
-                href="friends"
+                href="#friends"
                 style={navStyle}
                 onClick={() => handlePageChange("Friends")}
                 className={
@@ -51,7 +51,7 @@ function Header({ currentPage, handlePageChange }) {
             </li>
             <li className="nav-item">
               <a
-                href="profile"
+                href="#profile"
                 style={navStyle}
                 onClick={() => handlePageChange("Profile")}
                 className={
