@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const tierSchema = new Schema({
     name: {
-     type: String,
+     type: Number,
      required: true,
      trim: true
    },

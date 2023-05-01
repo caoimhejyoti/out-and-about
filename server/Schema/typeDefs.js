@@ -42,7 +42,7 @@ const typeDefs = gql`
 
   type Tier { 
     _id: ID
-    name: String!
+    name: Int!
     description: String
   }
 
@@ -124,7 +124,7 @@ const typeDefs = gql`
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): User
     # addQuest(input: QuestInput): Quest
     # addBadge(input: BadgeInput): Badge
     # addTier(input: TierInput): Tier
