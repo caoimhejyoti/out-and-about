@@ -55,7 +55,7 @@ export default function Profile() {
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
                         Bill
-                        {/* TODO: Update name based on user logged in */}
+                        {/* {Get name} */}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         Member since May 1, 2023

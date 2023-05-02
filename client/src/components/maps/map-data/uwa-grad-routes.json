@@ -1,0 +1,42 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "uwa-grad-routes",
+          "route": "mandurah-forshore",
+          "stroke": "#3b05ff",
+          "stroke-width": 5,
+          "stroke-opacity": 1
+        },
+        "geometry": {
+          "coordinates": [
+            [
+                115.81787861591187,
+                -31.97647643298319
+              ],
+              [
+                115.81817709226442,
+                -31.978905122687983
+              ],
+              [
+                115.81968052870553,
+                -31.980227278094333
+              ],
+              [
+                115.81847556861698,
+                -31.982655868532667
+              ],
+              [
+                115.81514811002404,
+                -31.984165500459937
+              ]
+          ],
+          "type": "LineString"
+        },
+        "id": 0
+      }
+      
+    ]
+  }
