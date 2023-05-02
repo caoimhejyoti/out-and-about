@@ -1,0 +1,90 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "varsity",
+          "route": "uwa-grad",
+          "marker-color": "#ffc800",
+          "marker-size": "medium"
+        },
+        "geometry": {
+          "coordinates": [
+            115.81515617644203,
+            -31.984144559828785
+          ],
+          "type": "Point"
+        },
+        "id": 0
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Reflection Pond",
+          "route": "uwa-grad",
+          "marker-color": "#00fbff",
+          "marker-size": "medium"
+        },
+        "geometry": {
+          "coordinates": [
+            115.81789195345755,
+            -31.976479008873014
+          ],
+          "type": "Point"
+        },
+        "id": 1
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "catalyst cafe",
+          "route": "uwa-grad",
+          "marker-color": "#dd00fa",
+          "marker-size": "medium"
+        },
+        "geometry": {
+          "coordinates": [
+            115.81847447176892,
+            -31.982634317628822
+          ],
+          "type": "Point"
+        },
+        "id": 2
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Reid Library",
+          "route": "uwa-grad",
+          "marker-color": "#ff0000",
+          "marker-size": "medium"
+        },
+        "geometry": {
+          "coordinates": [
+            115.81817339646273,
+            -31.97888487654925
+          ],
+          "type": "Point"
+        },
+        "id": 3
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "food court tree",
+          "route": "uwa-grad",
+          "marker-color": "#11ff00",
+          "marker-size": "medium"
+        },
+        "geometry": {
+          "coordinates": [
+            115.819689794596,
+            -31.98022269788823
+          ],
+          "type": "Point"
+        },
+        "id": 4
+      }
+    ]
+  }
