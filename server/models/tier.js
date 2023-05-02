@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const tierSchema = new Schema({
+  _id: {
+    type: String,
+  },
   name: {
     type: Number,
     required: true,

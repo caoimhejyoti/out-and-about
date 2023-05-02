@@ -4,6 +4,9 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
+  _id: {
+    type: String,
+  },
   firstName: {
     type: String,
     required: true,
@@ -38,6 +41,10 @@ const userSchema = new Schema({
   currentTier: {
     type: Schema.Types.ObjectId,
     ref: "Tier",
+  },
+  location: {
+    type: Schema.Types.ObjectId,
+    ref: "Location",
   },
 });
 
