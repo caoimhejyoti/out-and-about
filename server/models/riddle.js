@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const RiddleSchema = new Schema({
   _id: {
-    type: String,
+    type: Schema.Types.ObjectId,
   },
   question: {
     type: String,
