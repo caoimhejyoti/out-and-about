@@ -19,7 +19,38 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import bgAbstract from "../assets/cards/bg_abstract.jpeg";
 import { GradeOutlined, Grade } from "@mui/icons-material";
 
-export default function Profile() {
+import { Navigate, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+
+import { QUERY_USER, QUERY_ME } from "../utils/queries";
+
+import Auth from "../utils/auth";
+
+const Profile = () => {
+  const { username: userParam } = useParams();
+
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
+
+  const user = data?.me;
+
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Navigate to="/me" />;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (false) {
+    return (
+      <h4>
+        You need to be logged in to see your profile page. Use the navigation
+        links above to sign up or log in!
+      </h4>
+    );
+  }
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -54,16 +85,14 @@ export default function Profile() {
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
-                        Bill
-                        {/* {Get name} */}
+                        {`${user.username}`}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         Member since May 1, 2023
                         {/* TODO: update date based on user logged in */}
                       </Typography>
                       <Typography variant="overline" color="text.secondary">
-                        Level: Beginner
-                        {/* TODO: update level based on user logged in */}
+                        {`${user.currentTier.name}: ${user.currentTier.description}`}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
@@ -95,7 +124,7 @@ export default function Profile() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                   >
-                    <Typography>Level 1 - Beginner</Typography>
+                    <Typography>Level 1 - Pedestrian</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Grid
@@ -118,7 +147,7 @@ export default function Profile() {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                   >
-                    <Typography>Level 2 - Intermediate</Typography>
+                    <Typography>Level 2 - Rambler</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>
@@ -134,7 +163,7 @@ export default function Profile() {
                     aria-controls="panel3a-content"
                     id="panel3a-header"
                   >
-                    <Typography>Level 3 - Advanced</Typography>
+                    <Typography>Level 3 - Wanderer</Typography>
                   </AccordionSummary>
                 </Accordion>
                 <Accordion disabled>
@@ -143,7 +172,7 @@ export default function Profile() {
                     aria-controls="panel3a-content"
                     id="panel3a-header"
                   >
-                    <Typography>Level 4 - Expert</Typography>
+                    <Typography>Level 4 - Nomad</Typography>
                   </AccordionSummary>
                 </Accordion>
               </Item>
@@ -155,6 +184,6 @@ export default function Profile() {
       </div>
     </div>
   );
-}
+};
 
-// export default Profile;
+export default Profile;

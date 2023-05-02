@@ -1,62 +1,58 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
 const questSchema = new Schema({
-   name: {
+  _id: {
+    type: Schema.Types.ObjectId,
+  },
+  name: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   createdAt: {
     type: Date,
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
-    required: true
+    required: true,
   },
   createdBy: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'User'
+    ref: "User",
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
-  // quantity: {
-  //   type: Number,
-  //   min: 0, 
-  //   default: null
-  // }
   tier: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'Tier'
+    ref: "Tier",
   },
   location: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'Location'
+    ref: "Location",
   },
   badge: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'Badge'
+    ref: "Badge",
   },
   riddle: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'Riddle'
+    ref: "Riddle",
   },
   qrCode: {
     type: Schema.Types.ObjectId,
     required: true,
-    ref: 'QRCode'
-  }
-
-
+    ref: "QRCode",
+  },
 });
 
-const Quest = mongoose.model('Quest', questSchema);
+const Quest = mongoose.model("Quest", questSchema);
 
 module.exports = Quest;
