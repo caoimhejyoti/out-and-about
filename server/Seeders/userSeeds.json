@@ -1,18 +1,22 @@
 [
     {
+        "_id": "9914D673F90466ECF33F915F",
         "firstName": "Henry",
         "lastName": "Jones",
         "username": "indianaJones",
         "email": "indiana@test.com",
-        "password": "password10",
-        "tier": 1
+        "password": "password1",
+        "currentTier": "55246EE6E77090425287D2FB",
+        "location": "C013C340C2C120397AD05190"  
     },
     {
+        "_id": "2",
         "firstName": "Marion",
         "lastName": "Jones",
         "username": "marionRavenwood",
         "email": "marion@test.com",
-        "password": "password10",
-        "tier": 1
+        "password": "password2",
+        "currentTier": "55246EE6E77090425287D2FB",
+        "location": "C013C340C2C120397AD05190"  
     }
 ]
