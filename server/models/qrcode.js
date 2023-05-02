@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 
 const QRCodeSchema = new Schema({
   _id: {
-    type: String,
+    type: Schema.Types.ObjectId,
   },
   image: {
     type: String,

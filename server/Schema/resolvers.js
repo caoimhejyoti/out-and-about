@@ -14,15 +14,26 @@ const resolvers = {
 
     me: async (parents, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return await User.findOne({ _id: context.user._id }).populate(
+          "currentTier"
+        );
       }
       throw new AuthenticationError("You need to be logged in!");
     },
   },
 
   Mutation: {
-    addUser: async (parent, { firstName, lastName, username, email, password }) => {
-      const user = await User.create({ firstName, lastName, username, email, password });
+    addUser: async (
+      parent,
+      { firstName, lastName, username, email, password }
+    ) => {
+      const user = await User.create({
+        firstName,
+        lastName,
+        username,
+        email,
+        password,
+      });
       const token = signToken(user);
       return { token, user };
     },

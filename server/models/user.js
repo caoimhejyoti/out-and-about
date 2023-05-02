@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 
 const userSchema = new Schema({
   _id: {
-    type: String,
+    type: Schema.Types.ObjectId,
   },
   firstName: {
     type: String,
