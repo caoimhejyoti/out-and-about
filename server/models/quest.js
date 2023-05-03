@@ -51,6 +51,11 @@ const questSchema = new Schema({
     required: true,
     ref: "QRCode",
   },
+  status:{
+    type: Boolean,
+    required:true,
+    default: false
+  }
 });
 
 const Quest = mongoose.model("Quest", questSchema);

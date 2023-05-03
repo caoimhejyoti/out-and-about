@@ -26,6 +26,7 @@ const typeDefs = gql`
     location: Location!
     badge: Badge!
     riddle: Riddle!
+    status: Boolean!
   }
 
   type User {
@@ -37,6 +38,8 @@ const typeDefs = gql`
     username: String!
     collectedBadges: [Badge]
     currentTier: Tier
+    currentQuest: Quest
+    location: Location
   }
 
   type Tier {

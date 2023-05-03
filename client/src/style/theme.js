@@ -6,7 +6,7 @@ const inputTheme = createTheme({
   },
   palette: {
     primary: {
-      main: "#01463c",
+      main: "#981FC2",
     },
   },
 });

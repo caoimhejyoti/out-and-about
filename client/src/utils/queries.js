@@ -32,6 +32,46 @@ export const QUERY_ME = gql`
         name
         description
       }
+      currentQuest {
+        _id
+        name
+        location {
+          _id
+          city
+          country
+        }
+        badge {
+          _id
+          name
+          description
+          image
+        }
+        riddle {
+          _id
+          question
+          answer
+        }
+        status
+      }
+    }
+  }
+`;
+
+export const QUERY_QUEST = gql`
+  query quest {
+    quest {
+      _id
+      name
+      tier {
+        _id
+        name
+        description
+      }
+      badge {
+        _id
+        name
+        image
+      }
     }
   }
 `;

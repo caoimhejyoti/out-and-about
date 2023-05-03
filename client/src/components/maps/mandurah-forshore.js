@@ -30,7 +30,7 @@ export default function MandurahMap() {
   const [lng, setLng] = useState(115.7187);
   const [lat, setLat] = useState(-32.533499);
   const [zoom, setZoom] = useState(13);
-  const [projection, setProjection] = useState("globe");
+  // const [projection, setProjection] = useState("globe");
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -38,7 +38,7 @@ export default function MandurahMap() {
       style: "mapbox://styles/mapbox/streets-v12",
       center: [lng, lat],
       zoom: zoom,
-      projection: projection,
+      // projection: projection,
     });
 
     // Create default markers

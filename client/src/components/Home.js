@@ -10,28 +10,6 @@ const Home = () => {
         <div className="col-12 col-md-8">
           <p>Hello World!</p>
           <MandurahMap />
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
         </div>
         <div className="col-12 col-md-8">
           <UwaMap />

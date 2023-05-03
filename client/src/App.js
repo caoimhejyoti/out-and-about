@@ -14,6 +14,7 @@ import Friend from "./pages/Friend";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import QRCode from "./pages/QRCode";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -62,6 +63,7 @@ export default function App() {
               <Route path="/me/friends" element={<Friend />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/qrcode" element={<QRCode />} />
             </Routes>
           </div>
           <Footer />
