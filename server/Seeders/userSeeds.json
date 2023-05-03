@@ -7,6 +7,7 @@
         "email": "indiana@test.com",
         "password": "password1",
         "currentTier": "55246EE6E77090425287D2FB",
+        "currentQuest": "D8344D9BDF31E92D8280F715",
         "location": "C013C340C2C120397AD05190"  
     },
     {
@@ -17,6 +18,7 @@
         "email": "marion@test.com",
         "password": "password2",
         "currentTier": "7124BB7DFC7DFD8E013F54D6",
+        "currentQuest": "EFE0C59EFA61B1C366BB9515",
         "location": "0B204DA46DE5E3B56D25FC20"  
     }
 ]
