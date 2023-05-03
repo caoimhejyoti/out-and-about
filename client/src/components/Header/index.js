@@ -37,15 +37,20 @@ const Header = () => {
               <Link to="/me" style={navStyle}>
                 Profile
               </Link>
-              <button style={buttonStyle} onClick={logout}>Logout</button>
+              <Link to="/qrcode" style={navStyle}>
+                QRCode
+              </Link>
+              <button style={buttonStyle} onClick={logout}>
+                Logout
+              </button>
               {/* <button style={buttonStyle}>Logout</button> */}
             </>
           ) : (
-             <>
-             <Link to="/login">Login</Link>
+            <>
+              <Link to="/login">Login</Link>
 
               <Link to="/signup">Signup</Link>
-             </>
+            </>
           )}
         </div>
       </div>

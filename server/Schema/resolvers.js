@@ -14,9 +14,26 @@ const resolvers = {
 
     me: async (parents, args, context) => {
       if (context.user) {
-        return await User.findOne({ _id: context.user._id }).populate(
-          "currentTier"
-        );
+        return await User.findOne({ _id: context.user._id })
+          .populate("currentTier")
+          // .populate("currentQuest")
+          .populate("location")
+          .populate({
+            path: "currentQuest",
+            populate: [
+              {
+                path: "location",
+              },
+              {
+                path: "badge",
+              },
+              {
+                path: "riddle",
+              },
+              { path: "tier" },
+            ],
+          })
+          .populate("collectedBadges");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
