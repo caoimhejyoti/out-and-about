@@ -46,6 +46,10 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Location",
   },
+  currentQuest: {
+    type: Schema.Types.ObjectId,
+    ref: "Quest",
+  },
 });
 
 userSchema.pre("save", async function (next) {
