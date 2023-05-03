@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material/styles";
 
 const inputTheme = createTheme({
   typography: {
-    fontFamily: ["Fira Sans Extra Condensed", "Raleway"],
+    fontFamily: ["Roboto", "Helvetica"],
   },
   palette: {
     primary: {

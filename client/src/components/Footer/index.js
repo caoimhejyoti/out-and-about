@@ -50,7 +50,7 @@ const Footer = () => {
         className="footerLink"
       >
         <img style={githubStyle} src={github} alt="github" />
-        <h6>Joe</h6>
+        <h6>Joao</h6>
       </a>
       <a
         href="https://github.com/stephaneeh"
