@@ -2,6 +2,11 @@
     {
         "_id": "55246EE6E77090425287D2FB",
         "name": 1,
-        "description": "Nomad"
+        "description": "Pedestrian"
+    },
+    {
+        "_id": "7124BB7DFC7DFD8E013F54D6",
+        "name": 2,
+        "description": "Rambler"
     }
 ]

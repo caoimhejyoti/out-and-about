@@ -1,10 +1,16 @@
 [
     {
         "_id": "B45367A314CC1EA4BA194E54",
-        "name": "testBadge",
-        "description": "this is a test badge",
-        "image": "https://github.com/caoimhejyoti/out-and-about/blob/main/client/src/assets/logo.png?raw=true",
+        "name": "Mandurah Quest",
+        "description": "Mandurah Quest badge. Black outline, pink and purple gradient background with the outline of two dolphins. One is a dark purple and the other is orange.",
+        "image": "client/src/assets/badges/Mandurah_badge_colour.png",
         "quest": "D8344D9BDF31E92D8280F715"
-
+    },
+    {
+        "_id": "1E3820741D4F8D93F31CB679",
+        "name": "UWA Quest",
+        "description": "UWA Quest badge. Black outline, pink and purple gradient background with the outline of two dolphins. One is a dark purple and the other is orange.",
+        "image": "client/src/assets/badges/UWA_badge_colour.png",
+        "quest": "D8344D9BDF31E92D8280F715"
     }
 ]
