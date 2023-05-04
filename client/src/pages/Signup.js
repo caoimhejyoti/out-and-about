@@ -6,6 +6,8 @@ import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
+
+
 const Signup = () => {
   const [formState, setFormState] = useState({
     firstName: '',
@@ -13,6 +15,7 @@ const Signup = () => {
     username: '',
     email: '',
     password: '',
+    city: 'Perth',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -45,8 +48,8 @@ const Signup = () => {
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+        <div className="card flex">
+          <h4 className="card-header bg-dark text-light p-2">Sign Up <Link to="/login" className="ml-5">← Go to Login</Link></h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -57,7 +60,7 @@ const Signup = () => {
               <form onSubmit={handleFormSubmit}>
                                 <input
                   className="form-input"
-                  placeholder="Your First Name"
+                  placeholder="First Name"
                   name="firstName"
                   type="text"
                   value={formState.firstName}
@@ -65,7 +68,7 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="Your Last Name"
+                  placeholder="Last Name"
                   name="lastName"
                   type="text"
                   value={formState.lastName}
@@ -73,7 +76,7 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="Your username"
+                  placeholder="Username"
                   name="username"
                   type="text"
                   value={formState.name}
@@ -81,7 +84,7 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="Your email"
+                  placeholder="Email"
                   name="email"
                   type="email"
                   value={formState.email}
@@ -89,12 +92,23 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="******"
+                  placeholder="Password"
                   name="password"
                   type="password"
                   value={formState.password}
                   onChange={handleChange}
                 />
+                <select
+                  className="form-input"
+                  placeholder="City"
+                  name="locationCity"
+                  onChange={handleChange}
+                  value={formState.city}
+                  defaultValue="Perth"
+                > 
+                  <option>Mandurah</option>
+                  <option>Perth</option>
+                </select>
                 <button
                   className="btn btn-block btn-primary"
                   style={{ cursor: 'pointer' }}

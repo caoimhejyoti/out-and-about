@@ -12,7 +12,6 @@ const locationSchema = new Schema({
   },
   country: {
     type: String,
-    required: true,
   },
 });
 

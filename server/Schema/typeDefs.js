@@ -133,6 +133,7 @@ const typeDefs = gql`
       username: String!
       email: String!
       password: String!
+      location: String!
     ): Auth
     # addQuest(input: QuestInput): Quest
     # addBadge(input: BadgeInput): Badge
