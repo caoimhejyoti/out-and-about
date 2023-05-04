@@ -28,19 +28,19 @@ const mapTestStyle = {
 
 const btn = {
   message: `Click here to mark this quest as complete!`,
-  action: btnAction,
+};
+
+const btnClick = (e) => {
+  e.preventDefault();
+  console.log("Hello - you pressed the button");
+  // add badge to user
+  // go to dashboard
+  // dashboard needs to render with riddle set up.
 };
 
 function addBadge() {
   // find out current quest map.
   // mutate database to add current map badge to user.
-}
-
-function btnAction() {
-  alert("hello");
-  // add badge to user
-  // go to dashboard
-  // dashboard needs to render with riddle set up.
 }
 
 function displayBadge(user) {
@@ -115,7 +115,7 @@ const QRCode = () => {
             {whichMap(user)}
           </Container>
           <Container className="justify-center">
-            <Button message={btn.message} onClick={btn.action}></Button>
+            <Button message={btn.message} btnClick={btnClick}></Button>
           </Container>
         </Grid>
       </ThemeProvider>
