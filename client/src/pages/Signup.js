@@ -15,6 +15,7 @@ const Signup = () => {
     username: '',
     email: '',
     password: '',
+    city: 'Perth',
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -97,6 +98,17 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                <select
+                  className="form-input"
+                  placeholder="City"
+                  name="locationCity"
+                  onChange={handleChange}
+                  value={formState.city}
+                  defaultValue="Perth"
+                > 
+                  <option>Mandurah</option>
+                  <option>Perth</option>
+                </select>
                 <button
                   className="btn btn-block btn-primary"
                   style={{ cursor: 'pointer' }}
