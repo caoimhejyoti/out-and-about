@@ -44,7 +44,8 @@ export const QUERY_ME = gql`
           _id
           name
           description
-          image
+          colour_image
+          greyscale_image
         }
         riddle {
           _id
