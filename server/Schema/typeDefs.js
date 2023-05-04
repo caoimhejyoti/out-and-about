@@ -6,7 +6,8 @@ const typeDefs = gql`
     name: String!
     description: String
     quest: Quest!
-    image: String!
+    colour_image: String!
+    greyscale_image: String!
   }
 
   # input BadgeInput {

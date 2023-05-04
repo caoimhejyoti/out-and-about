@@ -19,7 +19,11 @@ const badgeSchema = new Schema({
     ref: "Quest",
     required: true,
   },
-  image: {
+  colour_image: {
+    type: String,
+    required: true,
+  },
+  greyscale_image: {
     type: String,
     required: true,
   },

@@ -1,0 +1,7 @@
+.badge-container{
+    display: flex;
+    justify-content: center;
+}
+.badge-img{
+    width: 30%;
+}
