@@ -47,7 +47,6 @@ const resolvers = {
       { firstName, lastName, username, email, password }
     ) => {
       const user = await User.create({
-        _id: mongoose.Types.ObjectId,
         firstName,
         lastName,
         username,
