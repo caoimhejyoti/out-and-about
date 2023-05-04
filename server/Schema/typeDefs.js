@@ -17,7 +17,7 @@ const typeDefs = gql`
   # }
 
   type Quest {
-    _id: ID
+    _id: ID!
     name: String!
     createdAt: String!
     createdBy: User!

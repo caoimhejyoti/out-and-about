@@ -6,6 +6,8 @@ import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
+
+
 const Signup = () => {
   const [formState, setFormState] = useState({
     firstName: '',
@@ -45,8 +47,8 @@ const Signup = () => {
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+        <div className="card flex">
+          <h4 className="card-header bg-dark text-light p-2">Sign Up <Link to="/login" className="ml-5">← Go to Login</Link></h4>
           <div className="card-body">
             {data ? (
               <p>

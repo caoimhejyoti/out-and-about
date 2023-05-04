@@ -1,6 +1,8 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Quest, Badge } = require("../models");
 const { signToken } = require("../utils/auth");
+const mongoose = require("mongoose");
+
 
 const resolvers = {
   Query: {
@@ -45,6 +47,7 @@ const resolvers = {
       { firstName, lastName, username, email, password }
     ) => {
       const user = await User.create({
+        _id: mongoose.Types.ObjectId,
         firstName,
         lastName,
         username,
