@@ -8,6 +8,7 @@ import { Navigate, useParams } from "react-router-dom";
 import MandurahMap from "./../components/maps/mandurah-forshore";
 import UwaMap from "./../components/maps/uwa-grad";
 import Auth from "../utils/auth";
+import "./../style/badge.css";
 
 const testStyle = {
   color: "white",
@@ -42,20 +43,14 @@ function btnAction() {
   // dashboard needs to render with riddle set up.
 }
 
-// function displayBadge(user) {
-//   console.log("displaybadge fnc");
-//   switch (user.currentTier.name) {
-//     case 1:
-//       return <MandurahMap />;
-//       break;
-//     case 2:
-//       return <UwaMap />;
-//       break;
-//     default:
-//       return <MandurahMap />;
-//       break;
-//   }
-// }
+function displayBadge(user) {
+  const badgeImage = user.currentQuest.badge.colour_image;
+  const badgeDescription = user.currentQuest.badge.description;
+  console.log("displaybadge fnc");
+  console.log(badgeImage);
+  console.log(badgeDescription);
+  return <img src={badgeImage} alt={badgeDescription} className="badge-img" />;
+}
 
 function whichMap(user) {
   console.log("whichMap fnc");
@@ -88,15 +83,8 @@ const QRCode = () => {
   const user = data?.me;
   console.log(user);
 
-
-  // const {userQuest} = useQuery(QUERY_QUEST, {
-  //   variables: { user:user, tier: user.currentTier._id },
-  // });
- 
-  // console.log(userQuest);
-
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/me" />;
+    return <Navigate to="/qrcode" />;
   }
 
   if (loading) {
@@ -109,10 +97,13 @@ const QRCode = () => {
         <Grid className="col-12 col-md-8 flex-column justify-center">
           <h1 style={testStyle}>QRCode testing</h1>
         </Grid>
-        <Grid>
-          {/* <Container>{displayBadge}</Container> */}
+        <Grid style={containerStyle}>
+          <Container className="badge-container">
+            {displayBadge(user)}
+          </Container>
           <Typography style={testStyle}>
-            Congratulations you have achieved the *** Badge.
+            Congratulations you have achieved the {user.currentQuest.badge.name}{" "}
+            Badge.
             <br />
             You are now able to see the next riddle but don't stop yet!
             <br />
