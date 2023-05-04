@@ -18,7 +18,7 @@ const typeDefs = gql`
   # }
 
   type Quest {
-    _id: ID!
+    _id: ID
     name: String!
     createdAt: String!
     createdBy: User!
@@ -31,7 +31,7 @@ const typeDefs = gql`
   }
 
   type User {
-    _id: ID!
+    _id: ID
     firstName: String!
     lastName: String!
     email: String!

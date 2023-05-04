@@ -1,7 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Quest, Badge } = require("../models");
+const { User, Quest, Badge, Tier } = require("../models");
 const { signToken } = require("../utils/auth");
-const mongoose = require("mongoose");
 
 
 const resolvers = {
@@ -46,12 +45,14 @@ const resolvers = {
       parent,
       { firstName, lastName, username, email, password }
     ) => {
+      const currentTier = await Tier.findOne({ name: 1});
       const user = await User.create({
         firstName,
         lastName,
         username,
         email,
         password,
+        currentTier,
       });
       const token = signToken(user);
       return { token, user };
