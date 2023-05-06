@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardActionArea,
@@ -19,12 +19,15 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import bgAbstract from "../assets/cards/bg_abstract.jpeg";
 import { GradeOutlined, Grade } from "@mui/icons-material";
 
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams} from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import EditProfileForm from '../components/EditProfileForm.js';
+
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
+
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -33,7 +36,9 @@ const Profile = () => {
     variables: { username: userParam },
   });
 
-  const user = data?.me;
+  // user is a initial value of 'data?.me', and setUser updates that value.
+  const [user, setUser] = useState(data && data.me ? data.me : null); // if data.me from the user is true return data.me, and it's false return null, and it cheks the existence of the state variable. 
+  const [editing, setEditing] = useState(false);
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
@@ -43,14 +48,15 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  if (false) {
-    return (
-      <h4>
-        You need to be logged in to see your profile page. Use the navigation
-        links above to sign up or log in!
-      </h4>
-    );
-  }
+  // if (!) {
+  //   return (
+  //     <h4>
+  //       You need to be logged in to see your profile page. Use the navigation
+  //       links above to sign up or log in!
+  //     </h4>
+  //   );
+  // }
+
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -59,11 +65,23 @@ const Profile = () => {
     color: theme.palette.text.secondary,
   }));
 
+  const handleEditClick = () => {
+    setEditing(true);
+  };
+  
+  const handleSave = (formData) => {
+      // Handle saving the form data here
+    console.log(formData);
+    setEditing(false);
+
+    setUser({ ...user, ...formData });
+  }; // Reset the editing state
+    
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
+    style={{
+      display: "flex",
+      flexDirection: "column",
         justifyContent: "Left",
         alignItems: "Left",
         color: "white",
@@ -92,15 +110,18 @@ const Profile = () => {
                         {/* TODO: update date based on user logged in */}
                       </Typography>
                       <Typography variant="overline" color="text.secondary">
-                        {`${user.currentTier.name}: ${user.currentTier.description}`}
+                       {user.currentTier ? `${user.currentTier.name}: ${user.currentTier.description}` : 'Tier does not exist'}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
                   <CardActions>
-                    <Button size="small" color="primary">
-                      Edit Profile
-                      {/* TODO: update this button to allow info to be edited */}
-                    </Button>
+                    {editing ? ( // determines whether the user is editing their profile or not.
+                      <EditProfileForm onSave={handleSave} setUser={setUser} /> // if editing is true, then this line is rendered. Allowing the user to edit their profile.
+                    ) : ( //onSave is called when the user clicks the 'Save' button, and setUser is a function that updates the user. 
+                      <Button onClick={handleEditClick} size="small" color="primary">
+                        Edit Profile
+                      </Button> // if 'editing' is false, calls 'handleEditClick' that sets the 'editing' state to true again.
+                    )}
                   </CardActions>
                 </Card>
               </Item>
