@@ -13,7 +13,7 @@ export default function BasicButtons(props) {
         id="submit-button"
         sx={{ width: "25vw" }}
         className="primary m-2"
-        onClick={props.btnClick}
+        onClick={props.btnClick(props.data)}
       >
         {props.message}
       </Button>

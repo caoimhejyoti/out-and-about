@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import { Typography, Grid, Container, ThemeProvider } from "@mui/material";
+import React from "react";
+import {
+  Typography,
+  Grid,
+  Container,
+  ThemeProvider,
+  Alert,
+} from "@mui/material";
 import Button from "./../components/button";
 import inputTheme from "../style/theme";
-import { QUERY_ME, QUERY_QUEST, QUERY_USER } from "../utils/queries";
+import { QUERY_ME, QUERY_USER } from "../utils/queries";
+// import { UPDATE_USER_BADGE } from "../utils/mutations";
 import { useQuery } from "@apollo/client";
 import { Navigate, useParams } from "react-router-dom";
 import MandurahMap from "./../components/maps/mandurah-forshore";
@@ -30,18 +37,45 @@ const btn = {
   message: `Click here to mark this quest as complete!`,
 };
 
-const btnClick = (e) => {
+const btnClick = (user) => (e) => {
   e.preventDefault();
   console.log("Hello - you pressed the button");
+
+  // get badge name and id
+  const badgeName = user.currentQuest.badge.name;
+  const badgeId = user.currentQuest.badge._id;
+
+  // get username and id
+  const username = user.username;
+  const userId = user._id;
+
+  console.log(badgeName);
+  console.log(badgeId);
+  console.log(username);
+  console.log(userId);
   // add badge to user
+  // try {
+  //   const { data } = UPDATE_USER_BADGE({
+  //     variables: {
+  //       badgeId,
+  //       badgeName,
+  //       userId,
+  //       username,
+  //     },
+  //   });
+  //   console.log("successful");
+  // } catch (err) {
+  //   console.error(err);
+  // }
+
   // go to dashboard
   // dashboard needs to render with riddle set up.
 };
 
-function addBadge() {
-  // find out current quest map.
-  // mutate database to add current map badge to user.
-}
+// function addBadge() {
+//   // find out current quest map.
+//   // mutate database to add current map badge to user.
+// }
 
 function displayBadge(user) {
   const badgeImage = user.currentQuest.badge.colour_image;
@@ -115,7 +149,11 @@ const QRCode = () => {
             {whichMap(user)}
           </Container>
           <Container className="justify-center">
-            <Button message={btn.message} btnClick={btnClick}></Button>
+            <Button
+              data={user}
+              message={btn.message}
+              btnClick={btnClick}
+            ></Button>
           </Container>
         </Grid>
       </ThemeProvider>
