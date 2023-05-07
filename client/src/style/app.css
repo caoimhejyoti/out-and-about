@@ -21,6 +21,10 @@
   background-position: center 40%;
 }
 
+.badge{
+  width: 10vw;
+}
+
 @media (max-width:950px){
   .hero-image{
     background-image: url("./../assets/heroMini.png") ;

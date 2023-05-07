@@ -37,6 +37,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
+    getBadges: async () => {
+      return Badge.find();
+    },
   },
 
   Mutation: {
