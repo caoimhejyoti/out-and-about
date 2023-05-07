@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Typography, Box, TextField } from "@mui/material";
-import FormControl from "@mui/base/FormControl";
 
 // onSave when the user submits the form, to save the changes. setUser used to pass the updated 'formData'.
-const EditProfileForm = ({ onSave, setUser }) => {
+const EditProfileForm = ({ onSave, onCancel, setUser }) => {
   const [formData, setFormData] = useState({
     // using the hook to create 'formData' object.
     firstName: "",
@@ -25,6 +24,12 @@ const EditProfileForm = ({ onSave, setUser }) => {
     setUser(formData); // Pass the form data to profile page
   };
 
+  const handleCancel = (e) => {
+    //This function calls the 'onSave' function, passing the 'formData' obj as an arg. It also calls the 'setUser' function.
+    e.preventDefault();
+    onCancel(formData);
+  };
+
   // Returning JSX that renders form with input fields. The 'value' is set to the 'formData' obj, and the 'onChange' is set to 'handleChange' function.
   return (
     <Box>
@@ -44,14 +49,14 @@ const EditProfileForm = ({ onSave, setUser }) => {
           maxWidth: "100%",
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <form>
           <TextField
             type="text"
             id="firstName"
             name="firstName"
             label="First Name"
             variant="outlined"
-            fullWidth="true"
+            fullWidth={true}
             margin="normal"
             value={formData.firstName}
             onChange={handleChange}
@@ -63,7 +68,7 @@ const EditProfileForm = ({ onSave, setUser }) => {
             name="lastName"
             label="Last Name"
             variant="outlined"
-            fullWidth="true"
+            fullWidth={true}
             margin="normal"
             value={formData.lastName}
             onChange={handleChange}
@@ -75,7 +80,7 @@ const EditProfileForm = ({ onSave, setUser }) => {
             name="username"
             label="Username"
             variant="outlined"
-            fullWidth="true"
+            fullWidth={true}
             margin="normal"
             value={formData.username}
             onChange={handleChange}
@@ -87,7 +92,7 @@ const EditProfileForm = ({ onSave, setUser }) => {
             name="email"
             label="Email Adress"
             variant="outlined"
-            fullWidth="true"
+            fullWidth={true}
             margin="normal"
             value={formData.email}
             onChange={handleChange}
@@ -99,13 +104,18 @@ const EditProfileForm = ({ onSave, setUser }) => {
             name="password"
             label="Password"
             variant="outlined"
-            fullWidth="true"
+            fullWidth={true}
             margin="normal"
             value={formData.password}
             onChange={handleChange}
           />
 
-          <button type="submit">Save Changes</button>
+          <button type="submit" onClick={handleSubmit}>
+            Save Changes
+          </button>
+          <button type="submit" onClick={handleCancel}>
+            Cancel Changes
+          </button>
         </form>
       </Box>
     </Box>

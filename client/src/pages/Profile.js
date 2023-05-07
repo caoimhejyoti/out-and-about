@@ -14,8 +14,8 @@ import {
 
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import EditProfileForm from "../components/EditProfileForm.js";
-import ViewProfileForm from "../components/ViewProfileForm.js";
+import EditProfileForm from "../components/Profile/EditProfileForm.js";
+import ViewProfileForm from "../components/Profile/ViewProfileForm.js";
 import bgAbstract from "../assets/cards/bg_abstract.jpeg";
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
@@ -60,6 +60,10 @@ const Profile = () => {
 
   const handleEditClick = () => {
     setEditing(true);
+  };
+
+  const handleCancelClick = () => {
+    setEditing(false);
   };
 
   const handleSave = (formData) => {
@@ -132,7 +136,11 @@ const Profile = () => {
                 </div>
                 {/* if 'editing' is false, calls 'handleEditClick' that sets the'editing' state to true again. */}
                 {editing ? ( // determines whether the user is editing their profile or not.
-                  <EditProfileForm onSave={handleSave} setUser={setUser} /> // if editing is true, then this line is rendered. Allowing the user to edit their profile.
+                  <EditProfileForm
+                    onSave={handleSave}
+                    onCancel={handleCancelClick}
+                    setUser={setUser}
+                  /> // if editing is true, then this line is rendered. Allowing the user to edit their profile.
                 ) : (
                   //onSave is called when the user clicks the 'Save' button, and setUser is a function that updates the user.
                   <ViewProfileForm />

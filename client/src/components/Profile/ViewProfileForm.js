@@ -5,9 +5,9 @@ import FormControl from "@mui/base/FormControl";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth";
 
 const ViewProfileForm = () => {
   const { username: userParam } = useParams();
@@ -56,7 +56,7 @@ const ViewProfileForm = () => {
       >
         <FormControl>
           <TextField
-            fullWidth="true"
+            fullWidth={true}
             margin="normal"
             id="outlined-required"
             label="First Name"
@@ -66,7 +66,7 @@ const ViewProfileForm = () => {
             }}
           />
           <TextField
-            fullWidth="true"
+            fullWidth={true}
             margin="normal"
             id="outlined-required"
             label="Last Name"
@@ -76,7 +76,7 @@ const ViewProfileForm = () => {
             }}
           />
           <TextField
-            fullWidth="true"
+            fullWidth={true}
             margin="normal"
             id="outlined-required"
             label="Username"
@@ -86,7 +86,7 @@ const ViewProfileForm = () => {
             }}
           />
           <TextField
-            fullWidth="true"
+            fullWidth={true}
             margin="normal"
             id="outlined-required"
             label="Email Address"
