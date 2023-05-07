@@ -2,7 +2,6 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User, Quest, Badge, Tier, Location } = require("../models");
 const { signToken } = require("../utils/auth");
 
-
 const resolvers = {
   Query: {
     users: async () => {
@@ -43,10 +42,10 @@ const resolvers = {
   Mutation: {
     addUser: async (
       parent,
-      { firstName, lastName, username, email, password, location}
+      { firstName, lastName, username, email, password, location }
     ) => {
-      const currentTier = await Tier.findOne({ name: 1});
-      const locationObject = await Location.findOne( {city: location});
+      const currentTier = await Tier.findOne({ name: 1 });
+      const locationObject = await Location.findOne({ city: location });
       const user = await User.create({
         firstName,
         lastName,
@@ -77,6 +76,23 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    updateUserBadge: async (parent, { _id }, context) => {
+      if(context.user){
+        const addBadge = await User.findOneAndUpdate(
+          {_id: context.user._id},
+          {$addToSet: {collectedBadges: _id}},
+          {new:true}
+        )
+        return addBadge
+      }
+      throw new AuthenticationError("you need to be logged in!")
+      
+      // return await User.findOneAndUpdate( 
+      //   { username: username },
+      //   {$set: {collectedBadges: _id} },
+      //   { new: true }
+      // );
     },
   },
 };
