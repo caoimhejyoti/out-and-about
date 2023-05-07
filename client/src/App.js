@@ -19,6 +19,7 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import background from "./assets/bg.png";
+import landing from "./assets/hero.png";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -44,6 +45,7 @@ export default function App() {
   const bgStyle = {
     backgroundImage: `url(${background})`,
     backgroundSize: "cover",
+    backgroundPosition: "center",
   };
 
   return (
