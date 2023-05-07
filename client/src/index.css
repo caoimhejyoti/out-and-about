@@ -1191,6 +1191,9 @@ label form [type='radio'] {
   margin-left: auto;
   margin-right: auto;
 }
+.signup-container {
+  width: 100vw
+}
 
 .container.container-fluid {
   width: 92%;
