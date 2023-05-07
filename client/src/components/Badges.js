@@ -50,7 +50,7 @@ const BadgeComp = (props) => {
           }}
         >
           <Item>
-            <img className="badge mandurah" src={data.getBadges.[0].greyscale_image} alt={data.description} />
+            {/* <img className="badge mandurah" src={data.getBadges.[0].greyscale_image} alt={data.description} /> */}
           </Item>
           <Item>
             <img className="badge uwa" src={UWABadgeGrey} alt="" />
