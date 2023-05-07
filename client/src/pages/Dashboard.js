@@ -1,16 +1,14 @@
 import * as React from "react";
-import { Button, Typography, styled, Box, Paper, Grid } from "@mui/material";
-import bgAbstract from "../assets/cards/bg_abstract.jpeg";
+import { Typography, styled, Box, Paper, Grid } from "@mui/material";
 import { GradeOutlined, Grade } from "@mui/icons-material";
-
-import MandurahMap from "./../components/maps/mandurah-forshore";
-
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
-
 import Auth from "../utils/auth";
+
+// map import
+import MandurahMap from "../components/maps/mandurah-forshore";
+import UwaMap from "../components/maps/uwa-grad";
 
 const Dashboard = () => {
   const { username: userParam } = useParams();
@@ -69,7 +67,7 @@ const Dashboard = () => {
       >
         <Box sx={{ gridArea: "header" }}>
           <Typography gutterBottom variant="h4">
-            Welcome {`${user.username}`}!
+            Welcome {`${user.firstName}`}!
           </Typography>
         </Box>
 
@@ -131,8 +129,10 @@ const Dashboard = () => {
             </Grid>
           </Item>
         </Box>
+
         <Box sx={{ gridArea: "main", bgcolor: "primary.main" }}>
           <p>Map will be here</p>
+          <MandurahMap />
         </Box>
       </Box>
     </div>

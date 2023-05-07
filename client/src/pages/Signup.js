@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
 
-import Auth from '../utils/auth';
-
-
+import Auth from "../utils/auth";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    firstName: '',
-    lastName: '',
-    username: '',
-    email: '',
-    password: '',
-    city: 'Perth',
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    city: "Perth",
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -49,16 +47,21 @@ const Signup = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card flex">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up <Link to="/login" className="ml-5">← Go to Login</Link></h4>
+          <h4 className="card-header bg-dark text-light p-2">
+            Sign Up{" "}
+            <Link to="/login" className="ml-5">
+              ← Go to Login
+            </Link>
+          </h4>
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
+                Success! You may now head{" "}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
-                                <input
+                <input
                   className="form-input"
                   placeholder="First Name"
                   name="firstName"
@@ -98,20 +101,9 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <select
-                  className="form-input"
-                  placeholder="City"
-                  name="locationCity"
-                  onChange={handleChange}
-                  value={formState.city}
-                  defaultValue="Perth"
-                > 
-                  <option>Mandurah</option>
-                  <option>Perth</option>
-                </select>
                 <button
                   className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   type="submit"
                 >
                   Submit

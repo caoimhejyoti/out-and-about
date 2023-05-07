@@ -18,6 +18,7 @@ const Header = () => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    window.location.href = "/login";
   };
   return (
     <header className="mb-4 flex-row align-center">
