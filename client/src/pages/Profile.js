@@ -41,14 +41,9 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  // if (!) {
-  //   return (
-  //     <h4>
-  //       You need to be logged in to see your profile page. Use the navigation
-  //       links above to sign up or log in!
-  //     </h4>
-  //   );
-  // }
+  if (!user?.username) {
+    return <Navigate to="/login" />;
+  }
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",

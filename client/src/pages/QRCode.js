@@ -111,6 +111,9 @@ const QRCode = () => {
     return <div>Loading...</div>;
   }
 
+  if (!user?.username) {
+    return <Navigate to="/login" />;
+  }
   return (
     <Container style={containerStyle}>
       <ThemeProvider theme={inputTheme}>
