@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Button, Typography, styled, Box, Paper, Grid } from "@mui/material";
+import { Typography, styled, Box, Paper, Grid } from "@mui/material";
 import { GradeOutlined, Grade } from "@mui/icons-material";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
