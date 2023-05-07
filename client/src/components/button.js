@@ -4,7 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import inputTheme from "./../style/theme";
 
 export default function BasicButtons(props) {
-  console.log(props);
+  // console.log(props); //used for debugging
 
   return (
     <ThemeProvider theme={inputTheme}>
@@ -13,7 +13,7 @@ export default function BasicButtons(props) {
         id="submit-button"
         sx={{ width: "25vw" }}
         className="primary m-2"
-        onClick={props.btnClick}
+        onClick={props.btnClick(props.data)}
       >
         {props.message}
       </Button>
