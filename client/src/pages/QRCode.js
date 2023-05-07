@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-import { Typography, Grid, Container, ThemeProvider } from "@mui/material";
+import {
+  Typography,
+  Grid,
+  Container,
+  ThemeProvider,
+  Alert,
+} from "@mui/material";
 import Button from "./../components/button";
 import inputTheme from "../style/theme";
-import { QUERY_ME, QUERY_QUEST, QUERY_USER } from "../utils/queries";
-import { useQuery } from "@apollo/client";
+import { QUERY_ME, QUERY_USER } from "../utils/queries";
+import { UPDATE_USER_BADGE } from "../utils/mutations";
+import { useQuery, useMutation } from "@apollo/client";
 import { Navigate, useParams } from "react-router-dom";
 import MandurahMap from "./../components/maps/mandurah-forshore";
 import UwaMap from "./../components/maps/uwa-grad";
@@ -30,30 +37,48 @@ const btn = {
   message: `Click here to mark this quest as complete!`,
 };
 
-const btnClick = (e) => {
+const btnClick = (user) => async (e) => {
   e.preventDefault();
   console.log("Hello - you pressed the button");
-  // add badge to user
-  // go to dashboard
-  // dashboard needs to render with riddle set up.
-};
+  // get badge name and id
+  const badgeName = user.currentQuest.badge.name;
+  const badgeId = user.currentQuest.badge._id;
 
-function addBadge() {
-  // find out current quest map.
-  // mutate database to add current map badge to user.
-}
+  // get username and id
+  const username = user.username;
+  const userId = user._id;
+
+  console.log(`badge name: ` + badgeName);
+  console.log(`badge id: ` + badgeId);
+  console.log(`username: ` + username);
+  console.log(`user id: ` + userId);
+  // add badge to user
+  try {
+    const { data } = UPDATE_USER_BADGE({
+      variables: {
+        username,
+        badgeId,
+      },
+    });
+
+    console.log("successful");
+    window.location.href = "/dashboard";
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 function displayBadge(user) {
   const badgeImage = user.currentQuest.badge.colour_image;
   const badgeDescription = user.currentQuest.badge.description;
-  console.log("displaybadge fnc");
-  console.log(badgeImage);
-  console.log(badgeDescription);
+  // console.log("displaybadge fnc"); //used for debugging
+  // console.log(badgeImage); //used for debugging
+  // console.log(badgeDescription); //used for debugging
   return <img src={badgeImage} alt={badgeDescription} className="badge-img" />;
 }
 
 function whichMap(user) {
-  console.log("whichMap fnc");
+  // console.log("whichMap fnc"); //used for debugging
   switch (user.currentTier.name) {
     case 1:
       return <MandurahMap />;
@@ -65,15 +90,10 @@ function whichMap(user) {
       return <MandurahMap />;
       break;
   }
-
-  // if current tier is 1 - show mandurah map
-  // if current tier is 2 - show UWA map
 }
 
 const QRCode = () => {
-  // const [currentQuest, setcurrentQuest] = useState([]);
-
-  // find user current tier - needs to be global?
+  // find user current tier
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -81,7 +101,7 @@ const QRCode = () => {
   });
 
   const user = data?.me;
-  console.log(user);
+  console.log(user); //used for debugging
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/qrcode" />;
@@ -115,7 +135,11 @@ const QRCode = () => {
             {whichMap(user)}
           </Container>
           <Container className="justify-center">
-            <Button message={btn.message} btnClick={btnClick}></Button>
+            <Button
+              data={user}
+              message={btn.message}
+              btnClick={btnClick}
+            ></Button>
           </Container>
         </Grid>
       </ThemeProvider>
