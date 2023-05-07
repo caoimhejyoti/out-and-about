@@ -1,18 +1,30 @@
 import React from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import { Button } from "@mui/material";
+import inputTheme from "./../style/theme";
 
-import MandurahMap from "./maps/mandurah-forshore";
-import UwaMap from "./maps/uwa-grad";
-import Hero from "./Hero";
-import heroImg from "../assets/hero.png";
+const mainStyle = {
+  width: "100vw",
+};
+
+const btnStyles = {
+  marginBottom: "45px",
+  backgroundColor: "white",
+  color: "#981FC2",
+  width: "40vw",
+  height: "7vh",
+};
 
 const Home = () => {
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-8">
-          <Hero />
+    <main style={mainStyle}>
+      <ThemeProvider theme={inputTheme}>
+        <div className="hero hero-image">
+          <Button size="large" style={btnStyles} variant="contained">
+            Sign up today!
+          </Button>
         </div>
-      </div>
+      </ThemeProvider>
     </main>
   );
 };
