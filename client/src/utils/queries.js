@@ -76,3 +76,15 @@ export const QUERY_QUEST = gql`
     }
   }
 `;
+
+export const GET_BADGES = gql`
+query getBadges{
+  getBadges{
+    _id
+    name
+    description
+    colour_image
+    greyscale_image
+  }
+}
+`;
