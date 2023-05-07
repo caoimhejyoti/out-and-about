@@ -1,9 +1,14 @@
 [
-    {
-        "_id": "4541F9C3AB68BEBC31812530",
-        "question":"Is a jaffacake a biscuit or cake?",
-        "answer": "cake",
-        "quest": "D8344D9BDF31E92D8280F715"
-
-        }
+  {
+    "_id": "4541F9C3AB68BEBC31812530",
+    "question": "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?",
+    "answer": "A Map",
+    "quest": "D8344D9BDF31E92D8280F715"
+  },
+  {
+    "_id": "0BEA8BA4EA7CE43AA63BEEF4",
+    "question": "The more you take, the more you leave behind. What am I?",
+    "answer": "Footsteps",
+    "quest": "EFE0C59EFA61B1C366BB9515"
+  }
 ]

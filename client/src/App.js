@@ -10,7 +10,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./style/app.css";
 
 import Dashboard from "./pages/Dashboard";
-import Friend from "./pages/Friend";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -19,7 +18,6 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import background from "./assets/bg.png";
-import landing from "./assets/hero.png";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({

@@ -24,17 +24,17 @@ const Header = () => {
     <header className="mb-4 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
-        {Auth.loggedIn() ? (
+          {Auth.loggedIn() ? (
             <>
-          <Link to="/dashboard">
-            <img className="m-0" src={logo} alt="logo" />
-          </Link>
+              <Link to="/dashboard">
+                <img className="m-0" src={logo} alt="logo" />
+              </Link>
             </>
           ) : (
             <>
-          <Link to="/">
-            <img className="m-0" src={logo} alt="logo" />
-          </Link>
+              <Link to="/">
+                <img className="m-0" src={logo} alt="logo" />
+              </Link>
             </>
           )}
         </div>
@@ -59,8 +59,6 @@ const Header = () => {
           ) : (
             <>
               <Link to="/login">Login</Link>
-
-              <Link to="/signup">Signup</Link>
             </>
           )}
         </div>
