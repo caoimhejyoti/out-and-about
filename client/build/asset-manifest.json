@@ -1,16 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.5da0a86e.css",
-    "main.js": "/static/js/main.8c797f66.js",
+    "main.css": "/static/css/main.28aebc0b.css",
+    "main.js": "/static/js/main.7142b7ce.js",
     "static/media/bg_abstract.jpeg": "/static/media/bg_abstract.1e04beec13a0529a885f.jpeg",
+    "static/media/heroMini.png": "/static/media/heroMini.03a4b14ab329525a4d1b.png",
     "static/media/bg.png": "/static/media/bg.f6efab7df0723d6562fc.png",
-    "static/media/hero.png": "/static/media/hero.f2fe2a7803219ca22b5a.png",
+    "static/media/hero2.png": "/static/media/hero2.6422d97ca67e6b6ecfd8.png",
+    "static/media/route3_badge_colour.png": "/static/media/route3_badge_colour.e86662eb4677b9950f75.png",
+    "static/media/route3_badge_greyscale.png": "/static/media/route3_badge_greyscale.67e1dd9725091b4a0a7a.png",
+    "static/media/UWA_badge_colour.png": "/static/media/UWA_badge_colour.cfd0f05a96c198e2d85e.png",
+    "static/media/Mandurah_badge_colour.png": "/static/media/Mandurah_badge_colour.255f5baa28d1c63d61a5.png",
+    "static/media/route5_badge_colour.png": "/static/media/route5_badge_colour.9c4eb430ca335016ca07.png",
+    "static/media/UWA_badge_greyscale.png": "/static/media/UWA_badge_greyscale.0c374ae482096db3f479.png",
+    "static/media/route4_badge_colour.png": "/static/media/route4_badge_colour.291f88b190ff7311d09b.png",
+    "static/media/Mandurah_badge_greyscale.png": "/static/media/Mandurah_badge_greyscale.ac53018283f75a4123f2.png",
+    "static/media/route5_badge_greyscale.png": "/static/media/route5_badge_greyscale.e25f65e244c9854f89c2.png",
+    "static/media/route4_badge_greyscale.png": "/static/media/route4_badge_greyscale.75f051934647cf09a0f3.png",
     "index.html": "/index.html",
-    "main.5da0a86e.css.map": "/static/css/main.5da0a86e.css.map",
-    "main.8c797f66.js.map": "/static/js/main.8c797f66.js.map"
+    "main.28aebc0b.css.map": "/static/css/main.28aebc0b.css.map",
+    "main.7142b7ce.js.map": "/static/js/main.7142b7ce.js.map"
   },
   "entrypoints": [
-    "static/css/main.5da0a86e.css",
-    "static/js/main.8c797f66.js"
+    "static/css/main.28aebc0b.css",
+    "static/js/main.7142b7ce.js"
   ]
 }

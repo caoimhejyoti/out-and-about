@@ -13,12 +13,13 @@
     {
         "_id": "3A2468AF11BF9A016DACA420",
         "firstName": "Marion",
-        "lastName": "Jones",
+        "lastName": "Test",
         "username": "marionRavenwood",
         "email": "marion@test.com",
         "password": "password2",
         "currentTier": "7124BB7DFC7DFD8E013F54D6",
         "currentQuest": "EFE0C59EFA61B1C366BB9515",
+        "collectedBadges": "B45367A314CC1EA4BA194E54",
         "location": "0B204DA46DE5E3B56D25FC20"  
     }
 ]
