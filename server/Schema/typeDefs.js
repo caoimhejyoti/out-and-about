@@ -67,12 +67,11 @@ const typeDefs = gql`
     user: User
   }
 
-
   type Query {
     users: [User]
     me: User
     user(username: String!): User
-    getBadges:[Badge]
+    getBadges: [Badge]
   }
 
   type Mutation {
@@ -85,7 +84,7 @@ const typeDefs = gql`
       password: String!
       location: String!
     ): Auth
-    updateUserBadge(username: String!, name: String!): User
+    updateUserBadge(id: ID!, badgeId: ID!): User
   }
 `;
 

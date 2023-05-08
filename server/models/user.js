@@ -35,10 +35,12 @@ const userSchema = new Schema({
     minlengh: 5,
     trim: true,
   },
-  collectedBadges: {
-    type: Schema.Types.ObjectId,
-    ref: "Badge",
-  },
+  collectedBadges: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Badge",
+    },
+  ],
   currentTier: {
     type: Schema.Types.ObjectId,
     ref: "Tier",
