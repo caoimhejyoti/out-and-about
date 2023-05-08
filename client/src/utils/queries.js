@@ -27,6 +27,10 @@ export const QUERY_ME = gql`
       email
       password
       username
+      collectedBadges{
+        _id
+        name
+      }
       currentTier {
         _id
         name

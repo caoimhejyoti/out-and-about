@@ -1,16 +1,9 @@
 import React, { useState } from "react";
-import {
-  Typography,
-  Grid,
-  Container,
-  ThemeProvider,
-  Alert,
-} from "@mui/material";
+import { Typography, Grid, Container, ThemeProvider } from "@mui/material";
 import Button from "./../components/qrcode_button";
 import inputTheme from "../style/theme";
 import { QUERY_ME, QUERY_USER } from "../utils/queries";
-// import { UPDATE_USER_BADGE } from "../utils/mutations";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { Navigate, useParams } from "react-router-dom";
 import MandurahMap from "./../components/maps/mandurah-forshore";
 import UwaMap from "./../components/maps/uwa-grad";
@@ -104,6 +97,7 @@ const QRCode = () => {
     variables: { username: userParam },
   });
 
+  
   const user = data?.me;
   console.log(user); //used for debugging
 
