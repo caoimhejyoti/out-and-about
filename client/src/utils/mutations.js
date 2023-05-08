@@ -46,13 +46,12 @@ export const ADD_USER = gql`
 `;
 
 export const UPDATE_USER_BADGE = gql`
-  mutation updateUserBadge($badgeId: ObjectId) # $badgeName: String!
-  # $username: Sting!
-  # $userId: ObjectId!
-  {
-    updateUserBadge(_id: $badgeId) {
+  mutation updateUserBadge($username: String!, $badgeName: String!) {
+    updateUserBadge(username: $username, name: $badgeName) {
+      username
       collectedBadges {
         _id
+        name
       }
     }
   }

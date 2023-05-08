@@ -81,22 +81,12 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUserBadge: async (parent, { _id }, context) => {
-      if(context.user){
-        const addBadge = await User.findOneAndUpdate(
-          {_id: context.user._id},
-          {$addToSet: {collectedBadges: _id}},
-          {new:true}
-        )
-        return addBadge
-      }
-      throw new AuthenticationError("you need to be logged in!")
-      
-      // return await User.findOneAndUpdate( 
-      //   { username: username },
-      //   {$set: {collectedBadges: _id} },
-      //   { new: true }
-      // );
+    updateUserBadge: (parent, { username, badgeName }) => {
+      return User.findOneAndUpdate(
+        { username: username },
+        { $addToSet: {user: { collectedBadges: { badgeName } }} },
+        { new: true, runValidators: true }
+      );
     },
   },
 };

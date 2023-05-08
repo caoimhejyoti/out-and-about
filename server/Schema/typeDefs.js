@@ -85,7 +85,7 @@ const typeDefs = gql`
       password: String!
       location: String!
     ): Auth
-    updateUserBadge(username: String!, _id: ID!): User
+    updateUserBadge(username: String!, name: String!): User
   }
 `;
 
