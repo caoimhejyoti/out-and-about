@@ -9,10 +9,8 @@ export const QUERY_USER = gql`
       email
       password
       username
-      currentTier {
-        _id
-        name
-        description
+      currentQuest {
+        tierName
       }
     }
   }
@@ -43,14 +41,10 @@ export const QUERY_ME = gql`
       email
       password
       username
-      currentTier {
-        _id
-        name
-        description
-      }
       currentQuest {
         _id
         name
+        tierName
         location {
           _id
           city

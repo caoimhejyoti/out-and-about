@@ -39,10 +39,10 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Badge",
   },
-  currentTier: {
-    type: Schema.Types.ObjectId,
-    ref: "Tier",
-  },
+  // currentTier: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Tier",
+  // },
   location: {
     type: Schema.Types.ObjectId,
     ref: "Location",

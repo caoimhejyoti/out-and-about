@@ -31,7 +31,6 @@ const typeDefs = gql`
     password: String!
     username: String!
     collectedBadges: [Badge]
-    currentTier: Tier
     currentQuest: Quest
     location: Location
   }
