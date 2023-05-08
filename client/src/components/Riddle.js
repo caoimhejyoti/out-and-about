@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Typography, styled, Section, Box, Paper, Grid } from "@mui/material";
 import {
   Radio,
   RadioGroup,
@@ -13,7 +12,6 @@ import Button from "@mui/material/Button";
 import { useQuery } from "@apollo/client";
 import { QUERY_QUEST } from "../utils/queries";
 
-// FIXME: important tips for passing data https://stackoverflow.com/questions/38394015/how-to-pass-data-from-child-component-to-its-parent-in-reactjs
 const Riddle = ({ onSave, renderMap }) => {
   const [value, setValue] = React.useState("");
   const [error, setError] = React.useState(false);
@@ -25,7 +23,7 @@ const Riddle = ({ onSave, renderMap }) => {
 
   console.log("AAAAAAA", data);
 
-  const riddle = data.quest.riddle;
+  const quest = data?.quest;
 
   const handleRadioChange = (event) => {
     setValue(event.target.value);
@@ -56,7 +54,8 @@ const Riddle = ({ onSave, renderMap }) => {
     <form onSubmit={handleSubmit}>
       <FormControl sx={{ m: 3 }} error={error} variant="standard">
         <FormLabel id="demo-error-radios">
-          {data.quest.riddle.question}
+          {quest.riddle.question}
+          {/* Hello */}
         </FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
