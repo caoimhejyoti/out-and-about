@@ -76,7 +76,7 @@ function displayBadge(user) {
 
 function whichMap(user) {
   // console.log("whichMap fnc"); //used for debugging
-  switch (user.currentTier.name) {
+  switch (user.currentQuest.name) {
     case 1:
       return <MandurahMap />;
       break;
@@ -97,7 +97,6 @@ const QRCode = () => {
     variables: { username: userParam },
   });
 
-  
   const user = data?.me;
   console.log(user); //used for debugging
 
