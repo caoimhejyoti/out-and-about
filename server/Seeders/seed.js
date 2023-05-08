@@ -30,9 +30,9 @@ db.once("open", async () => {
     await Location.create(locationSeeds);
     console.log("-------------- Location data seeded --------------");
 
-    await Tier.create(tierSeeds);
-    console.log("-------------- Tier data seeded --------------");
-    
+    // await Tier.create(tierSeeds);
+    // console.log("-------------- Tier data seeded --------------");
+
     await User.create(userSeeds);
     console.log("-------------- User data seeded --------------");
 
