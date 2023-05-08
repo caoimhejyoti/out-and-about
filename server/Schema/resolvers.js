@@ -86,10 +86,13 @@ const resolvers = {
 
       return { token, user };
     },
-    updateUserBadge: (parent, { username, badgeName }) => {
-      return User.findOneAndUpdate(
-        { username: username },
-        { $addToSet: { user: { collectedBadges: { badgeName } } } },
+    updateUserBadge: async (parent, { id, badgeId }) => {
+      console.log("Inside resolvers");
+      console.log(id);
+      console.log(badgeId);
+      return User.findByIdAndUpdate(
+        { _id: id },
+        { $addToSet: { collectedBadges: { _id: badgeId } } },
         { new: true, runValidators: true }
       );
     },

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import { UPDATE_USER_BADGE } from "./../utils/mutations";
 import { ThemeProvider } from "@mui/material/styles";
@@ -8,32 +8,28 @@ import inputTheme from "../style/theme";
 
 export default function QRCodeButtons(props) {
   console.log(props); //used for debugging
-  const [username, setUsername] = useState(props.data.username)
-  const [badgeName, setBadgeName] = useState(props.data.currentQuest.badge.name)
+  const [userId, setUserId] = useState(props.data._id);
+  const [badgeId, setBadgeId] = useState(props.data.currentQuest.badge._id);
 
   const [updateUserBadge, { error }] = useMutation(UPDATE_USER_BADGE);
 
   const btnClick = async (e) => {
     e.preventDefault();
-  
-    console.log("Hello - you pressed the button");
-  
     try {
-      const { data } = updateUserBadge({
+      console.log("Hello - you pressed the button");
+      const { data } = await updateUserBadge({
         variables: {
-          username,
-          badgeName,
+          userId,
+          badgeId,
         },
       });
-  
+
       console.log("successful");
       window.location.href = "/dashboard";
     } catch (err) {
       console.error(err);
     }
   };
-  
-
 
   return (
     <ThemeProvider theme={inputTheme}>
