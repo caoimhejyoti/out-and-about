@@ -16,7 +16,7 @@ const typeDefs = gql`
     createdAt: String!
     createdBy: User!
     description: String!
-    tier: Tier!
+    tierName: String!
     location: Location!
     badge: Badge!
     riddle: Riddle!
@@ -52,7 +52,7 @@ const typeDefs = gql`
     _id: ID
     question: String!
     answer: String!
-    quest: Quest
+    options: [String]
   }
 
   type QRCode {
@@ -67,12 +67,12 @@ const typeDefs = gql`
     user: User
   }
 
-
   type Query {
     users: [User]
     me: User
+    quest(tierName: String!): Quest
     user(username: String!): User
-    getBadges:[Badge]
+    getBadges: [Badge]
   }
 
   type Mutation {

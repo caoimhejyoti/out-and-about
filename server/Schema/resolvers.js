@@ -12,6 +12,11 @@ const resolvers = {
       return User.findOne({ username });
     },
 
+    quest: async (parent, { tierName }) => {
+      console.log("BBBBB", tierName);
+      return Quest.findOne({ tierName }).populate("riddle");
+    },
+
     me: async (parents, args, context) => {
       if (context.user) {
         return await User.findOne({ _id: context.user._id })
@@ -84,7 +89,7 @@ const resolvers = {
     updateUserBadge: (parent, { username, badgeName }) => {
       return User.findOneAndUpdate(
         { username: username },
-        { $addToSet: {user: { collectedBadges: { badgeName } }} },
+        { $addToSet: { user: { collectedBadges: { badgeName } } } },
         { new: true, runValidators: true }
       );
     },
