@@ -34,7 +34,6 @@ export default function MandurahMap() {
   // const [projection, setProjection] = useState("globe");
 
   const waypoints = geoJSONroutes.features[0].geometry.coordinates;
-  console.log(waypoints);
 
 
   useEffect(() => {
