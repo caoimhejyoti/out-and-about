@@ -12,10 +12,15 @@ const resolvers = {
       return User.findOne({ username });
     },
 
+    quest: async (parent, { tierName }) => {
+      console.log("BBBBB", tierName);
+      return Quest.findOne({ tierName }).populate("riddle");
+    },
+
     me: async (parents, args, context) => {
       if (context.user) {
         return await User.findOne({ _id: context.user._id })
-          .populate("currentTier")
+          // .populate("currentTier")
           // .populate("currentQuest")
           .populate("location")
           .populate({
@@ -30,7 +35,7 @@ const resolvers = {
               {
                 path: "riddle",
               },
-              { path: "tier" },
+              // { path: "tierName" },
             ],
           })
           .populate("collectedBadges");
@@ -48,7 +53,7 @@ const resolvers = {
       parent,
       { firstName, lastName, username, email, password, location }
     ) => {
-      const currentTier = await Tier.findOne({ name: 1 });
+      const questObject = await Quest.findOne({ tierName: "Pedestrian" });
       const locationObject = await Location.findOne({ city: location });
       const user = await User.create({
         firstName,
@@ -56,7 +61,7 @@ const resolvers = {
         username,
         email,
         password,
-        currentTier,
+        currentQuest: questObject,
         location: locationObject,
       });
       const token = signToken(user);
@@ -87,7 +92,7 @@ const resolvers = {
       console.log(badgeId);
       return User.findByIdAndUpdate(
         { _id: id },
-        { $addToSet: { collectedBadges: { _id:badgeId } } },
+        { $addToSet: { collectedBadges: { _id: badgeId } } },
         { new: true, runValidators: true }
       );
     },

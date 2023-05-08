@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Typography, styled, Section, Box, Paper, Grid } from "@mui/material";
 import {
   Radio,
   RadioGroup,
@@ -10,11 +9,21 @@ import {
 import FormHelperText from "@mui/material/FormHelperText";
 import Button from "@mui/material/Button";
 
-// FIXME: important tips for passing data https://stackoverflow.com/questions/38394015/how-to-pass-data-from-child-component-to-its-parent-in-reactjs
+import { useQuery } from "@apollo/client";
+import { QUERY_QUEST } from "../utils/queries";
+
 const Riddle = ({ onSave, renderMap }) => {
   const [value, setValue] = React.useState("");
   const [error, setError] = React.useState(false);
   const [helperText, setHelperText] = React.useState("Choose wisely");
+
+  const { loading, data } = useQuery(QUERY_QUEST, {
+    variables: { tierName: "Pedestrian" },
+  });
+
+  console.log("AAAAAAA", data);
+
+  const quest = data?.quest;
 
   const handleRadioChange = (event) => {
     setValue(event.target.value);
@@ -44,10 +53,7 @@ const Riddle = ({ onSave, renderMap }) => {
   return (
     <form onSubmit={handleSubmit}>
       <FormControl sx={{ m: 3 }} error={error} variant="standard">
-        <FormLabel id="demo-error-radios">
-          I have cities, but no houses. I have mountains, but no trees. I have
-          water, but no fish. What am I?
-        </FormLabel>
+        <FormLabel id="demo-error-radios">{quest.riddle.question}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz"

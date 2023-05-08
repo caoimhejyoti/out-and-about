@@ -9,10 +9,24 @@ export const QUERY_USER = gql`
       email
       password
       username
-      currentTier {
-        _id
-        name
-        description
+      currentQuest {
+        tierName
+      }
+    }
+  }
+`;
+
+export const QUERY_QUEST = gql`
+  query quest($tierName: String!) {
+    quest(tierName: $tierName) {
+      _id
+      name
+      description
+      tierName
+      riddle {
+        question
+        answer
+        options
       }
     }
   }
@@ -27,18 +41,10 @@ export const QUERY_ME = gql`
       email
       password
       username
-      collectedBadges{
-        _id
-        name
-      }
-      currentTier {
-        _id
-        name
-        description
-      }
       currentQuest {
         _id
         name
+        tierName
         location {
           _id
           city
@@ -62,33 +68,33 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const QUERY_QUEST = gql`
-  query quest {
-    quest {
-      _id
-      name
-      tier {
-        _id
-        name
-        description
-      }
-      badge {
-        _id
-        name
-        image
-      }
-    }
-  }
-`;
+// export const QUERY_QUEST = gql`
+//   query quest {
+//     quest {
+//       _id
+//       name
+//       tier {
+//         _id
+//         name
+//         description
+//       }
+//       badge {
+//         _id
+//         name
+//         image
+//       }
+//     }
+//   }
+// `;
 
 export const GET_BADGES = gql`
-query getBadges{
-  getBadges{
-    _id
-    name
-    description
-    colour_image
-    greyscale_image
+  query getBadges {
+    getBadges {
+      _id
+      name
+      description
+      colour_image
+      greyscale_image
+    }
   }
-}
 `;

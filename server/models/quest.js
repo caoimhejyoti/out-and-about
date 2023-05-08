@@ -26,10 +26,9 @@ const questSchema = new Schema({
     type: String,
     required: true,
   },
-  tier: {
-    type: Schema.Types.ObjectId,
+  tierName: {
+    type: String,
     required: true,
-    ref: "Tier",
   },
   location: {
     type: Schema.Types.ObjectId,
@@ -51,11 +50,11 @@ const questSchema = new Schema({
     required: true,
     ref: "QRCode",
   },
-  status:{
+  status: {
     type: Boolean,
-    required:true,
-    default: false
-  }
+    required: true,
+    default: false,
+  },
 });
 
 const Quest = mongoose.model("Quest", questSchema);

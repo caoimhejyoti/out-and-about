@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Typography, styled, Box, Paper, Grid } from "@mui/material";
-import { GradeOutlined, Grade  } from "@mui/icons-material";
+import { GradeOutlined, Grade } from "@mui/icons-material";
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import "./../style/app.css";
-import BadgeComp from "./../components/Badges"
+import BadgeComp from "./../components/Badges";
 
 // map import
 import MandurahMap from "../components/maps/mandurah-forshore";
@@ -14,15 +14,13 @@ import UwaMap from "../components/maps/uwa-grad";
 import Riddle from "../components/Riddle";
 
 const Dashboard = () => {
-const { username: userParam } = useParams();
+  const { username: userParam } = useParams();
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
   const user = data?.me;
 
-
   const [answerComplete, setAnswerComplete] = useState(false);
-
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
@@ -83,9 +81,10 @@ const { username: userParam } = useParams();
             </Typography>
             <hr />
             <Typography gutterBottom variant="caption">
-              Current Tier: {user.currentTier.description}`
+              Current Tier: {user.currentQuest.tierName}
+              {/* description */}
             </Typography>
-            <BadgeComp data={user}/>
+            <BadgeComp data={user} />
           </Item>
           <hr />
           <Item>

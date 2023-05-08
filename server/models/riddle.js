@@ -14,11 +14,11 @@ const RiddleSchema = new Schema({
     type: String,
     required: true,
   },
-  quest: {
-    type: Schema.Types.ObjectId,
-    ref: "Quest",
-    required: true,
-  },
+  options: [
+    {
+      type: String,
+    },
+  ],
 });
 
 const Riddle = mongoose.model("Riddle", RiddleSchema);
