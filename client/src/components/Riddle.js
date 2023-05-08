@@ -10,11 +10,22 @@ import {
 import FormHelperText from "@mui/material/FormHelperText";
 import Button from "@mui/material/Button";
 
+import { useQuery } from "@apollo/client";
+import { QUERY_QUEST } from "../utils/queries";
+
 // FIXME: important tips for passing data https://stackoverflow.com/questions/38394015/how-to-pass-data-from-child-component-to-its-parent-in-reactjs
 const Riddle = ({ onSave, renderMap }) => {
   const [value, setValue] = React.useState("");
   const [error, setError] = React.useState(false);
   const [helperText, setHelperText] = React.useState("Choose wisely");
+
+  const { loading, data } = useQuery(QUERY_QUEST, {
+    variables: { tierName: "Pedestrian" },
+  });
+
+  console.log("AAAAAAA", data);
+
+  const riddle = data.quest.riddle;
 
   const handleRadioChange = (event) => {
     setValue(event.target.value);
@@ -45,8 +56,7 @@ const Riddle = ({ onSave, renderMap }) => {
     <form onSubmit={handleSubmit}>
       <FormControl sx={{ m: 3 }} error={error} variant="standard">
         <FormLabel id="demo-error-radios">
-          I have cities, but no houses. I have mountains, but no trees. I have
-          water, but no fish. What am I?
+          {data.quest.riddle.question}
         </FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
