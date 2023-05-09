@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
-import { UPDATE_USER_BADGE } from "./../utils/mutations";
+import { UPDATE_USER_BADGE, UPDATE_STATUS } from "./../utils/mutations";
 import { ThemeProvider } from "@mui/material/styles";
 import { useMutation } from "@apollo/client";
 
@@ -10,8 +10,11 @@ export default function QRCodeButtons(props) {
   console.log(props); //used for debugging
   const [userId, setUserId] = useState(props.data._id);
   const [badgeId, setBadgeId] = useState(props.data.currentQuest.badge._id);
+  const [riddle, setRiddle] = useState(false);
+  const [quest, setQuest] = useState(true);
 
   const [updateUserBadge, { error }] = useMutation(UPDATE_USER_BADGE);
+  const [updateStatus, { er }] = useMutation(UPDATE_STATUS);
 
   const btnClick = async (e) => {
     e.preventDefault();
@@ -21,6 +24,14 @@ export default function QRCodeButtons(props) {
         variables: {
           userId,
           badgeId,
+        },
+      });
+      console.log("nextQuery");
+      const { statusData } = await updateStatus({
+        variables: {
+          userId,
+          quest,
+          riddle,
         },
       });
 

@@ -15,6 +15,8 @@ const Signup = () => {
     email: "",
     password: "",
     city: "Perth",
+    questStatus: false,
+    riddleStatus: false,
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
