@@ -55,3 +55,28 @@ export const UPDATE_USER_BADGE = gql`
     }
   }
 `;
+
+export const UPDATE_USER_PROFILE = gql`
+  mutation updateUserProfile(  #Variabels passed in as arguments to the updateUserProfile function
+    $firstName: String! 
+    $lastName: String!
+    $username: String!
+    $email: String!
+    $password: String!
+  ) {
+    updateUserProfile( #Properties corresponding to the filds in the returned data. 
+      firstName: $firstName
+      lastName: $lastName
+      username: $username
+      email: $email
+      password: $password
+    ) {
+      _id #Fields that being returned after function is executed
+      firstName
+      lastName
+      username
+      email
+      password
+    }
+  }
+`;

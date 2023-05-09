@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 
@@ -32,7 +31,7 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true,
-    minlengh: 5,
+    minlength: 5,
     trim: true,
   },
   collectedBadges: [
@@ -55,15 +54,16 @@ const userSchema = new Schema({
   },
 });
 
+// Defining a pre-hook that will hash the password before saving the user 
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
+    this.password = await bcrypt.hash(this.password, 10);
   }
 
   next();
 });
 
+// Defining a methot that will compare a given password with the hashed password 
 userSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
