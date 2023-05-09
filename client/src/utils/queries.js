@@ -47,6 +47,10 @@ export const QUERY_ME = gql`
         _id
         name
       }
+      currentTier {
+        _id
+        name
+      }
       currentQuest {
         _id
         name
@@ -73,25 +77,6 @@ export const QUERY_ME = gql`
     }
   }
 `;
-
-// export const QUERY_QUEST = gql`
-//   query quest {
-//     quest {
-//       _id
-//       name
-//       tier {
-//         _id
-//         name
-//         description
-//       }
-//       badge {
-//         _id
-//         name
-//         image
-//       }
-//     }
-//   }
-// `;
 
 export const GET_BADGES = gql`
   query getBadges {

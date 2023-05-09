@@ -13,7 +13,15 @@
         "description": "UWA Quest badge. Black outline, pink and purple gradient background with the outline of two dolphins. One is a dark purple and the other is orange.",
         "colour_image": "https://drive.google.com/uc?export=view&id=1YoaJz1_kK9XCGRLPwdZl2axwDPSO-_-c",
         "greyscale_image": "https://drive.google.com/uc?export=view&id=1rZ8Kxdip6sBF2kHjkE2_v-uslvEpodLV",
-        "quest": "D8344D9BDF31E92D8280F715"
+        "quest": "EFE0C59EFA61B1C366BB9515"
+    },
+
+    {
+        "_id": "9A5363ECBB3DF6261729E860",
+        "name": "Completed all Quests",
+        "description": "Completed all Quests",
+        "colour_image": "https://drive.google.com/uc?export=view&id=1OYtObt-O4sck6qTrTqtdCFpGeu9yzu_7",
+        "greyscale_image": "https://drive.google.com/uc?export=view&id=1ArgbmRMeMVbhzrE5oiIeJ-cjvS9v2LZP",
+        "quest": "53D8B93AAFE44A0C786D3676"
     }
 ]
-

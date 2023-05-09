@@ -72,6 +72,27 @@ export const UPDATE_STATUS = gql`
   }
 `;
 
+export const UPDATE_USER_QUEST = gql`
+  mutation updateUserQuest($userId: ID!, $questId: ID!) {
+    updateUserQuest(id: $userId, questId: $questId) {
+      _id
+      currentQuest {
+        _id
+      }
+    }
+  }
+`;
+export const UPDATE_USER_TIER = gql`
+  mutation updateUserTier($userId: ID!, $tierId: ID!) {
+    updateUserTier(id: $userId, tierId: $tierId) {
+      _id
+      currentTier {
+        _id
+      }
+    }
+  }
+`;
+
 export const UPDATE_USER_PROFILE = gql`
   mutation updateUserProfile( #Variabels passed in as arguments to the updateUserProfile function
     $firstName: String!
@@ -104,3 +125,6 @@ export const DELETE_USER_PROFILE = gql`
     }
   }
 `;
+
+
+
