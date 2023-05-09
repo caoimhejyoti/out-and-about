@@ -20,5 +20,9 @@ export default function Map() {
     }
     else if(tier === 'Rambler') {
         return Uwamap();
-    }
+    } else return (
+        <div>
+          <h2>You Have Completed All Available Quests! Come Back Soon</h2>
+        </div>
+      );
 }
