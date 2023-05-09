@@ -10,5 +10,11 @@
     "question": "The more you take, the more you leave behind. What am I?",
     "answer": "Footsteps",
     "options": ["Money", "Footsteps", "Time"]
+  },
+  {
+    "_id": "9DED99CE588C1DC63250B5BD",
+    "question": "There is no riddle....",
+    "answer": "You win!",
+    "options": ["You win!", "You win!", "You win!"]
   }
 ]

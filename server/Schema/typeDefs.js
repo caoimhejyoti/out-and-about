@@ -34,6 +34,7 @@ const typeDefs = gql`
     riddleStatus: Boolean!
     collectedBadges: [Badge]
     currentQuest: Quest
+    currentTier: Tier
     location: Location
   }
 
@@ -97,6 +98,8 @@ const typeDefs = gql`
     ): User
     updateUserBadge(id: ID!, badgeId: ID!): User
     updateStatus(id: ID!, questStatus: Boolean!, riddleStatus: Boolean!): User
+    updateUserQuest(id: ID!, questId: ID!): User
+    updateUserTier(id: ID!, tierId: ID!): User
     deleteUserProfile(id: ID!): User
   }
 `;

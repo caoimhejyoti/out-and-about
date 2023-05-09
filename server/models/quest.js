@@ -47,7 +47,7 @@ const questSchema = new Schema({
   },
   qrCode: {
     type: Schema.Types.ObjectId,
-    required: true,
+    // required: true,
     ref: "QRCode",
   },
   status: {

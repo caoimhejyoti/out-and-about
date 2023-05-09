@@ -24,6 +24,7 @@ const resolvers = {
           // .populate("questStatus")
           // .populate("riddleStatus")
           .populate("location")
+          .populate("currentTier")
           .populate({
             path: "currentQuest",
             populate: [
@@ -130,16 +131,9 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    deleteUserProfile: async (
-      parent,
-      { id, args},
-      context
-    ) => {
+    deleteUserProfile: async (parent, { id, args }, context) => {
       console.log(id);
-      const delUser = await User.findByIdAndDelete(
-        {_id: id},
-        {new: true}
-      );
+      const delUser = await User.findByIdAndDelete({ _id: id }, { new: true });
       return delUser;
     },
     updateUserBadge: async (parent, { id, badgeId }) => {
@@ -160,6 +154,26 @@ const resolvers = {
       return User.findByIdAndUpdate(
         { _id: id },
         { $set: { questStatus: questStatus, riddleStatus: riddleStatus } },
+        { new: true, runValidators: true }
+      );
+    },
+    updateUserQuest: async (parent, { id, questId }) => {
+      console.log("Inside updateUserQuest");
+      console.log(id);
+      console.log(questId);
+      return User.findByIdAndUpdate(
+        { _id: id },
+        { currentQuest: questId },
+        { new: true, runValidators: true }
+      );
+    },
+    updateUserTier: async (parent, { id, tierId }) => {
+      console.log("Inside updateUserTier");
+      console.log(id);
+      console.log(tierId);
+      return User.findByIdAndUpdate(
+        { _id: id },
+        { currentTier: tierId },
         { new: true, runValidators: true }
       );
     },
