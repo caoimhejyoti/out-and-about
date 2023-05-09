@@ -20,6 +20,9 @@ const Dashboard = () => {
   });
   const user = data?.me;
 
+  console.log("user:");
+  console.log(user);
+
   const [answerComplete, setAnswerComplete] = useState(false);
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {

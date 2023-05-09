@@ -43,6 +43,10 @@ export const QUERY_ME = gql`
       username
       questStatus
       riddleStatus
+      collectedBadges {
+        _id
+        name
+      }
       currentQuest {
         _id
         name
