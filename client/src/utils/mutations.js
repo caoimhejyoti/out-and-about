@@ -96,3 +96,11 @@ export const UPDATE_USER_PROFILE = gql`
     }
   }
 `;
+
+export const DELETE_USER_PROFILE = gql`
+  mutation deleteUserProfile($Id: ID!) {
+    deleteUserProfile(id: $Id) {
+      _id
+    }
+  }
+`;

@@ -97,6 +97,7 @@ const typeDefs = gql`
     ): User
     updateUserBadge(id: ID!, badgeId: ID!): User
     updateStatus(id: ID!, questStatus: Boolean!, riddleStatus: Boolean!): User
+    deleteUserProfile(id: ID!): User
   }
 `;
 

@@ -53,7 +53,7 @@ const Riddle = ({ onSave, renderMap }) => {
   return (
     <form onSubmit={handleSubmit}>
       <FormControl sx={{ m: 3 }} error={error} variant="standard">
-        <FormLabel id="demo-error-radios">{quest.riddle.question}</FormLabel>
+        <FormLabel id="demo-error-radios"></FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz"
