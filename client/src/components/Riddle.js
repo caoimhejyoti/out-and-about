@@ -22,9 +22,10 @@ const Riddle = ({ onSave, renderMap }) => {
   });
 
   const riddle = data?.quest.riddle || [];
-  console.log("AAAAAAA", data);
-
-  const quest = data?.quest;
+  const option1 = data?.quest.riddle.options[0];
+  const option2 = data?.quest.riddle.options[1];
+  const option3 = data?.quest.riddle.options[2];
+  const answer = data?.quest.riddle.answer;
 
   const handleRadioChange = (event) => {
     setValue(event.target.value);
@@ -35,14 +36,11 @@ const Riddle = ({ onSave, renderMap }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (value === "map") {
+    if (value === answer) {
       setHelperText("You got it!");
       setError(false);
       renderMap(true);
-    } else if (value === "island") {
-      setHelperText("Sorry, wrong answer!");
-      setError(true);
-    } else if (value === "country") {
+    } else if (value !== answer) {
       setHelperText("Sorry, wrong answer!");
       setError(true);
     } else {
@@ -51,6 +49,9 @@ const Riddle = ({ onSave, renderMap }) => {
     }
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <form onSubmit={handleSubmit}>
       <FormControl sx={{ m: 3 }} error={error} variant="standard">
@@ -61,16 +62,20 @@ const Riddle = ({ onSave, renderMap }) => {
           value={value}
           onChange={handleRadioChange}
         >
-          <FormControlLabel value="map" control={<Radio />} label="A Map!" />
           <FormControlLabel
-            value="island"
+            value={option1}
             control={<Radio />}
-            label="An Island!"
+            label={option1}
           />
           <FormControlLabel
-            value="country"
+            value={option2}
             control={<Radio />}
-            label="A country."
+            label={option2}
+          />
+          <FormControlLabel
+            value={option3}
+            control={<Radio />}
+            label={option3}
           />
         </RadioGroup>
         <FormHelperText>{helperText}</FormHelperText>
