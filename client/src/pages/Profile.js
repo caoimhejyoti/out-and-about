@@ -19,7 +19,7 @@ import ViewProfileForm from "../components/Profile/ViewProfileForm.js";
 import bgAbstract from "../assets/cards/bg_abstract.jpeg";
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
-import { UPDATE_USER_PROFILE } from "../utils/mutations.js";
+import { UPDATE_USER_PROFILE, DELETE_USER_PROFILE } from "../utils/mutations.js";
 
 import Auth from "../utils/auth";
 
@@ -33,11 +33,22 @@ const Profile = () => {
   // user is a initial value of 'data?.me', and setUser updates that value.
   const [user, setUser] = useState(data && data.me ? data.me : null); // if data.me from the user is true return data.me, and it's false return null, and it cheks the existence of the state variable.
   const [editing, setEditing] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+
+  // console.log(user);
+
 
   const [updateUserProfile, { error }] = useMutation(UPDATE_USER_PROFILE);
+  const [deleteUserProfile, { delError }] = useMutation(DELETE_USER_PROFILE);
 
   const handleEditClick = () => {
     setEditing(true);
+  };
+
+  const handleDelClick = async () => {
+    const { data } = await deleteUserProfile({
+      variables: {Id: user._id},
+    })
   };
 
   const handleCancelClick = () => {
@@ -118,6 +129,7 @@ const Profile = () => {
                       </Typography>
                     </CardContent>
                   </CardActionArea>
+                  <Button onClick={handleDelClick}>Delete Your Account</Button>
                 </Card>
               </Item>
             </Grid>
