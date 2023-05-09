@@ -13,12 +13,13 @@ import {
 } from "@mui/material";
 
 import { Navigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import EditProfileForm from "../components/Profile/EditProfileForm.js";
 import ViewProfileForm from "../components/Profile/ViewProfileForm.js";
 import bgAbstract from "../assets/cards/bg_abstract.jpeg";
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { UPDATE_USER_PROFILE } from "../utils/mutations.js";
 
 import Auth from "../utils/auth";
 
@@ -32,6 +33,32 @@ const Profile = () => {
   // user is a initial value of 'data?.me', and setUser updates that value.
   const [user, setUser] = useState(data && data.me ? data.me : null); // if data.me from the user is true return data.me, and it's false return null, and it cheks the existence of the state variable.
   const [editing, setEditing] = useState(false);
+  
+
+  const [updateUserProfile, { error }] = useMutation(UPDATE_USER_PROFILE);
+
+  const handleEditClick = () => {
+    setEditing(true);
+  };
+
+  const handleCancelClick = () => {
+    setEditing(false);
+  }; 
+
+  const handleSave = async (formData) => {
+    // Handle saving the form data here
+    try{
+      const { data } = await updateUserProfile({
+        variables: formData,
+      });
+      console.log(data);
+      setEditing(false);
+      setUser({ ...user, ...formData });
+    } catch(err) {
+      console.log(err);
+      console.log(error.message);
+    }
+  }; // Reset the editing state
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
@@ -53,21 +80,6 @@ const Profile = () => {
     color: theme.palette.text.secondary,
   }));
 
-  const handleEditClick = () => {
-    setEditing(true);
-  };
-
-  const handleCancelClick = () => {
-    setEditing(false);
-  };
-
-  const handleSave = (formData) => {
-    // Handle saving the form data here
-    console.log(formData);
-    setEditing(false);
-
-    setUser({ ...user, ...formData });
-  }; // Reset the editing state
 
   return (
     <div
