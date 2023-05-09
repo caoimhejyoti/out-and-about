@@ -42,18 +42,18 @@ const Profile = () => {
 
   const handleCancelClick = () => {
     setEditing(false);
-  }; 
+  };
 
   const handleSave = async (formData) => {
     // Handle saving the form data here
-    try{
+    try {
       const { data } = await updateUserProfile({
         variables: formData,
       });
       console.log(data);
       setEditing(false);
       setUser({ ...user, ...formData });
-    } catch(err) {
+    } catch (err) {
       console.log(err);
       console.log(error.message);
     }
@@ -112,8 +112,8 @@ const Profile = () => {
                         {/* TODO: update date based on user logged in */}
                       </Typography>
                       <Typography variant="overline" color="text.secondary">
-                        {user.currentTier
-                          ? `${user.currentTier.name}: ${user.currentTier.description}`
+                        {user.currentQuest.tierName
+                          ? `${user.currentQuest.tierName}`
                           : "Tier does not exist"}
                       </Typography>
                     </CardContent>
