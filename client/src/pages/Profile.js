@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 
 import { Navigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
 import { useQuery, useMutation } from "@apollo/client";
 import EditProfileForm from "../components/Profile/EditProfileForm.js";
 import ViewProfileForm from "../components/Profile/ViewProfileForm.js";
