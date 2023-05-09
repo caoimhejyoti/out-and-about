@@ -30,6 +30,8 @@ const typeDefs = gql`
     email: String!
     password: String!
     username: String!
+    questStatus: Boolean!
+    riddleStatus: Boolean!
     collectedBadges: [Badge]
     currentQuest: Quest
     location: Location
@@ -83,9 +85,18 @@ const typeDefs = gql`
       email: String!
       password: String!
       location: String!
+      questStatus: Boolean!
+      riddleStatus: Boolean!
     ): Auth
-    updateUserProfile(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): User
+    updateUserProfile(
+      firstName: String!
+      lastName: String!
+      username: String!
+      email: String!
+      password: String!
+    ): User
     updateUserBadge(id: ID!, badgeId: ID!): User
+    updateStatus(id: ID!, questStatus: Boolean!, riddleStatus: Boolean!): User
   }
 `;
 

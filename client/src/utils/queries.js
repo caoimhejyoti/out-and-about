@@ -41,6 +41,8 @@ export const QUERY_ME = gql`
       email
       password
       username
+      questStatus
+      riddleStatus
       currentQuest {
         _id
         name

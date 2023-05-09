@@ -20,6 +20,8 @@ export const ADD_USER = gql`
     $email: String!
     $password: String!
     $city: String!
+    $questStatus: Boolean!
+    $riddleStatus: Boolean!
   ) {
     addUser(
       firstName: $firstName
@@ -28,6 +30,8 @@ export const ADD_USER = gql`
       email: $email
       password: $password
       location: $city
+      questStatus: $questStatus
+      riddleStatus: $riddleStatus
     ) {
       token
       user {
@@ -37,6 +41,8 @@ export const ADD_USER = gql`
         lastName
         email
         password
+        questStatus
+        riddleStatus
         location {
           city
         }
@@ -56,15 +62,25 @@ export const UPDATE_USER_BADGE = gql`
   }
 `;
 
+export const UPDATE_STATUS = gql`
+  mutation updateStatus($userId: ID!, $quest: Boolean!, $riddle: Boolean!) {
+    updateStatus(id: $userId, questStatus: $quest, riddleStatus: $riddle) {
+      _id
+      questStatus
+      riddleStatus
+    }
+  }
+`;
+
 export const UPDATE_USER_PROFILE = gql`
-  mutation updateUserProfile(  #Variabels passed in as arguments to the updateUserProfile function
-    $firstName: String! 
+  mutation updateUserProfile( #Variabels passed in as arguments to the updateUserProfile function
+    $firstName: String!
     $lastName: String!
     $username: String!
     $email: String!
     $password: String!
   ) {
-    updateUserProfile( #Properties corresponding to the filds in the returned data. 
+    updateUserProfile( #Properties corresponding to the filds in the returned data.
       firstName: $firstName
       lastName: $lastName
       username: $username

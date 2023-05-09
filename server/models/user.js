@@ -34,6 +34,16 @@ const userSchema = new Schema({
     minlength: 5,
     trim: true,
   },
+  questStatus: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
+  riddleStatus: {
+    type: Boolean,
+    required: true,
+    default: false,
+  },
   collectedBadges: [
     {
       type: Schema.Types.ObjectId,
