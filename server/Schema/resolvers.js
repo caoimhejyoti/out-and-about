@@ -130,6 +130,18 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    deleteUserProfile: async (
+      parent,
+      { id, args},
+      context
+    ) => {
+      console.log(id);
+      const delUser = await User.findByIdAndDelete(
+        {_id: id},
+        {new: true}
+      );
+      return delUser;
+    },
     updateUserBadge: async (parent, { id, badgeId }) => {
       console.log("Inside updateUserBadge");
       console.log(id);

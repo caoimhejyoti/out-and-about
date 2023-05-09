@@ -74,7 +74,6 @@ export default function MandurahMap() {
           'line-opacity': 0.75
         }
       });
-      console.log(route);
     });
 
     const map = new mapboxgl.Map({
