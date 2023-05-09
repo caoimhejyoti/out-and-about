@@ -21,6 +21,7 @@ const Riddle = ({ onSave, renderMap }) => {
     variables: { tierName: "Pedestrian" },
   });
 
+  const riddle = data?.quest.riddle || [];
   console.log("AAAAAAA", data);
 
   const quest = data?.quest;
@@ -53,7 +54,7 @@ const Riddle = ({ onSave, renderMap }) => {
   return (
     <form onSubmit={handleSubmit}>
       <FormControl sx={{ m: 3 }} error={error} variant="standard">
-        <FormLabel id="demo-error-radios"></FormLabel>
+        <FormLabel id="demo-error-radios">{riddle.question}</FormLabel>
         <RadioGroup
           aria-labelledby="demo-error-radios"
           name="quiz"

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // Import the `useQuery()` hook from Apollo Client
 import { useQuery } from "@apollo/client";
 import { styled, Grid, Paper } from "@mui/material";
@@ -32,10 +32,65 @@ const BadgeComp = (props) => {
   // Execute the query on component load
   const { loading, data } = useQuery(GET_BADGES);
 
-  // Use optional chaining to check if data exists and if it has a thoughts property. If not, return an empty array to use.
-  
+  // badge img use states
+  const [mandurahBadge, setMandurahBadge] = useState(mandurahBadgeGrey);
+  const [UWABadge, setUWABadge] = useState(UWABadgeGrey);
+  const [badgeThree, setBadgeThree] = useState(badge3Grey);
+  const [badge4, setBadge4] = useState(badge4Grey);
+  const [badge5, setBadge5] = useState(badge5Grey);
 
-  console.log(data);
+  const [userBadges, setUserBadges] = useState([]);
+
+  const badgeList = props?.data.collectedBadges || [];
+
+  useEffect(() => {
+    if (userBadges.length !== badgeList.length) {
+      badgeList.map((el) => {
+        console.log(el.name);
+        return setUserBadges([...userBadges, el.name]);
+      });
+    }
+  }, [userBadges]);
+
+  useEffect(() => {
+    if (userBadges.includes("Mandurah Quest")) {
+      setMandurahBadge(mandurahBadgeColour);
+    }
+
+    if (userBadges.includes("UWA Quest")) {
+      setMandurahBadge(UWABadgeColour);
+    }
+
+    if (userBadges.includes("Badge 3")) {
+      setMandurahBadge(badge3Colour);
+    }
+
+    if (userBadges.includes("Badge 4")) {
+      setMandurahBadge(badge4Colour);
+    }
+
+    if (userBadges.includes("Badge 5")) {
+      setMandurahBadge(badge5Colour);
+    }
+  });
+
+  // badge description use states
+  // const [mandurahBadgeDescription, setMandurahBadgeDescription] = useState(
+  //   data.description
+  // );
+  // const [UWABadgeDescription, setUWABadgeDescription] = useState(
+  //   data.description
+  // );
+  // const [badgeThreeDescription, setBadgeThreeDescription] = useState(badge3Grey);
+  // const [badge4Description, setBadge4Description] = useState(badge4Grey);
+  // const [badge5Description, setBadge5Description] = useState(badge5Grey);
+
+  // console.log("props:");
+  // console.log(props);
+  // console.log("collectedBadges:");
+  // console.log(props.collectedBadges);
+  // console.log("data:");
+  // console.log(data);
 
   return (
     <div>
@@ -50,19 +105,29 @@ const BadgeComp = (props) => {
           }}
         >
           <Item>
-            {/* <img className="badge mandurah" src={data.getBadges.[0].greyscale_image} alt={data.description} /> */}
+            <img
+              className="badge uwa"
+              src={mandurahBadge}
+              alt=""
+              // alt={mandurahBadgeDescription}
+            />
           </Item>
           <Item>
-            <img className="badge uwa" src={UWABadgeGrey} alt="" />
+            <img
+              className="badge uwa"
+              src={UWABadge}
+              alt=""
+              // alt={UWABadgeDescription}
+            />
           </Item>
           <Item>
-            <img className="badge badge3" src={badge3Grey} alt="" />
+            <img className="badge badgeThree" src={badgeThree} alt="" />
           </Item>
           <Item>
-            <img className="badge badge4" src={badge4Grey} alt="" />
+            <img className="badge badge4" src={badge4} alt="" />
           </Item>
           <Item>
-            <img className="badge badge5" src={badge5Grey} alt="" />
+            <img className="badge badge5" src={badge5} alt="" />
           </Item>
         </Grid>
       )}
