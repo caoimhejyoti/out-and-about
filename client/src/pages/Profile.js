@@ -49,6 +49,7 @@ const Profile = () => {
     const { data } = await deleteUserProfile({
       variables: {Id: user._id},
     })
+    window.location.href ='/signup';
   };
 
   const handleCancelClick = () => {
