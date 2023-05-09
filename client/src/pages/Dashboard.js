@@ -11,6 +11,7 @@ import BadgeComp from "./../components/Badges";
 // map import
 import MandurahMap from "../components/maps/mandurah-forshore";
 import UwaMap from "../components/maps/uwa-grad";
+import Map from "../components/maps/map";
 import Riddle from "../components/Riddle";
 
 const Dashboard = () => {
@@ -127,7 +128,7 @@ const Dashboard = () => {
 
           {/* if 'editing' is false, calls 'handleEditClick' that sets the'editing' state to true again. */}
           {answerComplete ? ( // determines whether the user is editing their profile or not.
-            <MandurahMap /> // if answercomplete is true, the map will be rendered
+            <Map /> // if answercomplete is true, the map will be rendered
           ) : (
             <Riddle onSave={handleCorrect} renderMap={setAnswerComplete} /> // if answercomplete is false, the riddle will be rendered
           )}
