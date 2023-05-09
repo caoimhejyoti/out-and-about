@@ -42,6 +42,7 @@ const BadgeComp = (props) => {
   const [userBadges, setUserBadges] = useState([]);
 
   const badgeList = props?.data.collectedBadges || [];
+  console.log(badgeList);
 
   useEffect(() => {
     if (userBadges.length !== badgeList.length) {
@@ -58,19 +59,19 @@ const BadgeComp = (props) => {
     }
 
     if (userBadges.includes("UWA Quest")) {
-      setMandurahBadge(UWABadgeColour);
+      setUWABadge(UWABadgeColour);
     }
 
     if (userBadges.includes("Badge 3")) {
-      setMandurahBadge(badge3Colour);
+      setBadgeThree(badge3Colour);
     }
 
     if (userBadges.includes("Badge 4")) {
-      setMandurahBadge(badge4Colour);
+      setBadge4(badge4Colour);
     }
 
     if (userBadges.includes("Badge 5")) {
-      setMandurahBadge(badge5Colour);
+      setBadge5(badge5Colour);
     }
   });
 
