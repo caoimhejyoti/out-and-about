@@ -82,6 +82,16 @@ export const UPDATE_USER_QUEST = gql`
     }
   }
 `;
+
+export const UPDATE_USER_QRSTATUS = gql`
+  mutation updateUserQRStatus($userId: ID!, $userStatus: Boolean!) {
+  updateUserQRStatus(id: $userId, QRStatus: $userStatus) {
+    _id
+    QRStatus
+  }
+}
+`;
+
 export const UPDATE_USER_TIER = gql`
   mutation updateUserTier($userId: ID!, $tierId: ID!) {
     updateUserTier(id: $userId, tierId: $tierId) {

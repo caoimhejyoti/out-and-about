@@ -36,6 +36,7 @@ const typeDefs = gql`
     currentQuest: Quest
     currentTier: Tier
     location: Location
+    QRStatus: Boolean!
   }
 
   type Tier {
@@ -62,6 +63,7 @@ const typeDefs = gql`
     image: String!
     link: String!
     quest: Quest!
+    qrpass: String
   }
 
   type Auth {
@@ -75,6 +77,7 @@ const typeDefs = gql`
     quest(tierName: String!): Quest
     user(username: String!): User
     getBadges: [Badge]
+    checkQR(qrpass: String!): QRCode
   }
 
   type Mutation {
@@ -101,6 +104,7 @@ const typeDefs = gql`
     updateUserQuest(id: ID!, questId: ID!): User
     updateUserTier(id: ID!, tierId: ID!): User
     deleteUserProfile(id: ID!): User
+    updateUserQRStatus(id: ID!, QRStatus: Boolean!): User
   }
 `;
 

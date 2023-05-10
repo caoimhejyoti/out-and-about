@@ -128,7 +128,7 @@ const Dashboard = () => {
 
           {/* if 'editing' is false, calls 'handleEditClick' that sets the'editing' state to true again. */}
           {answerComplete ? ( // determines whether the user is editing their profile or not.
-            <Map /> // if answercomplete is true, the map will be rendered
+            <Map className="mr-5"/> // if answercomplete is true, the map will be rendered
           ) : (
             <Riddle onSave={handleCorrect} renderMap={setAnswerComplete} /> // if answercomplete is false, the riddle will be rendered
           )}

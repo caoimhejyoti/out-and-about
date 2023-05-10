@@ -62,6 +62,10 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "Quest",
   },
+  QRStatus: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 // Defining a pre-hook that will hash the password before saving the user 

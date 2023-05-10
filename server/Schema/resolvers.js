@@ -9,6 +9,10 @@ const resolvers = {
       return User.find();
     },
 
+    checkQR: async () => {
+      console.log("Checking");
+    },
+
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
@@ -40,7 +44,8 @@ const resolvers = {
               // { path: "tierName" },
             ],
           })
-          .populate("collectedBadges");
+          .populate("collectedBadges")
+          .populate("QRStatus");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -145,6 +150,15 @@ const resolvers = {
         { $addToSet: { collectedBadges: { _id: badgeId } } },
         { new: true, runValidators: true }
       );
+    },
+    updateUserQRStatus: async (parent, { id, QRStatus }) => {
+      console.log("Inside updateQRPass");
+      let newStatus = {QRStatus: true}
+      if (QRStatus === true) {
+        console.log("Inside updateQR IF");
+        newStatus = {QRStatus: false}
+      }
+      return User.findByIdAndUpdate({_id: id}, newStatus, {new: true});
     },
     updateStatus: async (parent, { id, questStatus, riddleStatus }) => {
       console.log("Inside updateStatus");

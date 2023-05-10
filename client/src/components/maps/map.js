@@ -13,8 +13,6 @@ export default function Map() {
 
     const tier = data.me.currentQuest.tierName;
 
-    console.log(tier);
-
     if(tier === 'Pedestrian') {
         return MandurahMap();
     }
