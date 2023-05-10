@@ -12,7 +12,7 @@ import {
   Grid,
 } from "@mui/material";
 
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams, useNavigate } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import EditProfileForm from "../components/Profile/EditProfileForm.js";
 import ViewProfileForm from "../components/Profile/ViewProfileForm.js";
@@ -27,6 +27,8 @@ import {
 import Auth from "../utils/auth";
 
 const Profile = () => {
+  const navigate = useNavigate();
+
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -49,9 +51,9 @@ const Profile = () => {
 
   const handleDelClick = async () => {
     const { data } = await deleteUserProfile({
-      variables: { Id: user._id },
-    });
-    window.location.href = "/signup";
+      variables: {Id: user._id},
+    })
+    navigate("/signup");
   };
 
   const handleCancelClick = () => {
