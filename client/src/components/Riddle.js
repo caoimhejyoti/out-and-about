@@ -5,6 +5,9 @@ import {
   FormControlLabel,
   FormControl,
   FormLabel,
+  Typography,
+  styled,
+  Paper,
 } from "@mui/material";
 import FormHelperText from "@mui/material/FormHelperText";
 import Button from "@mui/material/Button";
@@ -52,38 +55,55 @@ const Riddle = ({ onSave, renderMap }) => {
   if (loading) {
     return <div>Loading...</div>;
   }
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  }));
+
   return (
-    <form onSubmit={handleSubmit}>
-      <FormControl sx={{ m: 3 }} error={error} variant="standard">
-        <FormLabel id="demo-error-radios">{riddle.question}</FormLabel>
-        <RadioGroup
-          aria-labelledby="demo-error-radios"
-          name="quiz"
-          value={value}
-          onChange={handleRadioChange}
-        >
-          <FormControlLabel
-            value={option1}
-            control={<Radio />}
-            label={option1}
-          />
-          <FormControlLabel
-            value={option2}
-            control={<Radio />}
-            label={option2}
-          />
-          <FormControlLabel
-            value={option3}
-            control={<Radio />}
-            label={option3}
-          />
-        </RadioGroup>
-        <FormHelperText>{helperText}</FormHelperText>
-        <Button sx={{ mt: 1, mr: 1 }} type="submit" variant="outlined">
-          Check Answer
-        </Button>
-      </FormControl>
-    </form>
+    <div>
+      <Item>
+        <Typography gutterBottom variant="h5">
+          My Riddle
+        </Typography>
+        <hr />
+        <form onSubmit={handleSubmit}>
+          <FormControl sx={{ m: 3 }} error={error} variant="standard">
+            <FormLabel id="demo-error-radios">{riddle.question}</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-error-radios"
+              name="quiz"
+              value={value}
+              onChange={handleRadioChange}
+            >
+              <FormControlLabel
+                value={option1}
+                control={<Radio />}
+                label={option1}
+              />
+              <FormControlLabel
+                value={option2}
+                control={<Radio />}
+                label={option2}
+              />
+              <FormControlLabel
+                value={option3}
+                control={<Radio />}
+                label={option3}
+              />
+            </RadioGroup>
+            <FormHelperText>{helperText}</FormHelperText>
+            <Button sx={{ mt: 1, mr: 1 }} type="submit" variant="outlined">
+              Check Answer
+            </Button>
+          </FormControl>
+        </form>
+      </Item>
+    </div>
   );
 };
 
