@@ -124,9 +124,9 @@ const Profile = () => {
                         {/* TODO: update date based on user logged in */}
                       </Typography>
                       <Typography variant="overline" color="text.secondary">
-                        {user.currentQuest.tierName
-                          ? `${user.currentQuest.tierName}`
-                          : "Tier does not exist"}
+                        {user.currentQuest && user.currentQuest.tierName
+                        ? `${user.currentQuest.tierName}`
+                        : "Tier does not exist"}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
