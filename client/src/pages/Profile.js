@@ -19,7 +19,10 @@ import ViewProfileForm from "../components/Profile/ViewProfileForm.js";
 import bgAbstract from "../assets/cards/bg_abstract.jpeg";
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
-import { UPDATE_USER_PROFILE, DELETE_USER_PROFILE } from "../utils/mutations.js";
+import {
+  UPDATE_USER_PROFILE,
+  DELETE_USER_PROFILE,
+} from "../utils/mutations.js";
 
 import Auth from "../utils/auth";
 
@@ -37,7 +40,6 @@ const Profile = () => {
 
   // console.log(user);
 
-
   const [updateUserProfile, { error }] = useMutation(UPDATE_USER_PROFILE);
   const [deleteUserProfile, { delError }] = useMutation(DELETE_USER_PROFILE);
 
@@ -47,9 +49,9 @@ const Profile = () => {
 
   const handleDelClick = async () => {
     const { data } = await deleteUserProfile({
-      variables: {Id: user._id},
-    })
-    window.location.href ='/signup';
+      variables: { Id: user._id },
+    });
+    window.location.href = "/signup";
   };
 
   const handleCancelClick = () => {
@@ -96,9 +98,10 @@ const Profile = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "Left",
-        alignItems: "Left",
+        justifyContent: "Center",
+        alignItems: "Center",
         color: "white",
+        marginTop: "10px",
       }}
     >
       <div>
@@ -120,13 +123,13 @@ const Profile = () => {
                         {`${user.username}`}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Member since May 1, 2023
+                        Member since May 11, 2023
                         {/* TODO: update date based on user logged in */}
                       </Typography>
                       <Typography variant="overline" color="text.secondary">
                         {user.currentQuest && user.currentQuest.tierName
-                        ? `${user.currentQuest.tierName}`
-                        : "Tier does not exist"}
+                          ? `${user.currentQuest.tierName}`
+                          : "Tier does not exist"}
                       </Typography>
                     </CardContent>
                   </CardActionArea>
