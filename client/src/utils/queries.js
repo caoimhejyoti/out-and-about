@@ -64,6 +64,7 @@ export const QUERY_ME = gql`
         _id
         name
         tierName
+        questPass
         location {
           _id
           city

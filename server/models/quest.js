@@ -55,6 +55,10 @@ const questSchema = new Schema({
     required: true,
     default: false,
   },
+  questPass: {
+    type: String,
+    required: true,
+  }
 });
 
 const Quest = mongoose.model("Quest", questSchema);

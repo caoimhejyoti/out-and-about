@@ -21,6 +21,7 @@ const typeDefs = gql`
     badge: Badge!
     riddle: Riddle!
     status: Boolean!
+    questPass: String
   }
 
   type User {
@@ -63,7 +64,6 @@ const typeDefs = gql`
     image: String!
     link: String!
     quest: Quest!
-    qrpass: String
   }
 
   type Auth {
@@ -77,7 +77,7 @@ const typeDefs = gql`
     quest(tierName: String!): Quest
     user(username: String!): User
     getBadges: [Badge]
-    checkQR(qrpass: String!): QRCode
+    checkQR(qrpass: String!): Quest
   }
 
   type Mutation {

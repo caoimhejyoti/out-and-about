@@ -8,7 +8,8 @@
     "location": "C013C340C2C120397AD05190",
     "badge": "B45367A314CC1EA4BA194E54",
     "riddle": "4541F9C3AB68BEBC31812530",
-    "qrCode": "AD588030892B290B6495688B"
+    "qrCode": "AD588030892B290B6495688B",
+    "questPass": "password1"
   },
   {
     "_id": "EFE0C59EFA61B1C366BB9515",
@@ -19,7 +20,8 @@
     "location": "0B204DA46DE5E3B56D25FC20",
     "badge": "1E3820741D4F8D93F31CB679",
     "riddle": "4541F9C3AB68BEBC31812530",
-    "qrCode": "AD588030892B290B6495688B"
+    "qrCode": "AD588030892B290B6495688B",
+    "questPass": "password2"
   },
   {
     "_id": "53D8B93AAFE44A0C786D3676",
@@ -29,6 +31,7 @@
     "tierName": "Complete",
     "location": "0B204DA46DE5E3B56D25FC20",
     "badge": "9A5363ECBB3DF6261729E860",
-    "riddle": "9DED99CE588C1DC63250B5BD"
+    "riddle": "9DED99CE588C1DC63250B5BD",
+    "questPass": "password3"
   }
 ]
