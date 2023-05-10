@@ -1,12 +1,18 @@
 import React, { useRef, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import mapboxgl from "mapbox-gl";
 import geoJSON from "./map-data/uwa-grad.json";
+import mapboxgl from "mapbox-gl";
 import geoJSONroutes from "./map-data/uwa-grad-routes.json";
 import Tooltip from "@mui/material/Tooltip";
 import { Typography, styled, Paper } from "@mui/material";
 
-import "./../../style/map.css";
+// import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp';
+
+// import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker'; // Load worker code separately with worker-loader
+
+// mapboxgl.workerClass = MapboxWorker; // Wire up loaded worker to be used instead of the default
+
+// import "./../../style/map.css";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoiY2FvaW1oZWp5b3RpIiwiYSI6ImNsaDM1OTdoNzFqdHczY3BudXd0d3M4enMifQ.862ifcHz_-veRJKGrWjwQw";
