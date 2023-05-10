@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
 import {
   UPDATE_USER_BADGE,
   UPDATE_STATUS,
