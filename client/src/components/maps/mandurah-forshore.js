@@ -7,6 +7,14 @@ import Tooltip from "@mui/material/Tooltip";
 
 import "./../../style/map.css";
 
+// import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp';
+
+// import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker'; // Load worker code separately with worker-loader
+
+// mapboxgl.workerClass = MapboxWorker; // Wire up loaded worker to be used instead of the default
+
+// import "./../../style/map.css";
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoiY2FvaW1oZWp5b3RpIiwiYSI6ImNsaDM1OTdoNzFqdHczY3BudXd0d3M4enMifQ.862ifcHz_-veRJKGrWjwQw";
 
