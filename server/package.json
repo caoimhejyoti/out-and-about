@@ -32,6 +32,10 @@
         "not safari < 10",
         "not chrome < 51",
         "not android < 5",
+        "not ie < 12",
+        "not safari < 10",
+        "not chrome < 51",
+        "not android < 5",
         "not ie < 12"
       ],
       "development": [
