@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 import {
   UPDATE_USER_BADGE,
   UPDATE_STATUS,
   UPDATE_USER_QUEST,
   UPDATE_USER_TIER,
-  UPDATE_USER_QRSTATUS
+  UPDATE_USER_QRSTATUS,
 } from "./../utils/mutations";
 import { ThemeProvider } from "@mui/material/styles";
 import { useMutation } from "@apollo/client";
@@ -26,7 +26,7 @@ export default function QRCodeButtons(props) {
   const [updateStatus, { er }] = useMutation(UPDATE_STATUS);
   const [updateUserQuest, { e }] = useMutation(UPDATE_USER_QUEST);
   const [updateUserTier, { x }] = useMutation(UPDATE_USER_TIER);
-  const [updateQRPass, err] = useMutation(UPDATE_USER_QRSTATUS); 
+  const [updateQRPass, err] = useMutation(UPDATE_USER_QRSTATUS);
 
   useEffect(() => {
     if (props.data.currentQuest.tierName === "Pedestrian") {
@@ -77,8 +77,7 @@ export default function QRCodeButtons(props) {
         },
       });
       const { QRData } = await updateQRPass({
-        variables: { userId: props.data._id,
-        userStatus: props.data.QRStatus },
+        variables: { userId: props.data._id, userStatus: props.data.QRStatus },
       });
 
       console.log("successful");

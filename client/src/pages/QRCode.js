@@ -19,6 +19,7 @@ const btn = {
   message: `Click here to mark this quest as complete!`,
 };
 
+
 function displayBadge(user) {
   const badgeImage = user.currentQuest.badge.colour_image;
   const badgeDescription = user.currentQuest.badge.description;

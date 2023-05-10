@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import Auth from "../../utils/auth";
 
@@ -15,10 +16,12 @@ const navStyle = {
 };
 
 const Header = () => {
+  const navigate = useNavigate();
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
-    window.location.href = "/login";
+    navigate("/login");
   };
   return (
     <header>
