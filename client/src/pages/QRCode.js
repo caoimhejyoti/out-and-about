@@ -169,7 +169,7 @@ const QRCode = () => {
             well deserved coffee!
           </Typography>
           <Container className="map-container" style={mapTestStyle}>
-            <Map />
+            <Map data={user} />
           </Container>
           <Container className="justify-center text-center">
             <Button
