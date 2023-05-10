@@ -15,13 +15,15 @@ import Button from "@mui/material/Button";
 import { useQuery } from "@apollo/client";
 import { QUERY_QUEST } from "../utils/queries";
 
-const Riddle = ({ onSave, renderMap }) => {
+const Riddle = ({ user, onSave, renderMap }) => {
   const [value, setValue] = React.useState("");
   const [error, setError] = React.useState(false);
   const [helperText, setHelperText] = React.useState("Choose wisely");
 
+  const tierInfo = user.currentQuest.tierName || [];
+
   const { loading, data } = useQuery(QUERY_QUEST, {
-    variables: { tierName: "Pedestrian" },
+    variables: { tierName: tierInfo },
   });
 
   const riddle = data?.quest.riddle || [];
