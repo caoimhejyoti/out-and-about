@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 import {
   UPDATE_USER_BADGE,
   UPDATE_STATUS,
@@ -13,6 +14,7 @@ import { useMutation } from "@apollo/client";
 import inputTheme from "../style/theme";
 
 export default function QRCodeButtons(props) {
+  const navigate = useNavigate();
   const [userId, setUserId] = useState(props.data._id);
   const [badgeId, setBadgeId] = useState(props.data.currentQuest.badge._id);
   const [riddle, setRiddle] = useState(false);
@@ -80,7 +82,7 @@ export default function QRCodeButtons(props) {
       });
 
       console.log("successful");
-      window.location.href = "/dashboard";
+      navigate("/dashboard");
     } catch (err) {
       console.error(err);
     }
