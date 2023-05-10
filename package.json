@@ -18,7 +18,7 @@
     "concurrently": "^5.1.0"
   },
   "scripts": {
-    "start": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "start": "npm run build && cd ../server && node server.js",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
     "build": "cd client && npm run build"
