@@ -4,7 +4,7 @@
     "description": "It is time to go on a Quest, it is time to get out and about!",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js",
+      "start": "npm run watch",
       "watch": "nodemon",
       "seed": "node seeders/seed.js"
     },
