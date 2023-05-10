@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // Import the `useQuery()` hook from Apollo Client
 import { useQuery } from "@apollo/client";
-import { styled, Grid, Paper } from "@mui/material";
+import { styled, Paper, Box } from "@mui/material";
 
 // Import the query we are going to execute from its file
 import { GET_BADGES } from "../utils/queries";
@@ -21,11 +21,8 @@ import badge4Colour from "./../assets/badges/route4_badge_colour.png";
 import badge5Colour from "./../assets/badges/route5_badge_colour.png";
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
-  color: theme.palette.text.secondary,
 }));
 
 const BadgeComp = (props) => {
@@ -75,51 +72,32 @@ const BadgeComp = (props) => {
     }
   });
 
-  // badge description use states
-  // const [mandurahBadgeDescription, setMandurahBadgeDescription] = useState(
-  //   data.description
-  // );
-  // const [UWABadgeDescription, setUWABadgeDescription] = useState(
-  //   data.description
-  // );
-  // const [badgeThreeDescription, setBadgeThreeDescription] = useState(badge3Grey);
-  // const [badge4Description, setBadge4Description] = useState(badge4Grey);
-  // const [badge5Description, setBadge5Description] = useState(badge5Grey);
-
-  // console.log("props:");
-  // console.log(props);
-  // console.log("collectedBadges:");
-  // console.log(props.collectedBadges);
-  // console.log("data:");
-  // console.log(data);
-
   return (
     <div>
       {loading ? (
         <div>Loading...</div>
       ) : (
-        <Grid
-          style={{
+        <Box
+          sx={{
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-around",
+            flexWrap: "wrap",
+            alignContent: "flex-start",
+            justifyContent: "space-between",
+            p: 1,
+            m: 1,
+            maxWidth: 380,
+            maxHeight: 500,
           }}
         >
           <Item>
             <img
               className="badge uwa"
               src={mandurahBadge}
-              alt=""
-              // alt={mandurahBadgeDescription}
+              alt="Mandurah Badge"
             />
           </Item>
           <Item>
-            <img
-              className="badge uwa"
-              src={UWABadge}
-              alt=""
-              // alt={UWABadgeDescription}
-            />
+            <img className="badge uwa" src={UWABadge} alt="UWA Badge" />
           </Item>
           <Item>
             <img className="badge badgeThree" src={badgeThree} alt="" />
@@ -130,7 +108,7 @@ const BadgeComp = (props) => {
           <Item>
             <img className="badge badge5" src={badge5} alt="" />
           </Item>
-        </Grid>
+        </Box>
       )}
     </div>
   );

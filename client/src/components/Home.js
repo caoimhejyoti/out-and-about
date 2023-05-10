@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { Button } from "@mui/material";
 import inputTheme from "./../style/theme";
-import { Navigate } from "react-router-dom";
 
 const mainStyle = {
   width: "100vw",

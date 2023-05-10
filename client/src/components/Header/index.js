@@ -24,8 +24,16 @@ const Header = () => {
     navigate("/login");
   };
   return (
-    <header className="mb-4 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+    <header>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "Center",
+          marginInline: "10%",
+        }}
+      >
         <div>
           {Auth.loggedIn() ? (
             <>
