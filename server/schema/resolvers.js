@@ -41,6 +41,9 @@ const resolvers = {
               {
                 path: "riddle",
               },
+              {
+                path: "questPass",
+              },
               // { path: "tierName" },
             ],
           })

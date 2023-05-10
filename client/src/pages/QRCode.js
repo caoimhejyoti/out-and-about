@@ -95,9 +95,10 @@ function whichMap(user) {
 const QRCode = () => {
   // find user current tier
   const [formState, setFormState] = useState({ qrpass: ""});
+  const [error, setError] = useState(false);
 
   const { username: userParam } = useParams();
-  const [updateQRPass, error] = useMutation(UPDATE_USER_QRSTATUS);
+  const [updateQRPass, err] = useMutation(UPDATE_USER_QRSTATUS);
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
@@ -105,8 +106,7 @@ const QRCode = () => {
 
   const user = data?.me;
   const QRCodeScanned = data?.me.QRStatus || false;
-
-  console.log(user);
+  const currentPassword = data?.me.currentQuest.questPass;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -117,15 +117,24 @@ const QRCode = () => {
     });
   };
 
+  const errorMessage = "Invalid Password, Please Try Again!";
+ 
+ 
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     console.log(formState.qrpass);
-  
+    if (formState.qrpass === currentPassword) {
       const { data } = await updateQRPass({
         variables: { userId: user._id,
         userStatus: QRCodeScanned },
       });
+      setError(false);
+    } else {
+      setError(true);
+    } 
+    setFormState({qrpass: ""});
   };
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -187,6 +196,13 @@ const QRCode = () => {
                   Submit
                 </button>
               </form>
+              {error === true ? (
+                <> 
+              <div className="my-3 p-3 bg-danger text-white">
+                {errorMessage}
+              </div>
+            </>
+                ) : (null)}
             </>
           )}
         </Grid>
