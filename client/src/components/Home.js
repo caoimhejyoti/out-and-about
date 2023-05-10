@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import { Button } from "@mui/material";
 import inputTheme from "./../style/theme";
@@ -16,12 +17,13 @@ const btnStyles = {
   height: "7vh",
 };
 
-const btnHandle = () => {
-  console.log("hello landing page button");
-  window.location.href = "/signup";
-};
-
 const Home = () => {
+  const navigate = useNavigate();
+
+  const btnHandle = () => {
+    console.log("hello landing page button");
+    navigate("/signup");
+  };
   return (
     <main style={mainStyle}>
       <ThemeProvider theme={inputTheme}>

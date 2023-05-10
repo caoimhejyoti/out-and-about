@@ -33,40 +33,6 @@ const btn = {
 };
 
 
-// const btnClick = (user) => async (e) => {
-//   e.preventDefault();
-
-//   console.log("Hello - you pressed the button");
-//   // get badge name and id
-//   const badgeName = user.currentQuest.badge.name;
-//   const badgeId = user.currentQuest.badge._id;
-
-//   // get username and id
-//   const username = user.username;
-//   const userId = user._id;
-
-//   console.log(`badge name: ` + badgeName);
-//   console.log(`badge id: ` + badgeId);
-//   console.log(`username: ` + username);
-//   console.log(`user id: ` + userId);
-//   // add badge to user
-
-//   const [updateUserBadge, { error }] = useMutation(UPDATE_USER_BADGE);
-
-//   try {
-//     const { data } = updateUserBadge({
-//       variables: {
-//         userId,
-//         badgeId,
-//       },
-//     });
-
-//     console.log("successful");
-//     window.location.href = "/dashboard";
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
 
 function displayBadge(user) {
   const badgeImage = user.currentQuest.badge.colour_image;
