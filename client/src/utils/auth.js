@@ -30,14 +30,13 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem("id_token", idToken);
-    window.locate.assign("/");
+    window.location.assign("/");
     // redirect("/dashboard");
   }
 
   logout() {
     localStorage.removeItem("id_token");
-    redirect("/signup");
-    window.location.reload();
+    window.location.assign("/");
   }
 }
 
