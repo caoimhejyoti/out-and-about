@@ -7,6 +7,7 @@ import { useQuery } from "@apollo/client";
 import { Navigate, useParams } from "react-router-dom";
 import MandurahMap from "./../components/maps/mandurah-forshore";
 import UwaMap from "./../components/maps/uwa-grad";
+import Map from "./../components/maps/map";
 import Auth from "../utils/auth";
 import "./../style/badge.css";
 
@@ -132,7 +133,7 @@ const QRCode = () => {
           </Typography>
           {/* <Container style={testStyle}>Test text</Container> */}
           <Container className="map-container" style={mapTestStyle}>
-            {whichMap(user)}
+            <Map />
           </Container>
           <Container className="justify-center">
             <Button

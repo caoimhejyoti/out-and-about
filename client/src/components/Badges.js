@@ -42,16 +42,16 @@ const BadgeComp = (props) => {
   const [userBadges, setUserBadges] = useState([]);
 
   const badgeList = props?.data.collectedBadges || [];
-  console.log(badgeList);
 
   useEffect(() => {
     if (userBadges.length !== badgeList.length) {
-      badgeList.map((el) => {
-        console.log(el.name);
-        return setUserBadges([...userBadges, el.name]);
+      const newBadgeList = badgeList.map((el) => {
+        const newBadge = el.name;
+        return newBadge;
       });
+      setUserBadges(newBadgeList);
     }
-  }, [userBadges]);
+  }, []);
 
   useEffect(() => {
     if (userBadges.includes("Mandurah Quest")) {
