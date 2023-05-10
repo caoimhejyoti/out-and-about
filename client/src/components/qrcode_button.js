@@ -5,6 +5,7 @@ import {
   UPDATE_STATUS,
   UPDATE_USER_QUEST,
   UPDATE_USER_TIER,
+  UPDATE_USER_QRSTATUS
 } from "./../utils/mutations";
 import { ThemeProvider } from "@mui/material/styles";
 import { useMutation } from "@apollo/client";
@@ -12,13 +13,18 @@ import { useMutation } from "@apollo/client";
 import inputTheme from "../style/theme";
 
 export default function QRCodeButtons(props) {
-  console.log(props); //used for debugging
   const [userId, setUserId] = useState(props.data._id);
   const [badgeId, setBadgeId] = useState(props.data.currentQuest.badge._id);
   const [riddle, setRiddle] = useState(false);
   const [quest, setQuest] = useState(true);
   const [questId, setQuestId] = useState();
   const [tierId, setTierId] = useState();
+
+  const [updateUserBadge, { error }] = useMutation(UPDATE_USER_BADGE);
+  const [updateStatus, { er }] = useMutation(UPDATE_STATUS);
+  const [updateUserQuest, { e }] = useMutation(UPDATE_USER_QUEST);
+  const [updateUserTier, { x }] = useMutation(UPDATE_USER_TIER);
+  const [updateQRPass, err] = useMutation(UPDATE_USER_QRSTATUS); 
 
   useEffect(() => {
     if (props.data.currentQuest.tierName === "Pedestrian") {
@@ -35,13 +41,6 @@ export default function QRCodeButtons(props) {
       setTierId("E39F5CFA950068B644C1ED2A");
     }
   }, [props]);
-
-  console.log(questId);
-
-  const [updateUserBadge, { error }] = useMutation(UPDATE_USER_BADGE);
-  const [updateStatus, { er }] = useMutation(UPDATE_STATUS);
-  const [updateUserQuest, { e }] = useMutation(UPDATE_USER_QUEST);
-  const [updateUserTier, { x }] = useMutation(UPDATE_USER_TIER);
 
   const btnClick = async (e) => {
     e.preventDefault();
@@ -74,6 +73,10 @@ export default function QRCodeButtons(props) {
           userId,
           tierId,
         },
+      });
+      const { QRData } = await updateQRPass({
+        variables: { userId: props.data._id,
+        userStatus: props.data.QRStatus },
       });
 
       console.log("successful");

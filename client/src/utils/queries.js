@@ -16,6 +16,14 @@ export const QUERY_USER = gql`
   }
 `;
 
+export const CHECK_QR = gql`
+query checkQR($qrpass: String!) {
+  checkQR(qrpass: $qrpass) {
+    qrpass
+  }
+}
+`;
+
 export const QUERY_QUEST = gql`
   query quest($tierName: String!) {
     quest(tierName: $tierName) {
@@ -43,6 +51,7 @@ export const QUERY_ME = gql`
       username
       questStatus
       riddleStatus
+      QRStatus
       collectedBadges {
         _id
         name

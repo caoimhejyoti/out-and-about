@@ -29,8 +29,8 @@ const Marker = ({ onClick, children, feature }) => {
 export default function MandurahMap() {
   const mapContainer = useRef(null);
   const [lng, setLng] = useState(115.7187);
-  const [lat, setLat] = useState(-32.533499);
-  const [zoom, setZoom] = useState(13);
+  const [lat, setLat] = useState(-32.527399);
+  const [zoom, setZoom] = useState(14);
   // const [projection, setProjection] = useState("globe");
 
   const waypoints = geoJSONroutes.features[0].geometry.coordinates;

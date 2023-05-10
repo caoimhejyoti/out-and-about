@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Grid, Container, ThemeProvider } from "@mui/material";
 import Button from "./../components/qrcode_button";
 import inputTheme from "../style/theme";
-import { QUERY_ME, QUERY_USER } from "../utils/queries";
-import { useQuery } from "@apollo/client";
+import { QUERY_ME, QUERY_USER, CHECK_QR } from "../utils/queries";
+import { UPDATE_USER_QRSTATUS } from "../utils/mutations";
+import { useQuery, useMutation } from "@apollo/client";
 import { Navigate, useParams } from "react-router-dom";
 import MandurahMap from "./../components/maps/mandurah-forshore";
 import UwaMap from "./../components/maps/uwa-grad";
@@ -23,13 +24,14 @@ const containerStyle = {
 };
 
 const mapTestStyle = {
-  height: "400px",
-  margin: "1rem",
+  height: "430px",
+  padding: '20px',
 };
 
 const btn = {
   message: `Click here to mark this quest as complete!`,
 };
+
 
 // const btnClick = (user) => async (e) => {
 //   e.preventDefault();
@@ -92,14 +94,39 @@ function whichMap(user) {
 
 const QRCode = () => {
   // find user current tier
+  const [formState, setFormState] = useState({ qrpass: ""});
+
   const { username: userParam } = useParams();
+  const [updateQRPass, error] = useMutation(UPDATE_USER_QRSTATUS);
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
   const user = data?.me;
-  console.log(user); //used for debugging
+  const QRCodeScanned = data?.me.QRStatus || false;
+
+  console.log(user);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    console.log(formState.qrpass);
+  
+      const { data } = await updateQRPass({
+        variables: { userId: user._id,
+        userStatus: QRCodeScanned },
+      });
+  };
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/qrcode" />;
@@ -115,14 +142,15 @@ const QRCode = () => {
   return (
     <Container style={containerStyle}>
       <ThemeProvider theme={inputTheme}>
-        <Grid className="col-12 col-md-8 flex-column justify-center">
-          <h1 style={testStyle}>QRCode testing</h1>
-        </Grid>
+      {/* {qrCodeScanned ? (
+        <h1> this is a test</h1>
+      ) : ( */}
         <Grid style={containerStyle}>
           <Container className="badge-container">
             {displayBadge(user)}
           </Container>
-          <Typography style={testStyle}>
+          {QRCodeScanned ? (
+          <><Typography style={testStyle}>
             Congratulations you have achieved the {user.currentQuest.badge.name}{" "}
             Badge.
             <br />
@@ -131,18 +159,38 @@ const QRCode = () => {
             Finish your quest by making it to the end and celebrating with a
             well deserved coffee!
           </Typography>
-          {/* <Container style={testStyle}>Test text</Container> */}
           <Container className="map-container" style={mapTestStyle}>
             <Map />
           </Container>
-          <Container className="justify-center">
+          <Container className="justify-center text-center">
             <Button
               data={user}
               message={btn.message}
-              // btnClick={btnClick}
             ></Button>
-          </Container>
+          </Container></>
+          ) : (
+            <><h2>Find a QR Code to get the Password!</h2>
+              <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="Secret Password"
+                  name="qrpass"
+                  type="text"
+                  value={formState.qrpass}
+                  onChange={handleChange}
+                />
+                                <button
+                  className="btn btn-block btn-primary"
+                  style={{ cursor: "pointer" }}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </form>
+            </>
+          )}
         </Grid>
+
       </ThemeProvider>
     </Container>
   );
