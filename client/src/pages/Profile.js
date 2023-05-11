@@ -36,11 +36,12 @@ const Profile = () => {
   });
 
   // user is a initial value of 'data?.me', and setUser updates that value.
-  const [user, setUser] = useState(data && data.me ? data.me : null); // if data.me from the user is true return data.me, and it's false return null, and it cheks the existence of the state variable.
+  const [userA, setUser] = useState(data && data.me ? data.me : null); // if data.me from the user is true return data.me, and it's false return null, and it cheks the existence of the state variable.
   const [editing, setEditing] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
   // console.log(user);
+  const user = data?.me;
 
   const [updateUserProfile, { error }] = useMutation(UPDATE_USER_PROFILE);
   const [deleteUserProfile, { delError }] = useMutation(DELETE_USER_PROFILE);
@@ -75,6 +76,10 @@ const Profile = () => {
     }
   }; // Reset the editing state
 
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
+
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
   }
@@ -83,9 +88,13 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  if (!user?.username) {
-    return <Navigate to="/login" />;
-  }
+  // if (!user?.username) {
+  //   return <Navigate to="/login" />;
+  // }
+  console.log(data);
+  const newUser = data?.me;
+  console.log(newUser);
+
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -94,6 +103,10 @@ const Profile = () => {
     textAlign: "center",
     color: theme.palette.text.secondary,
   }));
+
+  if (!user) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <div
