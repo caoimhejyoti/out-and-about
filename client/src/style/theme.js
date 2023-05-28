@@ -26,6 +26,10 @@ const inputTheme = createTheme({
         textAlign: "left",
       },
     },
+    body1: {
+      fontWeight: 500,
+      color: "white",
+    },
     subtitle1: {
       fontSize: "1rem",
       color: "white",
