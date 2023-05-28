@@ -59,8 +59,6 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/me" element={<Profile />} />
-              {/* <Route path="/profiles/:username" element={<Profile />} /> */}
-              {/* <Route path="/me/friends" element={<Friend />} /> */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/qrcode" element={<QRCode />} />
