@@ -1,8 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { Box, Grid, Typography } from "@mui/material";
-import inputTheme from "./../style/theme";
-import Signup from "../pages/Signup";
+import inputTheme from "../style/theme";
+import Signup from "./Signup";
 
 const mainStyle = {
   width: "100vw",
