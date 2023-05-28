@@ -2,6 +2,7 @@ import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { Container, Box, Grid, Typography } from "@mui/material";
 import inputTheme from "../style/theme";
+import Steph from "./../assets/team/Steph.png";
 
 const mainStyle = {
   width: "100vw",
@@ -42,6 +43,26 @@ const About = () => {
                 purus. Nulla bibendum efficitur dui, eget varius nisi posuere
                 at.
               </Typography>
+            </Grid>
+          </Box>
+          <Box sx={{ width: "100%" }}>
+            <Grid
+              container
+              rowSpacing={1}
+              columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            >
+              <Grid xs={3}>
+                <img src={Steph} width={250} height={250} alt="User profile" />
+              </Grid>
+              <Grid xs={3}>
+                <img src={Steph} width={250} height={250} alt="User profile" />
+              </Grid>
+              <Grid xs={3}>
+                <img src={Steph} width={250} height={250} alt="User profile" />
+              </Grid>
+              <Grid xs={3}>
+                <img src={Steph} width={250} height={250} alt="User profile" />
+              </Grid>
             </Grid>
           </Box>
         </Container>
