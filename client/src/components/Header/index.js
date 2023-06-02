@@ -62,6 +62,9 @@ const Header = () => {
               <Link to="/qrcode" style={navStyle}>
                 QRCode
               </Link>
+              <Link to="/about" style={navStyle}>
+                About
+              </Link>
               <button style={buttonStyle} onClick={logout}>
                 Logout
               </button>
