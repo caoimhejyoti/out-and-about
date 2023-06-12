@@ -1,7 +1,8 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Quest, Badge, Tier, Location } = require('../models/index');
+const { User, Quest, Badge, Tier, Location } = require("../models/index");
 const { signToken } = require("../utils/auth");
 const bcrypt = require("bcrypt");
+// const Avatar = require("./../../client/src/assets/avatar_icon.png");
 
 const resolvers = {
   Query: {
@@ -67,6 +68,7 @@ const resolvers = {
         username,
         email,
         password,
+        // image,
         questStatus,
         riddleStatus,
         location,
@@ -76,12 +78,14 @@ const resolvers = {
       const questObject = await Quest.findOne({ tierName: "Pedestrian" });
       const locationObject = await Location.findOne({ city: location });
       const hashedPassword = await bcrypt.hash(password, 10);
+      // const baseImage = Avatar;
       const user = await User.create({
         firstName,
         lastName,
         username,
         email,
         password: hashedPassword,
+        // image: baseImage,
         currentQuest: questObject,
         questStatus,
         riddleStatus,
@@ -139,11 +143,30 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
+    // updateUserImage: async (parent, {id, image }, context) => {
+    //   if (context.user) {
+    //     // Checking if the user is logged in
+    //     const updatedUserFields = {
+    //       image: image || context.user.image,
+    //     };
+
+    //     const updatedUser = await User.findByIdAndUpdate(
+    //       context.user._id, // Finding the user by their ID
+    //       updatedUserFields, // Updating the user's fields with the new values
+    //       { new: true } // Returning the updated document rather than the original one
+    //     );
+    //     return updatedUser;
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
+
     deleteUserProfile: async (parent, { id, args }, context) => {
       console.log(id);
       const delUser = await User.findByIdAndDelete({ _id: id }, { new: true });
       return delUser;
     },
+
     updateUserBadge: async (parent, { id, badgeId }) => {
       console.log("Inside updateUserBadge");
       console.log(id);
@@ -156,12 +179,12 @@ const resolvers = {
     },
     updateUserQRStatus: async (parent, { id, QRStatus }) => {
       console.log("Inside updateQRPass");
-      let newStatus = {QRStatus: true}
+      let newStatus = { QRStatus: true };
       if (QRStatus === true) {
         console.log("Inside updateQR IF");
-        newStatus = {QRStatus: false}
+        newStatus = { QRStatus: false };
       }
-      return User.findByIdAndUpdate({_id: id}, newStatus, {new: true});
+      return User.findByIdAndUpdate({ _id: id }, newStatus, { new: true });
     },
     updateStatus: async (parent, { id, questStatus, riddleStatus }) => {
       console.log("Inside updateStatus");

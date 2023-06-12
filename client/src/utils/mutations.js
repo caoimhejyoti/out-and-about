@@ -19,6 +19,7 @@ export const ADD_USER = gql`
     $username: String!
     $email: String!
     $password: String!
+    # $image: [String]!
     $city: String!
     $questStatus: Boolean!
     $riddleStatus: Boolean!
@@ -29,6 +30,7 @@ export const ADD_USER = gql`
       username: $username
       email: $email
       password: $password
+      # image: $image
       location: $city
       questStatus: $questStatus
       riddleStatus: $riddleStatus
@@ -41,6 +43,7 @@ export const ADD_USER = gql`
         lastName
         email
         password
+        # image
         questStatus
         riddleStatus
         location {
@@ -124,6 +127,19 @@ export const UPDATE_USER_PROFILE = gql`
       username
       email
       password
+    }
+  }
+`;
+
+export const UPDATE_USER_IMAGE = gql`
+  mutation updateUserImage( #Variabels passed in as arguments to the updateUserImage function
+    $image: [String]!
+  ) {
+    updateUserImage( #Properties corresponding to the filds in the returned data.
+      image: $image
+    ) {
+      _id #Fields that being returned after function is executed
+      image
     }
   }
 `;
