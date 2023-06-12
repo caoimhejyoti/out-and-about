@@ -38,6 +38,7 @@ const typeDefs = gql`
     currentTier: Tier
     location: Location
     QRStatus: Boolean!
+    image: [String]!
   }
 
   type Tier {
@@ -88,6 +89,7 @@ const typeDefs = gql`
       username: String!
       email: String!
       password: String!
+      # image: [String]!
       location: String!
       questStatus: Boolean!
       riddleStatus: Boolean!
@@ -99,6 +101,7 @@ const typeDefs = gql`
       email: String!
       password: String!
     ): User
+    updateUserImage(image: [String]!): User
     updateUserBadge(id: ID!, badgeId: ID!): User
     updateStatus(id: ID!, questStatus: Boolean!, riddleStatus: Boolean!): User
     updateUserQuest(id: ID!, questId: ID!): User
