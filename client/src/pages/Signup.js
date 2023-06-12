@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+// import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+// import { Upload } from "antd";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import "./../index.css";
@@ -14,11 +15,13 @@ const Signup = () => {
     username: "",
     email: "",
     password: "",
+    // image: [],
     city: "Perth",
     questStatus: true,
     riddleStatus: false,
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
+  // const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -31,7 +34,7 @@ const Signup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    // console.log(formState); //used for debugging
 
     try {
       const { data } = await addUser({
@@ -43,6 +46,34 @@ const Signup = () => {
       console.error(e);
     }
   };
+
+  // const imageHandler = (value) => {
+  //   value?.event?.preventDefault();
+
+  //   const imgFile = value.file.originalFileObj;
+
+  //   const reader = new FileReader();
+
+  //   reader.onloadend = () => {
+  //     console.log(reader.result); //used for debugging
+
+  //     let images = [...formState.image];
+  //     images.push(reader.result);
+
+  //     setFormState({
+  //       ...formState,
+  //       image: images,
+  //     });
+  //   };
+  //   reader.readAsDataURL(imgFile);
+  // };
+
+  // const uploadButton = (
+  //   <div>
+  //     {loading ? <LoadingOutlined /> : <PlusOutlined />}
+  //     <div style={{ marginTop: 8 }}>Upload</div>
+  //   </div>
+  // );
 
   return (
     <main className="flex-row justify-center mb-4 signup-container">
@@ -102,6 +133,12 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                {/* <Upload
+                  name="avatar"
+                  listType="picture-circle"
+                  className="avatar-uploader"
+                  onChange={imageHandler}
+                > {uploadButton} </Upload> */}
                 <button
                   className="btn btn-block btn-primary"
                   style={{ cursor: "pointer" }}
