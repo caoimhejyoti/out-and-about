@@ -9,6 +9,7 @@ export const QUERY_USER = gql`
       email
       password
       username
+      image
       currentQuest {
         tierName
       }
@@ -49,6 +50,7 @@ export const QUERY_ME = gql`
       email
       password
       username
+      image
       questStatus
       riddleStatus
       QRStatus
