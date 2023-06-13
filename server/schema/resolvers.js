@@ -2,7 +2,6 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User, Quest, Badge, Tier, Location } = require("../models/index");
 const { signToken } = require("../utils/auth");
 const bcrypt = require("bcrypt");
-// const Avatar = require("./../../client/src/assets/avatar_icon.png");
 
 const resolvers = {
   Query: {
@@ -68,28 +67,27 @@ const resolvers = {
         username,
         email,
         password,
-        // image,
         questStatus,
         riddleStatus,
         location,
+        image,
       }
     ) => {
       // const startingStatus = false;
       const questObject = await Quest.findOne({ tierName: "Pedestrian" });
       const locationObject = await Location.findOne({ city: location });
       const hashedPassword = await bcrypt.hash(password, 10);
-      // const baseImage = Avatar;
       const user = await User.create({
         firstName,
         lastName,
         username,
         email,
         password: hashedPassword,
-        // image: baseImage,
         currentQuest: questObject,
         questStatus,
         riddleStatus,
         location: locationObject,
+        image,
       });
       const token = signToken(user);
       return { token, user };

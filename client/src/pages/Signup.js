@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-// import { Upload } from "antd";
+import { Upload } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import "./../index.css";
@@ -15,7 +16,7 @@ const Signup = () => {
     username: "",
     email: "",
     password: "",
-    // image: [],
+    image: [],
     city: "Perth",
     questStatus: true,
     riddleStatus: false,
@@ -47,26 +48,49 @@ const Signup = () => {
     }
   };
 
-  // const imageHandler = (value) => {
-  //   value?.event?.preventDefault();
+  // Code for furture development - adding avatar when signing up.
+  const dummyRequest = ({ file, onSuccess }) => {
+    onSuccess("ok");
+  };
 
-  //   const imgFile = value.file.originalFileObj;
+  const imageHandler = (value) => {
+    value?.event?.preventDefault();
 
-  //   const reader = new FileReader();
+    const preview = document.querySelector("img");
+    const file = document.querySelector("input[type=file]").file[0];
 
-  //   reader.onloadend = () => {
-  //     console.log(reader.result); //used for debugging
+    const reader = new FileReader();
 
-  //     let images = [...formState.image];
-  //     images.push(reader.result);
+    reader.addEventListener(
+      "load",
+      () => {
+        // convert img to base64 string
+        preview.src = reader.result;
+      },
+      false
+    );
 
-  //     setFormState({
-  //       ...formState,
-  //       image: images,
-  //     });
-  //   };
-  //   reader.readAsDataURL(imgFile);
-  // };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+    // const imgFile = value.file.originalFileObj;
+
+    // const reader = new FileReader();
+
+    // reader.onloadend = () => {
+    //   console.log(reader.result); //used for debugging
+    //   let output = document.getElementById('uploadedImg');
+    //   output.src = reader.result;
+    //   let images = [...formState.image];
+    //   images.push(reader.result);
+
+    //   setFormState({
+    //     ...formState,
+    //     image: images,
+    //   });
+    // };
+    // reader.readAsDataURL(imgFile);
+  };
 
   // const uploadButton = (
   //   <div>
@@ -134,11 +158,18 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 {/* <Upload
-                  name="avatar"
                   listType="picture-circle"
+                  type="file"
                   className="avatar-uploader"
+                  customRequest={dummyRequest}
                   onChange={imageHandler}
-                > {uploadButton} </Upload> */}
+                >
+                  <div>
+                    <PlusOutlined />
+                    <div style={{ marginTop: 8 }}>Upload avatar here</div>
+                  </div>
+                  {/* {uploadButton} */}
+                {/*</Upload> */}
                 <button
                   className="btn btn-block btn-primary"
                   style={{ cursor: "pointer" }}

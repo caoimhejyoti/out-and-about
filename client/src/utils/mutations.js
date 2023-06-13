@@ -19,8 +19,8 @@ export const ADD_USER = gql`
     $username: String!
     $email: String!
     $password: String!
-    # $image: [String]!
     $city: String!
+    $image: [String]
     $questStatus: Boolean!
     $riddleStatus: Boolean!
   ) {
@@ -30,8 +30,8 @@ export const ADD_USER = gql`
       username: $username
       email: $email
       password: $password
-      # image: $image
       location: $city
+      image:$image
       questStatus: $questStatus
       riddleStatus: $riddleStatus
     ) {
@@ -43,12 +43,12 @@ export const ADD_USER = gql`
         lastName
         email
         password
-        # image
         questStatus
         riddleStatus
         location {
           city
         }
+        image
       }
     }
   }

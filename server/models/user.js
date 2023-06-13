@@ -36,7 +36,6 @@ const userSchema = new Schema({
   },
   image: {
     type: [String],
-    required: true,
   },
   questStatus: {
     type: Boolean,
