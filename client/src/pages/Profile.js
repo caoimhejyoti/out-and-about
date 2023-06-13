@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Card,
-  Button,
-  styled,
-  Box,
-  Paper,
-  Grid,
-} from "@mui/material";
+import { Card, Button, styled, Box, Paper, Grid } from "@mui/material";
 
 import { Navigate, useParams, useNavigate } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
@@ -45,7 +38,8 @@ const Profile = () => {
 
   const [updateUserProfile, { error }] = useMutation(UPDATE_USER_PROFILE);
   const [deleteUserProfile, { delError }] = useMutation(DELETE_USER_PROFILE);
-  const [updateUserimage, { imgError }] = useMutation(UPDATE_USER_IMAGE);
+  // const [updateUserimage, { imgError }] = useMutation(UPDATE_USER_IMAGE);
+
 
   const handleEditClick = () => {
     setEditing(true);
@@ -107,9 +101,9 @@ const Profile = () => {
   // if (!user?.username) {
   //   return <Navigate to="/login" />;
   // }
-  console.log(data);
+  // console.log(data); //used for debugging
   const newUser = data?.me;
-  console.log(newUser);
+  // console.log(newUser); //used for debugging
 
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",

@@ -22,6 +22,7 @@ import {
   UPDATE_USER_IMAGE,
 } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
+import AvatarBtn from "./V3_UploadUserImage";
 
 const style = {
   position: "absolute",
@@ -36,14 +37,14 @@ const style = {
 };
 
 const ViewUserImage = (user) => {
-  console.log(user);
+  console.log(user.user.image);
   const navigate = useNavigate();
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [deleteUserProfile, { delError }] = useMutation(DELETE_USER_PROFILE);
   const [updateUserimage, { imgError }] = useMutation(UPDATE_USER_IMAGE);
   const [delModal, setDelModal] = useState(false);
-  const modalOpen = () => setDelModal(true);
-  const modalClose = () => setDelModal(false);
+  const accountModalOpen = () => setDelModal(true);
+  const accountModalClose = () => setDelModal(false);
 
   const [userImg, setUserImg] = useState(user.user.image);
 
@@ -57,30 +58,12 @@ const ViewUserImage = (user) => {
   };
 
   const handleDelClick = async () => {
-    if (user.user.email===formState.email) {
-        const { data } = await deleteUserProfile({
+    if (user.user.email === formState.email) {
+      const { data } = await deleteUserProfile({
         variables: { Id: user.user._id },
       });
       navigate("/signup");
     }
-
-
-  };
-
-  const handleImgClick = (value) => {
-    value?.event?.preventDefault();
-
-    const file = value.file.originalFileObj;
-
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      console.log(reader.result);
-
-      var images = [userImg];
-      images.push(reader.result);
-      setUserImg(images);
-    };
-    reader.readAsDataURL(file);
   };
 
   return (
@@ -108,11 +91,11 @@ const ViewUserImage = (user) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <Button onClick={handleImgClick}>Update Avatar</Button>
-      <Button onClick={modalOpen}>Delete Your Account</Button>
+      <AvatarBtn data={userImg}></AvatarBtn>
+      <Button onClick={accountModalOpen}>Delete Your Account</Button>
       <Modal
         open={delModal}
-        onClose={modalClose}
+        onClose={accountModalClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -125,7 +108,8 @@ const ViewUserImage = (user) => {
             all your achievements. The riddles. The Badges. Oh the Badges!
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            If you are completely sure (sniff), confirm by typing in your email in below
+            If you are completely sure (sniff), confirm by typing in your email
+            in below
           </Typography>
           <form onSubmit={handleDelClick}>
             <input
@@ -136,14 +120,6 @@ const ViewUserImage = (user) => {
               value={formState.email}
               onChange={handleChange}
             />
-            {/* <input
-              className="form-input"
-              placeholder="Password"
-              name="password"
-              type="password"
-              value={formState.password}
-              onChange={handleChange}
-            /> */}
             <button
               className="btn btn-block btn-primary"
               style={{ cursor: "pointer" }}
@@ -152,7 +128,7 @@ const ViewUserImage = (user) => {
               Delete it all
             </button>
           </form>
-          <Button onClick={modalClose}>I made a mistake!</Button>
+          <Button onClick={accountModalClose}>I made a mistake!</Button>
         </Box>
       </Modal>
     </div>
