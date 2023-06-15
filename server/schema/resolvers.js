@@ -19,15 +19,12 @@ const resolvers = {
     },
 
     quest: async (parent, { tierName }) => {
-      // console.log("BBBBB", tierName);
       return Quest.findOne({ tierName }).populate("riddle");
     },
 
     me: async (parents, args, context) => {
       if (context.user) {
         return await User.findOne({ _id: context.user._id })
-          // .populate("questStatus")
-          // .populate("riddleStatus")
           .populate("location")
           .populate("currentTier")
           .populate({
@@ -146,9 +143,6 @@ const resolvers = {
     },
 
     updateUserImage: async (parent, { id, image }) => {
-      console.log("Inside updateUserImage");
-      console.log(id);
-      console.log(image);
       return User.findByIdAndUpdate(
         { _id: id },
         { $set: { image: image } },
@@ -157,15 +151,11 @@ const resolvers = {
     },
 
     deleteUserProfile: async (parent, { id, args }, context) => {
-      console.log(id);
       const delUser = await User.findByIdAndDelete({ _id: id }, { new: true });
       return delUser;
     },
 
     updateUserBadge: async (parent, { id, badgeId }) => {
-      console.log("Inside updateUserBadge");
-      console.log(id);
-      console.log(badgeId);
       return User.findByIdAndUpdate(
         { _id: id },
         { $addToSet: { collectedBadges: { _id: badgeId } } },
@@ -173,19 +163,13 @@ const resolvers = {
       );
     },
     updateUserQRStatus: async (parent, { id, QRStatus }) => {
-      console.log("Inside updateQRPass");
       let newStatus = { QRStatus: true };
       if (QRStatus === true) {
-        console.log("Inside updateQR IF");
         newStatus = { QRStatus: false };
       }
       return User.findByIdAndUpdate({ _id: id }, newStatus, { new: true });
     },
     updateStatus: async (parent, { id, questStatus, riddleStatus }) => {
-      console.log("Inside updateStatus");
-      console.log(id);
-      console.log(questStatus);
-      console.log(riddleStatus);
       return User.findByIdAndUpdate(
         { _id: id },
         { $set: { questStatus: questStatus, riddleStatus: riddleStatus } },
@@ -193,9 +177,6 @@ const resolvers = {
       );
     },
     updateUserQuest: async (parent, { id, questId }) => {
-      console.log("Inside updateUserQuest");
-      console.log(id);
-      console.log(questId);
       return User.findByIdAndUpdate(
         { _id: id },
         { currentQuest: questId },
@@ -203,9 +184,6 @@ const resolvers = {
       );
     },
     updateUserTier: async (parent, { id, tierId }) => {
-      console.log("Inside updateUserTier");
-      console.log(id);
-      console.log(tierId);
       return User.findByIdAndUpdate(
         { _id: id },
         { currentTier: tierId },

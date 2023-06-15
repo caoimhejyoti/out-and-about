@@ -34,6 +34,12 @@ const userSchema = new Schema({
     minlength: 5,
     trim: true,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+    required: true,
+  },
   image: {
     type: [String],
   },

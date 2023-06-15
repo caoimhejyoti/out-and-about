@@ -31,6 +31,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     username: String!
+    createdAt: String!
     questStatus: Boolean!
     riddleStatus: Boolean!
     collectedBadges: [Badge]
