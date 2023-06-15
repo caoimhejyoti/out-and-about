@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import { Navigate, useParams, useNavigate } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 // CSS/Component Libraries
-import { Card, Button, styled, Box, Paper, Grid } from "@mui/material";
+// import "..style/app.css"; //FIXME: can't find it?
+import {
+  Card,
+  Button,
+  styled,
+  Box,
+  Paper,
+  Grid,
+  Typography,
+} from "@mui/material";
 // Components
 import EditProfileForm from "../components/Profile/EditProfileForm.js";
 import ViewProfileForm from "../components/Profile/ViewProfileForm.js";
@@ -79,11 +88,60 @@ const Profile = () => {
         flexDirection: "column",
         justifyContent: "Center",
         alignItems: "Center",
-        color: "white",
-        marginTop: "10px",
+        // color: "white",
+        // marginTop: "10px",
+        marginBottom: "20px",
+        maxWidth: "75%",
       }}
     >
-      <div>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 1,
+          gridTemplateRows: "auto",
+          gridTemplateAreas: `"header header header header"
+  "sidebar main main main"`,
+        }}
+      >
+        <Box sx={{ gridArea: "header" }}>
+          <Typography gutterBottom variant="h4" color="white">
+            {`${user.firstName}`}'s Profile!
+          </Typography>
+        </Box>
+
+        <Box sx={{ gridArea: "sidebar", bgcolor: "white" }}>
+          <ViewUserOverview user={user} />
+        </Box>
+
+        <Box sx={{ gridArea: "main", bgcolor: "white" }}>
+          <Item>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              <Button onClick={handleEditClick} size="small" color="primary">
+                Edit Profile
+              </Button>
+            </div>
+            {/* if 'editing' is false, calls 'handleEditClick' that sets the'editing' state to true again. */}
+            {editing ? ( // determines whether the user is editing their profile or not.
+              <EditProfileForm
+                onSave={handleSave}
+                onCancel={handleCancelClick}
+                setUser={setUser}
+              /> // if editing is true, then this line is rendered. Allowing the user to edit their profile.
+            ) : (
+              //onSave is called when the user clicks the 'Save' button, and setUser is a function that updates the user.
+              <ViewProfileForm />
+            )}
+          </Item>
+        </Box>
+      </Box>
+
+      {/* <div>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={4}>
@@ -110,21 +168,21 @@ const Profile = () => {
                   </Button>
                 </div>
                 {/* if 'editing' is false, calls 'handleEditClick' that sets the'editing' state to true again. */}
-                {editing ? ( // determines whether the user is editing their profile or not.
-                  <EditProfileForm
-                    onSave={handleSave}
-                    onCancel={handleCancelClick}
-                    setUser={setUser}
-                  /> // if editing is true, then this line is rendered. Allowing the user to edit their profile.
-                ) : (
-                  //onSave is called when the user clicks the 'Save' button, and setUser is a function that updates the user.
-                  <ViewProfileForm />
-                )}
-              </Item>
+      {/* {editing ? ( // determines whether the user is editing their profile or not.
+        <EditProfileForm
+          onSave={handleSave}
+          onCancel={handleCancelClick}
+          setUser={setUser}
+        /> // if editing is true, then this line is rendered. Allowing the user to edit their profile.
+      ) : (
+        //onSave is called when the user clicks the 'Save' button, and setUser is a function that updates the user.
+        <ViewProfileForm />
+      )} */}
+      {/* </Item>
             </Grid>
           </Grid>
         </Box>
-      </div>
+      </div> */}
     </div>
   );
 };

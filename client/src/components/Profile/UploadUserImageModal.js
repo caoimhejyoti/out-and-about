@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
+// Database queries/mutations
 import { UPDATE_USER_IMAGE } from "../../utils/mutations";
-import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../../utils/queries";
-
+// CSS/Component Libraries
 import { PlusOutlined } from "@ant-design/icons";
-import { Alert, Button, Form, Select, Upload } from "antd";
-
-import { Modal, Box, Typography } from "@mui/material";
+import { Alert, Form, Upload } from "antd";
+import { Modal, Button, Box, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import inputTheme from "../../style/theme";
 
@@ -24,7 +23,6 @@ const avatarStyle = {
 };
 
 const UpdateAvatar = (props) => {
-  // const { Option } = Select;
   const { data } = useQuery(QUERY_ME);
 
   const [formState, setFormState] = useState({
@@ -88,7 +86,7 @@ const UpdateAvatar = (props) => {
         className="primary m-2"
         onClick={avatarModalOpen}
       >
-        Avatar Btn
+        Update Avatar
       </Button>
       <Modal
         open={avatarModal}
@@ -105,20 +103,13 @@ const UpdateAvatar = (props) => {
               If you want to update your avatar to your image, you can do that
               here!
             </Typography>
-            <Form
-              onFinish={handleFormSubmit}
-              labelCol={{ span: 10 }}
-              wrapperCol={{ span: 34 }}
-              layout="horizontal"
-              style={{ Width: 600 }}
-            >
+            <Form onFinish={handleFormSubmit}>
               <Form.Item
-                // label="Upload Photo"
                 name="Upload Photo"
                 rules={[
                   {
                     required: true,
-                    message: "Please upload at least one photo",
+                    message: "Please upload one photo",
                   },
                 ]}
               >
@@ -126,6 +117,7 @@ const UpdateAvatar = (props) => {
                   multiple={false}
                   onChange={imageHandler}
                   customRequest={dummyRequest}
+                  className="primary m-4"
                   listType="picture-card"
                 >
                   <div>
@@ -135,23 +127,28 @@ const UpdateAvatar = (props) => {
                 </Upload>
               </Form.Item>
 
-              <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                <Button type="primary" htmlType="submit">
+              <Form.Item wrapperCol={{ offset: 1, span: 16 }}>
+                <Button
+                  variant="contained"
+                  id="submit-button"
+                  type="primary"
+                  htmlType="submit"
+                >
                   Submit
                 </Button>
               </Form.Item>
             </Form>
+            {error && (
+              <Alert
+                onChange={{ avatarModalClose }}
+                message="Your avatar cannot be used. Please upload a different avatar."
+                closable
+                type="error"
+              />
+            )}
           </Box>
         </div>
       </Modal>
-
-      {error && (
-        <Alert
-          message="Your description need to be at least 20 characters and maximum 500 characters long."
-          closable
-          type="error"
-        />
-      )}
     </ThemeProvider>
   );
 };
