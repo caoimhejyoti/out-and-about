@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+// CSS/Component Libraries
 import {
   CardActionArea,
   CardContent,
@@ -8,15 +11,11 @@ import {
   Modal,
   Box,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import defaultIcon from "../../assets/avatar_icon.png";
-import { useQuery, useMutation } from "@apollo/client";
-import {
-  UPDATE_USER_PROFILE,
-  DELETE_USER_PROFILE,
-  UPDATE_USER_IMAGE,
-} from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
+// Database queries/mutations
+import { DELETE_USER_PROFILE } from "../../utils/mutations";
+// import { QUERY_ME } from "../../utils/queries";
+
+// Components
 import AvatarBtn from "./UploadUserImage";
 
 const style = {
@@ -32,16 +31,15 @@ const style = {
 };
 
 const ViewUserImage = (user) => {
-  console.log(user.user.image);
+  console.log(user.user);
   const navigate = useNavigate();
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [deleteUserProfile, { delError }] = useMutation(DELETE_USER_PROFILE);
-  // const [updateUserimage, { imgError }] = useMutation(UPDATE_USER_IMAGE);
   const [delModal, setDelModal] = useState(false);
   const accountModalOpen = () => setDelModal(true);
   const accountModalClose = () => setDelModal(false);
 
-  const [userImg, setUserImg] = useState(user.user.image);
+  const userImg = user.user.image;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -64,23 +62,18 @@ const ViewUserImage = (user) => {
   return (
     <div>
       <CardActionArea>
-        {/* TODO: update img based on user img */}
-        <CardMedia
-          component="img"
-          // image={defaultIcon}
-          image={userImg}
-          alt="default user icon, with a purple compass as a head."
-        />
+        <CardMedia component="img" image={userImg} alt="User avatar" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {`${user.user.username}`}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Member since May 11, 2023
+            {`${user.user.createdAt}`}
             {/* TODO: update date based on user logged in */}
           </Typography>
           <Typography variant="overline" color="text.secondary">
-            {user.currentQuest && user.currentQuest.tierName
+            {user.user.currentQuest && user.user.currentQuest.tierName
               ? `${user.user.currentQuest.tierName}`
               : "Tier does not exist"}
           </Typography>
