@@ -18,11 +18,11 @@ export const QUERY_USER = gql`
 `;
 
 export const CHECK_QR = gql`
-query checkQR($qrpass: String!) {
-  checkQR(qrpass: $qrpass) {
-    qrpass
+  query checkQR($qrpass: String!) {
+    checkQR(qrpass: $qrpass) {
+      qrpass
+    }
   }
-}
 `;
 
 export const QUERY_QUEST = gql`
@@ -54,6 +54,7 @@ export const QUERY_ME = gql`
       questStatus
       riddleStatus
       QRStatus
+      # createdDate
       collectedBadges {
         _id
         name
@@ -67,6 +68,7 @@ export const QUERY_ME = gql`
         name
         tierName
         questPass
+        # createdAt
         location {
           _id
           city

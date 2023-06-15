@@ -24,6 +24,8 @@ const resolvers = {
 
     me: async (parents, args, context) => {
       if (context.user) {
+        // console.log("context.user exists"); //used for debugging
+        // console.log(context.user._id); //used for debugging
         return await User.findOne({ _id: context.user._id })
           .populate("location")
           .populate("currentTier")
@@ -48,6 +50,7 @@ const resolvers = {
           .populate("collectedBadges")
           .populate("QRStatus");
       }
+      console.log("await happening");
       throw new AuthenticationError("You need to be logged in!");
     },
 

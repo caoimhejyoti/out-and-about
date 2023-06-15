@@ -13,13 +13,16 @@ import Riddle from "../components/Riddle";
 
 const Dashboard = () => {
   const { username: userParam } = useParams();
+  console.log(userParam); //NOTE: undefined with or without createdAt
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
+  console.log(loading);
+  console.log(userParam); //NOTE: undefined with or without createdAt
+  console.log(data);
   const user = data?.me;
 
-  console.log("user:");
-  console.log(user);
+  console.log("user:", user);
 
   const [answerComplete, setAnswerComplete] = useState(false);
 
