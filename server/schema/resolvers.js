@@ -142,22 +142,16 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    // updateUserImage: async (parent, {id, image }, context) => {
-    //   if (context.user) {
-    //     // Checking if the user is logged in
-    //     const updatedUserFields = {
-    //       image: image || context.user.image,
-    //     };
-
-    //     const updatedUser = await User.findByIdAndUpdate(
-    //       context.user._id, // Finding the user by their ID
-    //       updatedUserFields, // Updating the user's fields with the new values
-    //       { new: true } // Returning the updated document rather than the original one
-    //     );
-    //     return updatedUser;
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+    updateUserImage: async (parent, { id, image }) => {
+      console.log("Inside updateUserImage");
+      console.log(id);
+      console.log(image);
+      return User.findByIdAndUpdate(
+        { _id: id },
+        { $set: { image: image } },
+        { new: true, runValidators: true }
+      );
+    },
 
     deleteUserProfile: async (parent, { id, args }, context) => {
       console.log(id);

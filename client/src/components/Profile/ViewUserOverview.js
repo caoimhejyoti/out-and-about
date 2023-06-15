@@ -72,8 +72,8 @@ const ViewUserImage = (user) => {
         {/* TODO: update img based on user img */}
         <CardMedia
           component="img"
-          image={defaultIcon}
-          // image={userImg}
+          // image={defaultIcon}
+          image={userImg}
           alt="default user icon, with a purple compass as a head."
         />
         <CardContent>

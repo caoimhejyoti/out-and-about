@@ -31,7 +31,7 @@ export const ADD_USER = gql`
       email: $email
       password: $password
       location: $city
-      image:$image
+      image: $image
       questStatus: $questStatus
       riddleStatus: $riddleStatus
     ) {
@@ -88,11 +88,11 @@ export const UPDATE_USER_QUEST = gql`
 
 export const UPDATE_USER_QRSTATUS = gql`
   mutation updateUserQRStatus($userId: ID!, $userStatus: Boolean!) {
-  updateUserQRStatus(id: $userId, QRStatus: $userStatus) {
-    _id
-    QRStatus
+    updateUserQRStatus(id: $userId, QRStatus: $userStatus) {
+      _id
+      QRStatus
+    }
   }
-}
 `;
 
 export const UPDATE_USER_TIER = gql`
@@ -132,13 +132,9 @@ export const UPDATE_USER_PROFILE = gql`
 `;
 
 export const UPDATE_USER_IMAGE = gql`
-  mutation updateUserImage( #Variabels passed in as arguments to the updateUserImage function
-    $image: [String]!
-  ) {
-    updateUserImage( #Properties corresponding to the filds in the returned data.
-      image: $image
-    ) {
-      _id #Fields that being returned after function is executed
+  mutation updateUserImage($userId: ID!, $image: [String]!) {
+    updateUserImage(id: $userId, image: $image) {
+      _id
       image
     }
   }
@@ -151,6 +147,3 @@ export const DELETE_USER_PROFILE = gql`
     }
   }
 `;
-
-
-

@@ -28,6 +28,7 @@ const UpdateAvatar = (props) => {
   const { data } = useQuery(QUERY_ME);
 
   const [formState, setFormState] = useState({
+    userId: data?.me?._id,
     image: [],
   });
   const [updateAvatar, { error }] = useMutation(UPDATE_USER_IMAGE);
@@ -37,15 +38,6 @@ const UpdateAvatar = (props) => {
   const avatarModalOpen = () => setAvatarModal(true);
   const avatarModalClose = () => setAvatarModal(false);
 
-  // update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
 
   // Managing Img Upload
   const dummyRequest = ({ file, onSuccess }) => {
@@ -63,16 +55,14 @@ const UpdateAvatar = (props) => {
       console.log(reader.result);
 
       var images = [...formState.image];
-      console.log(images); //NOTE: reading correctly
       images.push(reader.result);
-      console.log(images); //NOTE: reading correctly
 
       setFormState({
         ...formState,
         image: images,
       });
-      console.log(formState); //FIXME: not reading this!
     };
+    console.log(formState);
     reader.readAsDataURL(file);
   };
 
