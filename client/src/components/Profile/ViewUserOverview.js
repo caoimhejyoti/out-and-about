@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  // Card,
   CardActionArea,
   CardContent,
   CardMedia,
@@ -8,10 +7,6 @@ import {
   Typography,
   Modal,
   Box,
-  // styled,
-  // Box,
-  // Paper,
-  // Grid,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import defaultIcon from "../../assets/avatar_icon.png";
@@ -22,7 +17,7 @@ import {
   UPDATE_USER_IMAGE,
 } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
-import AvatarBtn from "./V3_UploadUserImage";
+import AvatarBtn from "./UploadUserImage";
 
 const style = {
   position: "absolute",
@@ -41,7 +36,7 @@ const ViewUserImage = (user) => {
   const navigate = useNavigate();
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [deleteUserProfile, { delError }] = useMutation(DELETE_USER_PROFILE);
-  const [updateUserimage, { imgError }] = useMutation(UPDATE_USER_IMAGE);
+  // const [updateUserimage, { imgError }] = useMutation(UPDATE_USER_IMAGE);
   const [delModal, setDelModal] = useState(false);
   const accountModalOpen = () => setDelModal(true);
   const accountModalClose = () => setDelModal(false);

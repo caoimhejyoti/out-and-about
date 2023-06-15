@@ -43,12 +43,12 @@ export const ADD_USER = gql`
         lastName
         email
         password
+        image
         questStatus
         riddleStatus
         location {
           city
         }
-        image
       }
     }
   }

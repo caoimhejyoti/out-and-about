@@ -1,27 +1,15 @@
 import React, { useState } from "react";
-import { Button, Modal, Box, Typography } from "@mui/material";
-import { Form, Upload, message } from "antd";
-import { PlusOutlined, LoadingOutlined } from "@ant-design/icons";
+import { useMutation } from "@apollo/client";
+import { UPDATE_USER_IMAGE } from "../../utils/mutations";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../../utils/queries";
+
+import { PlusOutlined } from "@ant-design/icons";
+import { Alert, Button, Form, Select, Upload } from "antd";
+
+import { Modal, Box, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import inputTheme from "../../style/theme";
-
-const getBase64 = (img, callback) => {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => callback(reader.result));
-  reader.readAsDataURL(img);
-};
-
-const beforeUpload = (file) => {
-  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-  if (!isJpgOrPng) {
-    message.error("You can only upload JPG/PNG file!");
-  }
-  const isLt2M = file.size / 1024 / 1024 < 2;
-  if (!isLt2M) {
-    message.error("Image must smaller than 2MB!");
-  }
-  return isJpgOrPng && isLt2M;
-};
 
 const avatarStyle = {
   position: "absolute",
@@ -35,41 +23,60 @@ const avatarStyle = {
   p: 4,
 };
 
-export default function AvatarBtn(props) {
-  console.log(props); //used for debugging
-  const [formState, setFormState] = useState({ ...props.img });
-  console.log(formState); //used for debugging
+const UpdateAvatar = (props) => {
+  // const { Option } = Select;
+  const { data } = useQuery(QUERY_ME);
+
+  const [formState, setFormState] = useState({
+    userId: data?.me?._id,
+    image: [],
+  });
+  const [updateAvatar, { error }] = useMutation(UPDATE_USER_IMAGE);
+
+  // Modal setup
   const [avatarModal, setAvatarModal] = useState(false);
   const avatarModalOpen = () => setAvatarModal(true);
   const avatarModalClose = () => setAvatarModal(false);
 
-  const [loading, setLoading] = useState(false);
-  const [imgUrl, setImgUrl] = useState();
-  const handleChange = (info) => {
-    console.log(info); //used for debugging
-
-    if (info.file.status === "uploading") {
-      setLoading(true);
-      return;
-    }
-    if (info.file.status === "done") {
-      getBase64(info.file.originalFileObj, (url) => {
-        setLoading(false);
-        setImgUrl(url);
-      });
-    }
-
+  // Managing Img Upload
+  const dummyRequest = ({ file, onSuccess }) => {
+    onSuccess("ok");
   };
 
-  const uploadButton = (
-    <div>
-      {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div style={{ marginTop: 8 }}>Upload</div>
-    </div>
-  );
+  const imageHandler = (value) => {
+    value?.event?.preventDefault();
 
-  const handleFormSubmit = async () => {
+    const file = value.file.originFileObj;
+
+    // Encode the file using the FileReader API
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      console.log(reader.result);
+
+      var images = [...formState.image];
+      images.push(reader.result);
+
+      setFormState({
+        ...formState,
+        image: images,
+      });
+    };
     console.log(formState);
+    reader.readAsDataURL(file);
+  };
+
+  // submit form
+  const handleFormSubmit = async (value) => {
+    value?.event?.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await updateAvatar({
+        variables: { ...formState },
+      });
+      avatarModalClose();
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
@@ -89,50 +96,64 @@ export default function AvatarBtn(props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={avatarStyle}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Who are you?
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            If you want to update your avatar to your image, you can do that
-            here!
-          </Typography>
-          <Form
-            onFinish={handleFormSubmit}
-            layout="horizontal"
-            style={{ width: 600 }}
-          >
-            <Form.Item
-            //   label="Image Upload"
-              name="Image Upload"
-              rules={[
-                { required: true, message: "Please upload one avatar only." },
-              ]}
+        <div>
+          <Box sx={avatarStyle}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Who are you?
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              If you want to update your avatar to your image, you can do that
+              here!
+            </Typography>
+            <Form
+              onFinish={handleFormSubmit}
+              labelCol={{ span: 10 }}
+              wrapperCol={{ span: 34 }}
+              layout="horizontal"
+              style={{ Width: 600 }}
             >
-              <Upload
-                name="avatar"
-                listType="picture-card"
-                className="avatar-uploader"
-                showUploadList={false}
-                onChange={handleChange}
-                beforeUpload={beforeUpload}
-                // customRequest={dummyRequest}
+              <Form.Item
+                // label="Upload Photo"
+                name="Upload Photo"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please upload at least one photo",
+                  },
+                ]}
               >
-                {" "}
-                {imgUrl ? (
-                  <img
-                    src={imgUrl}
-                    alt="uploaded avatar"
-                    style={{ width: "100%" }}
-                  />
-                ) : (
-                  uploadButton
-                )}
-              </Upload>
-            </Form.Item>
-          </Form>
-        </Box>
+                <Upload
+                  multiple={false}
+                  onChange={imageHandler}
+                  customRequest={dummyRequest}
+                  listType="picture-card"
+                >
+                  <div>
+                    <PlusOutlined />
+                    <div style={{ marginTop: 8 }}>Upload your avatar here</div>
+                  </div>
+                </Upload>
+              </Form.Item>
+
+              <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                <Button type="primary" htmlType="submit">
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+          </Box>
+        </div>
       </Modal>
+
+      {error && (
+        <Alert
+          message="Your description need to be at least 20 characters and maximum 500 characters long."
+          closable
+          type="error"
+        />
+      )}
     </ThemeProvider>
   );
-}
+};
+
+export default UpdateAvatar;
