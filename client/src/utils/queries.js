@@ -54,7 +54,7 @@ export const QUERY_ME = gql`
       questStatus
       riddleStatus
       QRStatus
-      # createdDate
+      # createdDate #CREATED DATE ADDED HERE
       collectedBadges {
         _id
         name
@@ -68,7 +68,6 @@ export const QUERY_ME = gql`
         name
         tierName
         questPass
-        # createdAt
         location {
           _id
           city

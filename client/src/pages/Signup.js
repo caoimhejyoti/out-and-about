@@ -48,57 +48,6 @@ const Signup = () => {
     }
   };
 
-  // Code for furture development - adding avatar when signing up.
-  const dummyRequest = ({ file, onSuccess }) => {
-    onSuccess("ok");
-  };
-
-  const imageHandler = (value) => {
-    value?.event?.preventDefault();
-
-    const preview = document.querySelector("img");
-    const file = document.querySelector("input[type=file]").file[0];
-
-    const reader = new FileReader();
-
-    reader.addEventListener(
-      "load",
-      () => {
-        // convert img to base64 string
-        preview.src = reader.result;
-      },
-      false
-    );
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-    // const imgFile = value.file.originalFileObj;
-
-    // const reader = new FileReader();
-
-    // reader.onloadend = () => {
-    //   console.log(reader.result); //used for debugging
-    //   let output = document.getElementById('uploadedImg');
-    //   output.src = reader.result;
-    //   let images = [...formState.image];
-    //   images.push(reader.result);
-
-    //   setFormState({
-    //     ...formState,
-    //     image: images,
-    //   });
-    // };
-    // reader.readAsDataURL(imgFile);
-  };
-
-  // const uploadButton = (
-  //   <div>
-  //     {loading ? <LoadingOutlined /> : <PlusOutlined />}
-  //     <div style={{ marginTop: 8 }}>Upload</div>
-  //   </div>
-  // );
-
   return (
     <main className="flex-row justify-center mb-4 signup-container">
       <div className="col-12 col-lg-10 ">
@@ -157,19 +106,6 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                {/* <Upload
-                  listType="picture-circle"
-                  type="file"
-                  className="avatar-uploader"
-                  customRequest={dummyRequest}
-                  onChange={imageHandler}
-                >
-                  <div>
-                    <PlusOutlined />
-                    <div style={{ marginTop: 8 }}>Upload avatar here</div>
-                  </div>
-                  {/* {uploadButton} */}
-                {/*</Upload> */}
                 <button
                   className="btn btn-block btn-primary"
                   style={{ cursor: "pointer" }}
@@ -180,12 +116,15 @@ const Signup = () => {
               </form>
             )}
 
-
-        {error && (
-          <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
-        )}
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

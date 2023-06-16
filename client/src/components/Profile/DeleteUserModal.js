@@ -23,8 +23,8 @@ const DeleteStyle = {
   p: 4,
 };
 
-const DeleteUser = (props) => {
-  console.log(props);
+const DeleteUser = () => {
+  console.log();
   const navigate = useNavigate();
   const [deleteUserProfile, { delError }] = useMutation(DELETE_USER_PROFILE);
   const [delModal, setDelModal] = useState(false);
@@ -49,10 +49,10 @@ const DeleteUser = (props) => {
     });
   };
 
-  console.log(formState);
+  // console.log(formState); //used for debugging
 
   const handleDelClick = async () => {
-    console.log("formstate email", formState.email);
+    // console.log("formstate email", formState.email); //used for debugging
     if (formState.correctEmail === formState.email) {
       const { data } = await deleteUserProfile({
         variables: { Id: formState.userId },
