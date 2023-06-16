@@ -34,6 +34,15 @@ const userSchema = new Schema({
     minlength: 5,
     trim: true,
   },
+  createdDate: {
+    type: Date,
+    default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
+    required: true,
+  },
+  image: {
+    type: [String],
+  },
   questStatus: {
     type: Boolean,
     required: true,
@@ -65,10 +74,10 @@ const userSchema = new Schema({
   QRStatus: {
     type: Boolean,
     default: false,
-  }
+  },
 });
 
-// Defining a pre-hook that will hash the password before saving the user 
+// Defining a pre-hook that will hash the password before saving the user
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     this.password = await bcrypt.hash(this.password, 10);
@@ -77,7 +86,7 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-// Defining a methot that will compare a given password with the hashed password 
+// Defining a methot that will compare a given password with the hashed password
 userSchema.methods.isCorrectPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
