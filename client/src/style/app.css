@@ -3,32 +3,34 @@
 .map-container {
     height: 400px;
   }
-  
 
 .hero{
   display:flex;
-  align-items: flex-end;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-bottom: 1rem;
-  height: 80vh;
+  height: 85vh;
   margin-left: 0 !important;
 }
 
 .hero-image{
   background-image: url("./../assets/hero.png") ;
   background-size: cover;
-  background-position: center 40%;
+  background-position: center;
 }
 
 .badge{
   width: 10vw;
 }
 
-@media (max-width:950px){
+.title {
+  
+}
+
+/* @media (max-width:950px){
   .hero-image{
     background-image: url("./../assets/heroMini.png") ;
     background-size: cover;
     background-position: center 40%;
   }
-}
+} */

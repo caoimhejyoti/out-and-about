@@ -69,6 +69,9 @@ const Header = () => {
             </>
           ) : (
             <>
+              <Link to="/about" style={navStyle}>
+                About
+              </Link>
               <Link to="/login">Login</Link>
             </>
           )}

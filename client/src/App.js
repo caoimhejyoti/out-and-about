@@ -14,7 +14,8 @@ import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import QRCode from "./pages/QRCode";
-import Home from "./components/Home";
+import About from "./pages/About";
+import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import background from "./assets/bg.png";
@@ -59,11 +60,10 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/me" element={<Profile />} />
-              {/* <Route path="/profiles/:username" element={<Profile />} /> */}
-              {/* <Route path="/me/friends" element={<Friend />} /> */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/qrcode" element={<QRCode />} />
+              <Route path="/about" element={<About />} />
             </Routes>
           </div>
           <Footer />
