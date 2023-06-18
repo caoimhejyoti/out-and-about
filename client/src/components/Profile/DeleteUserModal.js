@@ -7,7 +7,7 @@ import { QUERY_ME } from "../../utils/queries";
 // CSS/Component Libraries
 import { PlusOutlined } from "@ant-design/icons";
 import { Alert, Form, Input } from "antd";
-import { Modal, Button, Box, Typography } from "@mui/material";
+import { Modal, Button, Box, Typography, TextField } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import inputTheme from "../../style/theme";
 
@@ -86,38 +86,36 @@ const DeleteUser = () => {
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Wait!
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} color="black">
             Are you sure you want to delete your whole account? You will loose
             all your achievements. The riddles. The Badges. Oh the Badges!
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }} color="black">
             If you are completely sure (sniff), confirm by typing in your email
             in below
           </Typography>
-          <Form onFinish={handleDelClick}>
-            <Form.Item label="Email">
-              <Input
-                name="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-            </Form.Item>
+          <form onSubmit={handleDelClick}>
+            <TextField
+              type="text"
+              id="email"
+              name="email"
+              label="Email"
+              variant="outlined"
+              fullWidth={true}
+              margin="normal"
+              value={formState.email}
+              onChange={handleChange}
+            />
 
-            <Form.Item>
-              <Button
-                variant="contained"
-                id="submit-button"
-                type="primary"
-                htmlType="submit"
-              >
-                Delete my account
-              </Button>
-            </Form.Item>
-          </Form>
-
-          <Button onClick={accountModalClose} size="small" variant="text">
-            Abort!
-          </Button>
+            <Button
+              variant="contained"
+              id="submit-button"
+              type="primary"
+              htmlType="submit"
+            >
+              Delete my account
+            </Button>
+          </form>
         </Box>
       </Modal>
     </ThemeProvider>
