@@ -72,7 +72,7 @@ const Dashboard = () => {
   "sidebar main main main"`,
         }}
       >
-        <Box sx={{ gridArea: "header" }}>
+        <Box className="my-4" sx={{ gridArea: "header" }}>
           <Typography gutterBottom variant="h4" color="white">
             Welcome {`${user.firstName}`}!
           </Typography>

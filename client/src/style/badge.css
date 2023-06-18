@@ -3,5 +3,9 @@
     justify-content: center;
 }
 .badge-img{
-    width: 30%;
+    width:90%;
+}
+
+.badge-side{
+    padding-left: 1rem;
 }

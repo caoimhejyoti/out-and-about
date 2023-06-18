@@ -1,6 +1,13 @@
 import React, { useState } from "react";
-import { Typography, Grid, Container } from "@mui/material";
-import Button from "./../components/qrcode_button";
+import {
+  Typography,
+  Grid,
+  Container,
+  Box,
+  Button,
+  TextField,
+} from "@mui/material";
+import QRButton from "./../components/qrcode_button";
 
 import { QUERY_ME, QUERY_USER } from "../utils/queries";
 import { UPDATE_USER_QRSTATUS } from "../utils/mutations";
@@ -18,7 +25,6 @@ const mapTestStyle = {
 const btn = {
   message: `Click here to mark this quest as complete!`,
 };
-
 
 function displayBadge(user) {
   const badgeImage = user.currentQuest.badge.colour_image;
@@ -84,55 +90,81 @@ const QRCode = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: "Center",
+        alignItems: "Center",
         marginBottom: "20px",
+        maxWidth: "75%",
         color: "white",
       }}
     >
       {/* {qrCodeScanned ? (
         <h1> this is a test</h1>
       ) : ( */}
-      <Grid>
-        <Container>{displayBadge(user)}</Container>
+      {/* <Grid> */}
+      <Box
+        className="my-5"
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 1,
+          gridTemplateRows: "auto",
+          gridTemplateAreas: `"header header header header" "sidebar main main main" `,
+        }}
+      >
         {QRCodeScanned ? (
           <>
-            <Typography>
-              Congratulations you have achieved the{" "}
-              {user.currentQuest.badge.name} Badge.
-              <br />
-              You are now able to see the next riddle but don't stop yet!
-              <br />
-              Finish your quest by making it to the end and celebrating with a
-              well deserved coffee!
-            </Typography>
-            <Container className="map-container" style={mapTestStyle}>
+            <Box sx={{ gridArea: "header" }}>
+              <Typography gutterBottom variant="h4" color="white">
+                Congratulations you have achieved the{" "}
+                {user.currentQuest.badge.name} Badge!
+              </Typography>
+            </Box>
+            <Box sx={{ gridArea: "sidebar" }} className="badge-side">
+              {displayBadge(user)}
+            </Box>
+            <Box sx={{ gridArea: "main", bgcolor: "white" }} className="p-3">
               <Map data={user} />
-            </Container>
-            <Container className="justify-center text-center">
-              <Button data={user} message={btn.message}></Button>
-            </Container>
+              <br />
+              <Typography variant="p" color="black">
+                You are now able to see the next riddle but don't stop yet!
+                Finish your quest by making it to the end and celebrating with a
+                well deserved coffee!
+              </Typography>
+              <br />
+              <QRButton data={user} message={btn.message}></QRButton>
+            </Box>
           </>
         ) : (
           <>
-            <h2>Find a QR Code to get the Password!</h2>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Secret Password"
-                name="qrpass"
-                type="text"
-                value={formState.qrpass}
-                onChange={handleChange}
-              />
-              <button
-                className="btn btn-block btn-primary"
-                style={{ cursor: "pointer" }}
-                type="submit"
-              >
-                Submit
-              </button>
-            </form>
+            <Box sx={{ gridArea: "header" }}>
+              <Typography gutterBottom variant="h4" color="white">
+                Find a QR Code to get the Password!
+              </Typography>
+            </Box>
+            <Box sx={{ gridArea: "sidebar" }} className="badge-side">
+              {displayBadge(user)}
+            </Box>
+            <Box sx={{ gridArea: "main", bgcolor: "white" }} className="p-3">
+              <Typography gutterBottom variant="p" color="black">
+                Scan the QR Code on your to get the password{" "}
+              </Typography>
+              <form onSubmit={handleFormSubmit}>
+                <TextField
+                  type="text"
+                  id="qrpass"
+                  name="qrpass"
+                  label="QR Code Password"
+                  variant="outlined"
+                  fullWidth={true}
+                  margin="normal"
+                  value={formState.qrpass}
+                  onChange={handleChange}
+                />
+                <Button variant="contained" type="primary">
+                  Submit Password
+                </Button>
+              </form>
+            </Box>
             {error === true ? (
               <>
                 <div className="my-3 p-3 bg-danger text-white">
@@ -142,7 +174,7 @@ const QRCode = () => {
             ) : null}
           </>
         )}
-      </Grid>
+      </Box>
     </div>
   );
 };

@@ -99,7 +99,11 @@ const UpdateAvatar = (props) => {
             <Typography id="modal-modal-title" variant="h6" component="h2">
               Who are you?
             </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <Typography
+              id="modal-modal-description"
+              color="black"
+              sx={{ mt: 2 }}
+            >
               If you want to update your avatar to your image, you can do that
               here!
             </Typography>
