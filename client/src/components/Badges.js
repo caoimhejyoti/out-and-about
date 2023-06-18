@@ -73,40 +73,40 @@ const BadgeComp = (props) => {
   });
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "Center",
+        alignItems: "Center",
+        marginBottom: "20px",
+        maxWidth: "100%",
+      }}
+    >
       {loading ? (
         <div>Loading...</div>
       ) : (
         <Box
           sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignContent: "flex-start",
-            justifyContent: "space-between",
-            p: 1,
-            m: 1,
-            maxWidth: 380,
-            maxHeight: 500,
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: 2,
           }}
         >
           <Item>
-            <img
-              className="badge uwa"
-              src={mandurahBadge}
-              alt="Mandurah Badge"
-            />
+            <img className="badge" src={mandurahBadge} alt="Mandurah Badge" />
           </Item>
           <Item>
-            <img className="badge uwa" src={UWABadge} alt="UWA Badge" />
+            <img className="badge" src={UWABadge} alt="UWA Badge" />
           </Item>
           <Item>
-            <img className="badge badgeThree" src={badgeThree} alt="" />
+            <img className="badge" src={badgeThree} alt="" />
           </Item>
           <Item>
-            <img className="badge badge4" src={badge4} alt="" />
+            <img className="badge" src={badge4} alt="" />
           </Item>
           <Item>
-            <img className="badge badge5" src={badge5} alt="" />
+            <img className="badge" src={badge5} alt="" />
           </Item>
         </Box>
       )}
