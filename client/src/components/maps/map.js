@@ -14,6 +14,10 @@ export default function Map(props) {
     return Uwamap();
   } else if (tier === "Wayfairer") {
     return KingsParkMap();
+  } else if (tier === "Traveller") {
+    return KingsParkMap();
+  } else if (tier === "Explorer") {
+    return KingsParkMap();
   } else
     return (
       <div>

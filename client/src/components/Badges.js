@@ -50,6 +50,8 @@ const BadgeComp = (props) => {
     }
   }, []);
 
+  console.log(userBadges);
+
   useEffect(() => {
     if (userBadges.includes("Mandurah Quest")) {
       setMandurahBadge(mandurahBadgeColour);
@@ -59,15 +61,15 @@ const BadgeComp = (props) => {
       setUWABadge(UWABadgeColour);
     }
 
-    if (userBadges.includes("Badge 3")) {
+    if (userBadges.includes("Banksia Quest")) {
       setBadgeThree(badge3Colour);
     }
 
-    if (userBadges.includes("Badge 4")) {
+    if (userBadges.includes("Kangaroo Quest")) {
       setBadge4(badge4Colour);
     }
 
-    if (userBadges.includes("Badge 5")) {
+    if (userBadges.includes("Koala Quest")) {
       setBadge5(badge5Colour);
     }
   });
@@ -100,13 +102,13 @@ const BadgeComp = (props) => {
             <img className="badge" src={UWABadge} alt="UWA Badge" />
           </Item>
           <Item>
-            <img className="badge" src={badgeThree} alt="" />
+            <img className="badge" src={badgeThree} alt="Kings Park Badge" />
           </Item>
           <Item>
-            <img className="badge" src={badge4} alt="" />
+            <img className="badge" src={badge4} alt="Kangaroo Badge" />
           </Item>
           <Item>
-            <img className="badge" src={badge5} alt="" />
+            <img className="badge" src={badge5} alt="Koala Badge" />
           </Item>
         </Box>
       )}
