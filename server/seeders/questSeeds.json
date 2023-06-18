@@ -9,7 +9,7 @@
     "badge": "B45367A314CC1EA4BA194E54",
     "riddle": "4541F9C3AB68BEBC31812530",
     "qrCode": "AD588030892B290B6495688B",
-    "questPass": "password1"
+    "questPass": "mandurah"
   },
   {
     "_id": "EFE0C59EFA61B1C366BB9515",
@@ -21,7 +21,43 @@
     "badge": "1E3820741D4F8D93F31CB679",
     "riddle": "0BEA8BA4EA7CE43AA63BEEF4",
     "qrCode": "AD588030892B290B6495688B",
-    "questPass": "password2"
+    "questPass": "uwa"
+  },
+  {
+    "_id": "3903F035BD71FEACE920026B",
+    "name": "Banksia",
+    "createdBy": "3A2468AF11BF9A016DACA420",
+    "description": "TBC Route",
+    "tierName": "Wayfairer",
+    "location": "0B204DA46DE5E3B56D25FC20",
+    "badge": "B5060F08C75D7E77C49AF89F",
+    "riddle": "8A623082ADC286C6B95A75E4",
+    "qrCode": "AD588030892B290B6495688B",
+    "questPass": "banksia"
+  },
+  {
+    "_id": "CDF03DC475E0381FFD940DBE",
+    "name": "Kangaroo",
+    "createdBy": "3A2468AF11BF9A016DACA420",
+    "description": "TBC Route",
+    "tierName": "Traveller",
+    "location": "0B204DA46DE5E3B56D25FC20",
+    "badge": "C473813A560F4642C2E9D2C5",
+    "riddle": "11A24991314AC93C997943A6",
+    "qrCode": "AD588030892B290B6495688B",
+    "questPass": "kangaroo"
+  },
+  {
+    "_id": "A117EAA4E2C4E76971E40D99",
+    "name": "Koala",
+    "createdBy": "3A2468AF11BF9A016DACA420",
+    "description": "TBC Route",
+    "tierName": "Explorer",
+    "location": "0B204DA46DE5E3B56D25FC20",
+    "badge": "1E3820741D4F8D93F31CB679",
+    "riddle": "649C77D003DB02EECF5802C3",
+    "qrCode": "AD588030892B290B6495688B",
+    "questPass": "koala"
   },
   {
     "_id": "53D8B93AAFE44A0C786D3676",
@@ -32,6 +68,6 @@
     "location": "0B204DA46DE5E3B56D25FC20",
     "badge": "9A5363ECBB3DF6261729E860",
     "riddle": "9DED99CE588C1DC63250B5BD",
-    "questPass": "password3"
+    "questPass": "complete"
   }
 ]

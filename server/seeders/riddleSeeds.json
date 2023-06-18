@@ -12,8 +12,26 @@
     "options": ["Money", "Footsteps", "Time"]
   },
   {
+    "_id": "8A623082ADC286C6B95A75E4",
+    "question": "I am a place of sand and sun, Where waves crash and seagulls run. Shells and treasures you may find, Beneath the warmth of the sunshine. What am I?",
+    "answer": "Beach",
+    "options": ["Beach", "River", "Lake"]
+  },
+  {
+    "_id": "649C77D003DB02EECF5802C3",
+    "question": "In the realm of trees, secrets hide, Whispers hush where creatures stride. What am I?",
+    "answer": "Forrest",
+    "options": ["Park", "Forrest", "Orchard"]
+  },
+  {
+    "_id": "11A24991314AC93C997943A6",
+    "question": "Seeking glory, unknown terrain, Challenges faced, treasures to gain. What am I?",
+    "answer": "A Quest",
+    "options": ["A Quest", "An Exam", "A Fight"]
+  },
+  {
     "_id": "9DED99CE588C1DC63250B5BD",
-    "question": "There is no riddle....",
+    "question": "Congratulations, you have completed the every quest. Come back later for more!",
     "answer": "You win!",
     "options": ["You win!", "You win!", "You win!"]
   }
