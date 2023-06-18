@@ -1,11 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.28aebc0b.css",
-    "main.js": "/static/js/main.f19d881f.js",
-    "static/media/bg_abstract.jpeg": "/static/media/bg_abstract.1e04beec13a0529a885f.jpeg",
-    "static/media/heroMini.png": "/static/media/heroMini.03a4b14ab329525a4d1b.png",
-    "static/media/bg.png": "/static/media/bg.f6efab7df0723d6562fc.png",
-    "static/media/hero2.png": "/static/media/hero2.6422d97ca67e6b6ecfd8.png",
+    "main.css": "/static/css/main.10a5d38d.css",
+    "main.js": "/static/js/main.684c86fc.js",
+    "static/media/hero.png": "/static/media/hero.9b4ed1cefc5a06ab645a.png",
+    "static/media/bg.png": "/static/media/bg.528aa19b3f3d56bf1ff4.png",
     "static/media/route3_badge_colour.png": "/static/media/route3_badge_colour.e86662eb4677b9950f75.png",
     "static/media/route3_badge_greyscale.png": "/static/media/route3_badge_greyscale.67e1dd9725091b4a0a7a.png",
     "static/media/UWA_badge_colour.png": "/static/media/UWA_badge_colour.cfd0f05a96c198e2d85e.png",
@@ -17,11 +15,11 @@
     "static/media/route5_badge_greyscale.png": "/static/media/route5_badge_greyscale.e25f65e244c9854f89c2.png",
     "static/media/route4_badge_greyscale.png": "/static/media/route4_badge_greyscale.75f051934647cf09a0f3.png",
     "index.html": "/index.html",
-    "main.28aebc0b.css.map": "/static/css/main.28aebc0b.css.map",
-    "main.f19d881f.js.map": "/static/js/main.f19d881f.js.map"
+    "main.10a5d38d.css.map": "/static/css/main.10a5d38d.css.map",
+    "main.684c86fc.js.map": "/static/js/main.684c86fc.js.map"
   },
   "entrypoints": [
-    "static/css/main.28aebc0b.css",
-    "static/js/main.f19d881f.js"
+    "static/css/main.10a5d38d.css",
+    "static/js/main.684c86fc.js"
   ]
 }

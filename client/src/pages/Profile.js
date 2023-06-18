@@ -116,16 +116,6 @@ const Profile = () => {
 
         <Box sx={{ gridArea: "main", bgcolor: "white" }}>
           <Item>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "flex-end",
-              }}
-            >
-              <Button onClick={handleEditClick} size="small" color="primary">
-                Edit Profile
-              </Button>
-            </div>
             {/* if 'editing' is false, calls 'handleEditClick' that sets the'editing' state to true again. */}
             {editing ? ( // determines whether the user is editing their profile or not.
               <EditProfileForm
@@ -137,6 +127,21 @@ const Profile = () => {
               //onSave is called when the user clicks the 'Save' button, and setUser is a function that updates the user.
               <ViewProfileForm />
             )}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              <Button
+                variant="contained"
+                onClick={handleEditClick}
+                type="primary"
+                // size="small"
+              >
+                Edit Profile
+              </Button>
+            </div>
           </Item>
         </Box>
       </Box>
