@@ -1,32 +1,32 @@
 [
-    {
-        "_id": "55246EE6E77090425287D2FB",
-        "name": 1,
-        "description": "Pedestrian"
-    },
-    {
-        "_id": "7124BB7DFC7DFD8E013F54D6",
-        "name": 2,
-        "description": "Rambler"
-    },
-    {
-        "_id": "F76346DA4A92BB1D851C3495",
-        "name": 3,
-        "description": "Wayfairer"
-    },
-    {
-        "_id": "F76346DA4A92BB1D851C3495",
-        "name": 3,
-        "description": "Traveller"
-    },
-    {
-        "_id": "F76346DA4A92BB1D851C3495",
-        "name": 3,
-        "description": "Explorer"
-    },
-    {
-        "_id": "E39F5CFA950068B644C1ED2A",
-        "name": 3,
-        "description": "Complete"
-    }
+  {
+    "_id": "55246EE6E77090425287D2FB",
+    "name": 1,
+    "description": "Pedestrian"
+  },
+  {
+    "_id": "7124BB7DFC7DFD8E013F54D6",
+    "name": 2,
+    "description": "Rambler"
+  },
+  {
+    "_id": "F76346DA4A92BB1D851C3495",
+    "name": 3,
+    "description": "Wayfairer"
+  },
+  {
+    "_id": "F76346DA4A92BB1D851C3495",
+    "name": 4,
+    "description": "Traveller"
+  },
+  {
+    "_id": "F76346DA4A92BB1D851C3495",
+    "name": 5,
+    "description": "Explorer"
+  },
+  {
+    "_id": "E39F5CFA950068B644C1ED2A",
+    "name": 6,
+    "description": "Complete"
+  }
 ]
