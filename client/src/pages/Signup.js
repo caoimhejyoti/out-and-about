@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
-import { Upload } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import "./../index.css";
