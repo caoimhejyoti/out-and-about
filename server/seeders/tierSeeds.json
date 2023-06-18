@@ -10,6 +10,21 @@
         "description": "Rambler"
     },
     {
+        "_id": "F76346DA4A92BB1D851C3495",
+        "name": 3,
+        "description": "Wayfairer"
+    },
+    {
+        "_id": "F76346DA4A92BB1D851C3495",
+        "name": 3,
+        "description": "Traveller"
+    },
+    {
+        "_id": "F76346DA4A92BB1D851C3495",
+        "name": 3,
+        "description": "Explorer"
+    },
+    {
         "_id": "E39F5CFA950068B644C1ED2A",
         "name": 3,
         "description": "Complete"
