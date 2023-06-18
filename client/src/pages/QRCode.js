@@ -114,21 +114,26 @@ const QRCode = () => {
         {/* <Container>{displayBadge(user)}</Container> */}
         {QRCodeScanned ? (
           <>
-            <Typography>
-              Congratulations you have achieved the{" "}
-              {user.currentQuest.badge.name} Badge.
-              <br />
-              You are now able to see the next riddle but don't stop yet!
-              <br />
-              Finish your quest by making it to the end and celebrating with a
-              well deserved coffee!
-            </Typography>
-            <Container className="map-container" style={mapTestStyle}>
+            <Box sx={{ gridArea: "header" }}>
+              <Typography gutterBottom variant="h4" color="white">
+                Congratulations you have achieved the{" "}
+                {user.currentQuest.badge.name} Badge!
+              </Typography>
+            </Box>
+            <Box sx={{ gridArea: "sidebar" }} className="badge-side">
+              {displayBadge(user)}
+            </Box>
+            <Box sx={{ gridArea: "main", bgcolor: "white" }} className="p-3">
               <Map data={user} />
-            </Container>
-            <Container className="justify-center text-center">
+              <br />
+              <Typography variant="p" color="black">
+                You are now able to see the next riddle but don't stop yet!
+                Finish your quest by making it to the end and celebrating with a
+                well deserved coffee!
+              </Typography>
+              <br />
               <QRButton data={user} message={btn.message}></QRButton>
-            </Container>
+            </Box>
           </>
         ) : (
           <>
@@ -137,10 +142,7 @@ const QRCode = () => {
                 Find a QR Code to get the Password!
               </Typography>
             </Box>
-            <Box
-              sx={{ gridArea: "sidebar", bgcolor: "white" }}
-              className="badge-side"
-            >
+            <Box sx={{ gridArea: "sidebar" }} className="badge-side">
               {displayBadge(user)}
             </Box>
             <Box sx={{ gridArea: "main", bgcolor: "white" }} className="p-3">
