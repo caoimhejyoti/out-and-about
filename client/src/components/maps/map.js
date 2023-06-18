@@ -1,5 +1,6 @@
 import Uwamap from "./uwa-grad";
 import MandurahMap from "./mandurah-forshore";
+import KingsParkMap from "./kings-park";
 import React from "react";
 
 export default function Map(props) {
@@ -11,6 +12,8 @@ export default function Map(props) {
     return MandurahMap();
   } else if (tier === "Rambler") {
     return Uwamap();
+  } else if (tier === "Wayfairer") {
+    return KingsParkMap();
   } else
     return (
       <div>

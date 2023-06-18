@@ -32,6 +32,12 @@ export default function QRCodeButtons(props) {
     if (props.data.currentQuest.tierName === "Pedestrian") {
       setQuestId("EFE0C59EFA61B1C366BB9515");
     } else if (props.data.currentQuest.tierName === "Rambler") {
+      setQuestId("3903F035BD71FEACE920026B");
+    } else if (props.data.currentQuest.tierName === "Wayfairer") {
+      setQuestId("CDF03DC475E0381FFD940DBE");
+    } else if (props.data.currentQuest.tierName === "Traveller") {
+      setQuestId("A117EAA4E2C4E76971E40D99");
+    } else if (props.data.currentQuest.tierName === "Explorer") {
       setQuestId("53D8B93AAFE44A0C786D3676");
     }
   }, [props]);
@@ -40,7 +46,13 @@ export default function QRCodeButtons(props) {
     if (props.data.currentQuest.tierName === "Pedestrian") {
       setTierId("7124BB7DFC7DFD8E013F54D6");
     } else if (props.data.currentQuest.tierName === "Rambler") {
-      setTierId("E39F5CFA950068B644C1ED2A");
+      setTierId("648e89f61b3efc617d0905cb");
+    } else if (props.data.currentQuest.tierName === "Wayfairer") {
+      setTierId("648e89f61b3efc617d0905cc");
+    } else if (props.data.currentQuest.tierName === "Traveller") {
+      setTierId("648e89f61b3efc617d0905cd");
+    } else if (props.data.currentQuest.tierName === "Explorer") {
+      setTierId("648e89f61b3efc617d0905ce");
     }
   }, [props]);
 

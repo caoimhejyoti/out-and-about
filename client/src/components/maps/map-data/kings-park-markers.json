@@ -1,0 +1,90 @@
+{"type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Car Park",
+          "route": "Kings Park",
+          "car-park-hours": "",
+          "car-park-cost": "",
+          "marker-color": "#6ad0fb",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.84209071556563,
+            -31.960222258592893
+          ],
+          "type": "Point"
+        },
+        "id": 0
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Start and End",
+          "route": "Kings Park",
+          "car-park-hours": "",
+          "car-park-cost": "",
+          "marker-color": "#16c049",
+          "marker-size": "medium",
+          "marker-symbol": "circle",
+          "business-name": "",
+          "business-hours": ""
+        },
+        "geometry": {
+          "coordinates": [
+            115.84294161682027,
+            -31.96033347829095
+          ],
+          "type": "Point"
+        },
+        "id": 2
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Cafe",
+          "route": "Kings Park",
+          "car-park-hours": "",
+          "car-park-cost": "",
+          "marker-color": "#ea34db",
+          "marker-size": "medium",
+          "marker-symbol": "circle",
+          "business-name": "Botanical Cafe",
+          "business-hours": ""
+        },
+        "geometry": {
+          "coordinates": [
+            115.84355943920548,
+            -31.959881310994227
+          ],
+          "type": "Point"
+        },
+        "id": 3
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Toilets",
+          "route": "Kings Park",
+          "car-park-hours": "",
+          "car-park-cost": "",
+          "marker-color": "#ffae00",
+          "marker-size": "medium",
+          "marker-symbol": "circle",
+          "business-name": "Acacia Toilets",
+          "business-hours": "24/7"
+        },
+        "geometry": {
+          "coordinates": [
+            115.84314581840886,
+            -31.960104154686277
+          ],
+          "type": "Point"
+        },
+        "id": 3
+      }
+    ]
+}
