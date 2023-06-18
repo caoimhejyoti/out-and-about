@@ -91,8 +91,9 @@ export default function QRCodeButtons(props) {
     <ThemeProvider theme={inputTheme}>
       <Button
         variant="contained"
+        type="primary"
         id="submit-button"
-        sx={{ width: "25vw" }}
+        fullWidth={false}
         className="primary m-2"
         onClick={btnClick}
       >

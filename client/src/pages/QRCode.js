@@ -111,7 +111,6 @@ const QRCode = () => {
           gridTemplateAreas: `"header header header header" "sidebar main main main" `,
         }}
       >
-        {/* <Container>{displayBadge(user)}</Container> */}
         {QRCodeScanned ? (
           <>
             <Box sx={{ gridArea: "header" }}>
