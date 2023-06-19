@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import geoJSON from "./map-data/uwa-grad.json";
 import mapboxgl from "mapbox-gl";
+import geoJSON from "./map-data/uwa-grad.json";
 import geoJSONroutes from "./map-data/uwa-grad-routes.json";
 import Tooltip from "@mui/material/Tooltip";
 import { Typography, styled, Paper } from "@mui/material";
@@ -33,7 +33,7 @@ const Marker = ({ onClick, children, feature }) => {
   );
 };
 
-export default function MandurahMap() {
+export default function UWAMap() {
   const mapContainer = useRef(null);
   const [lng, setLng] = useState(115.819156176);
   const [lat, setLat] = useState(-31.97995);

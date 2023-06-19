@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { Box, Grid, Typography } from "@mui/material";
 import inputTheme from "../style/theme";
-import Signup from "./Signup";
+import Signup from "../components/HomeSignUp";
 
 const mainStyle = {
   width: "100vw",

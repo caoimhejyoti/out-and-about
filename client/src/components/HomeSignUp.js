@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
+import { Button } from "@mui/material";
 import "./../index.css";
 
 import Auth from "../utils/auth";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
@@ -47,16 +49,11 @@ const Signup = () => {
 
   return (
     <div className="card flex m-3">
-      <h4 className="card-header bg-dark text-light p-2">
-        Sign Up
-        <Link to="/login" className="ml-5">
-          ← Go to Login
-        </Link>
-      </h4>
       <div className="card-body">
         {data ? (
           <p>
-            Success! You may now head <Link to="/">back to the homepage.</Link>
+            Success! You may now head to your
+            <Link to="/dashboard"> dashboard</Link>
           </p>
         ) : (
           <form onSubmit={handleFormSubmit}>
@@ -100,13 +97,13 @@ const Signup = () => {
               value={formState.password}
               onChange={handleChange}
             />
-            <button
+            <Button
               className="btn btn-block btn-primary"
               style={{ cursor: "pointer" }}
               type="submit"
             >
               Sign up
-            </button>
+            </Button>
           </form>
         )}
 
@@ -114,6 +111,14 @@ const Signup = () => {
           <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
         )}
       </div>
+      <Button
+        onClick={() => navigate("/login")}
+        className="m-1 text-white"
+        size="small"
+      >
+        Login
+      </Button>
+      {/* </h4> */}
     </div>
   );
 };

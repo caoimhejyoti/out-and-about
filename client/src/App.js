@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import QRCode from "./pages/QRCode";
 import About from "./pages/About";
+import FAQs from "./pages/FAQs";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -64,6 +65,7 @@ export default function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/qrcode" element={<QRCode />} />
               <Route path="/about" element={<About />} />
+              <Route path="/faq" element={<FAQs />} />
             </Routes>
           </div>
           <Footer />

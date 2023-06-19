@@ -1,0 +1,95 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Car Park",
+          "route": "Fremantle",
+          "marker-color": "#6ad0fb",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.74642619415431,
+            -32.058675087903225
+          ],
+          "type": "Point"
+        },
+        "id": 0
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Bar",
+          "route": "Fremantle",
+          "marker-color": "#ea34db",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.74467001590625,
+            -32.05936767886326
+          ],
+          "type": "Point"
+        },
+        "id": 1
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Start",
+          "route": "Fremantle",
+          "marker-color": "#16c049",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.74613937343275,
+            -32.05856516260571
+          ],
+          "type": "Point"
+        },
+        "id": 2
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "End",
+          "route": "Fremantle",
+          "marker-color": "#16c049",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.74474076275021,
+            -32.05855132605656
+          ],
+          "type": "Point"
+        },
+        "id": 3
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Toilets",
+          "route": "Fremantle",
+          "marker-color": "#ffae00",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.74638497958193,
+            -32.058178534641264
+          ],
+          "type": "Point"
+        },
+        "id": 4
+      }
+    ]
+  }

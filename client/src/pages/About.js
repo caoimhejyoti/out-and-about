@@ -23,24 +23,22 @@ const About = () => {
                 a full stack web application that solved a real-world problem.
               </Typography>
               <Typography variant="body1" marginBottom={2}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                interdum augue leo, eget efficitur leo porta in. Donec eu
-                interdum turpis, eget euismod felis. Nulla facilisi. Donec
-                consectetur metus sit amet purus consequat, vel euismod libero
-                tincidunt. Nam et diam convallis, condimentum neque ut,
-                fringilla eros. Sed mattis dignissim dolor eu sodales. Aliquam
-                erat volutpat. Aliquam eros diam, varius in mauris ac, rhoncus
-                convallis purus. Etiam libero nibh, convallis nec euismod nec,
-                pretium at justo.
+                The idea for Out and About came from a desire to help people get
+                out and see their local area. We wanted to create a platform
+                that would allow users to explore the area while completed
+                quests designed by us.
               </Typography>
               <Typography variant="body1" marginBottom={2}>
-                Aenean mauris lorem, volutpat vitae accumsan eget, ornare
-                posuere orci. Fusce diam enim, fringilla vel consequat in,
-                congue id sem. Nunc nec vulputate felis, nec vehicula enim. In
-                scelerisque purus sit amet elit placerat, eu pretium lorem
-                tempus. Maecenas nec leo eget lacus posuere tristique et id
-                purus. Nulla bibendum efficitur dui, eget varius nisi posuere
-                at.
+                We understand the need to have movement in your life, but this
+                app is not designed with fitness in mind. We encourage you to
+                use this app as an oportunity to meet with friends, visit
+                somewhere new and have fun!
+              </Typography>
+              <Typography variant="body1" marginBottom={2}>
+                Each quest has been designed to be completed in under an hour,
+                with a car park, toilets and a cafe nearby. We hope you enjoy
+                exploring your local area as much as we have enjoyed creating
+                this app.
               </Typography>
             </Grid>
           </Box>

@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
-import geoJSON from "./map-data/mandurah-foreshore-markers.json";
-import geoJSONroutes from "./map-data/mandurah-foreshore-route.json";
+import geoJSON from "./map-data/fremantle-markers.json";
+import geoJSONroutes from "./map-data/fremantle-route.json";
 import Tooltip from "@mui/material/Tooltip";
 
 import "./../../style/map.css";
@@ -34,12 +34,11 @@ const Marker = ({ onClick, children, feature }) => {
   );
 };
 
-export default function MandurahMap() {
+export default function Fremantle() {
   const mapContainer = useRef(null);
-  const [lng, setLng] = useState(115.7187);
-  const [lat, setLat] = useState(-32.527399);
-  const [zoom, setZoom] = useState(14);
-  // const [projection, setProjection] = useState("globe");
+  const [lng, setLng] = useState(115.74569);
+  const [lat, setLat] = useState(-32.058552);
+  const [zoom, setZoom] = useState(16);
 
   const waypoints = geoJSONroutes.features[0].geometry.coordinates;
 

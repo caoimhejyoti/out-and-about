@@ -5,7 +5,7 @@
         "type": "Feature",
         "properties": {
           "name": "uwa-grad-routes",
-          "route": "mandurah-forshore",
+          "route": "uwa-route",
           "stroke": "#3b05ff",
           "stroke-width": 5,
           "stroke-opacity": 1

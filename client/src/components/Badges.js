@@ -19,6 +19,7 @@ import UWABadgeColour from "./../assets/badges/UWA_badge_colour.png";
 import badge3Colour from "./../assets/badges/route3_badge_colour.png";
 import badge4Colour from "./../assets/badges/route4_badge_colour.png";
 import badge5Colour from "./../assets/badges/route5_badge_colour.png";
+import completed_badge from "./../assets/badges/completed_badge.png";
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
@@ -35,6 +36,7 @@ const BadgeComp = (props) => {
   const [badgeThree, setBadgeThree] = useState(badge3Grey);
   const [badge4, setBadge4] = useState(badge4Grey);
   const [badge5, setBadge5] = useState(badge5Grey);
+  // const [completedBage, setCompletedBage] = useState(completed_badge);
 
   const [userBadges, setUserBadges] = useState([]);
 
@@ -50,6 +52,8 @@ const BadgeComp = (props) => {
     }
   }, []);
 
+  console.log(userBadges);
+
   useEffect(() => {
     if (userBadges.includes("Mandurah Quest")) {
       setMandurahBadge(mandurahBadgeColour);
@@ -59,15 +63,15 @@ const BadgeComp = (props) => {
       setUWABadge(UWABadgeColour);
     }
 
-    if (userBadges.includes("Badge 3")) {
+    if (userBadges.includes("Banksia Quest")) {
       setBadgeThree(badge3Colour);
     }
 
-    if (userBadges.includes("Badge 4")) {
+    if (userBadges.includes("Kangaroo Quest")) {
       setBadge4(badge4Colour);
     }
 
-    if (userBadges.includes("Badge 5")) {
+    if (userBadges.includes("Koala Quest")) {
       setBadge5(badge5Colour);
     }
   });
@@ -94,19 +98,26 @@ const BadgeComp = (props) => {
           }}
         >
           <Item>
+            <img
+              className="badge"
+              src={completed_badge}
+              alt="Out and About global badge"
+            />
+          </Item>
+          <Item>
             <img className="badge" src={mandurahBadge} alt="Mandurah Badge" />
           </Item>
           <Item>
             <img className="badge" src={UWABadge} alt="UWA Badge" />
           </Item>
           <Item>
-            <img className="badge" src={badgeThree} alt="" />
+            <img className="badge" src={badgeThree} alt="Kings Park Badge" />
           </Item>
           <Item>
-            <img className="badge" src={badge4} alt="" />
+            <img className="badge" src={badge4} alt="Kangaroo Badge" />
           </Item>
           <Item>
-            <img className="badge" src={badge5} alt="" />
+            <img className="badge" src={badge5} alt="Koala Badge" />
           </Item>
         </Box>
       )}

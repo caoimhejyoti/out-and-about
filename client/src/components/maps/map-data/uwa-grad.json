@@ -4,8 +4,18 @@
       {
         "type": "Feature",
         "properties": {
-          "name": "varsity",
+          "name": "End",
           "route": "uwa-grad",
+          "business-name": "Varsity Bar",
+          "business-hours":[
+            "Monday: 11am - 10:30pm", 
+            "Tuesday: 11am - 10:30pm", 
+            "Wednesday: 11am - 10:30pm", 
+            "Thursday: 11am - 10:30pm", 
+            "Friday: 11am - 12pm", 
+            "Saturday: 11am - 12pm", 
+            "Sunday: 11am - 10:30pm" 
+        ],
           "marker-color": "#ffc800",
           "marker-size": "medium"
         },
@@ -21,7 +31,7 @@
       {
         "type": "Feature",
         "properties": {
-          "name": "Reflection Pond",
+          "name": "Start",
           "route": "uwa-grad",
           "marker-color": "#00fbff",
           "marker-size": "medium"
@@ -38,8 +48,29 @@
       {
         "type": "Feature",
         "properties": {
-          "name": "catalyst cafe",
+          "name": "Car Park",
           "route": "uwa-grad",
+          "car-park-hours": "24/7",
+          "car-park-cost": "Free - 2 hours max, Monday - Saturday",
+          "marker-color": "#6ad0fb",
+          "marker-size": "medium"
+        },
+        "geometry": {
+          "coordinates": [
+            115.81935456674654,
+            -31.975940456529415
+          ],
+          "type": "Point"
+        },
+        "id": 2
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Cafe",
+          "route": "uwa-grad",
+          "business-name": "Catalyst Cafe",
+          "business-hours": ["Week Days: 7:30am - 4:30pm", "Weekends: Closed"],
           "marker-color": "#dd00fa",
           "marker-size": "medium"
         },
@@ -55,10 +86,14 @@
       {
         "type": "Feature",
         "properties": {
-          "name": "Reid Library",
+          "name": "Toilets",
           "route": "uwa-grad",
-          "marker-color": "#ff0000",
-          "marker-size": "medium"
+          "business-name": "Reid Library",
+          "business-cost": "free",
+          "marker-color": "#ffae00",
+          "marker-size": "medium",
+          "business-hours":[ "Week Days: 7am - 8pm", 
+          "Weekends: 8am - 7pm"]
         },
         "geometry": {
           "coordinates": [
@@ -72,9 +107,9 @@
       {
         "type": "Feature",
         "properties": {
-          "name": "food court tree",
+          "name": "QR Code",
           "route": "uwa-grad",
-          "marker-color": "#11ff00",
+          "marker-color": "#ff0000",
           "marker-size": "medium"
         },
         "geometry": {
