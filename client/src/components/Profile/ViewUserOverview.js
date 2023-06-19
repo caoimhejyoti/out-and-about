@@ -24,12 +24,12 @@ const ViewUserImage = ({ user }) => {
             {`${user.username}`}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Member since May 11, 2023
-            {`${user.createdAt}`}
+            Member since June 21, 2023
+            {/* {`${user.createdAt}`} */}
             {/* FIXME: date is incorrect */}
             {/* TODO: update date based on user logged in */}
           </Typography>
-          <Typography variant="overline" color="text.secondary">
+          <Typography variant="h6" marginY={2} color="text.secondary">
             {user.currentQuest && user.currentQuest.tierName
               ? `${user.currentQuest.tierName}`
               : "Tier does not exist"}
