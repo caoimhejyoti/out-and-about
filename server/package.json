@@ -4,45 +4,43 @@
     "description": "It is time to go on a Quest, it is time to get out and about!",
     "main": "server.js",
     "scripts": {
-      "start": "npm run watch",
-      "watch": "nodemon",
-      "seed": "node seeders/seed.js"
+        "start": "npm run watch",
+        "watch": "nodemon",
+        "seed": "node seeders/seed.js"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-      "apollo-server-express": "^3.6.2",
-      "bcrypt": "^5.0.0",
-      "express": "^4.17.2",
-      "graphql": "^16.3.0",
-      "jsonwebtoken": "^8.5.1",
-      "mongoose": "^6.9.2"
-      
+        "apollo-server-express": "^3.6.2",
+        "bcrypt": "^5.0.0",
+        "bcryptjs": "^2.4.3",
+        "express": "^4.17.2",
+        "graphql": "^16.3.0",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.9.2"
     },
     "devDependencies": {
-      "nodemon": "^2.0.3"
-      
+        "nodemon": "^2.0.3"
     },
     "browserslist": {
-      "production": [
-        ">0.2%",
-        "not dead",
-        "not op_mini all",
-        "not safari < 10",
-        "not chrome < 51",
-        "not android < 5",
-        "not ie < 12",
-        "not safari < 10",
-        "not chrome < 51",
-        "not android < 5",
-        "not ie < 12"
-      ],
-      "development": [
-        "last 1 chrome version",
-        "last 1 firefox version",
-        "last 1 safari version"
-      ]
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all",
+            "not safari < 10",
+            "not chrome < 51",
+            "not android < 5",
+            "not ie < 12",
+            "not safari < 10",
+            "not chrome < 51",
+            "not android < 5",
+            "not ie < 12"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
-  }
-  
+}
