@@ -1,0 +1,77 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Car Park",
+          "route": "Falcon",
+          "marker-color": "#6ad0fb",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.652523511489,
+            -32.580343064950405
+          ],
+          "type": "Point"
+        },
+        "id": 0
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Start and End",
+          "route": "Falcon",
+          "marker-color": "#16c049",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.65202674139147,
+            -32.58033925952302
+          ],
+          "type": "Point"
+        },
+        "id": 1
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Cafe",
+          "route": "Falcon",
+          "marker-color": "#ea34db",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.65188674254063,
+            -32.5805390442214
+          ],
+          "type": "Point"
+        },
+        "id": 2
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Toilets",
+          "route": "Falcon",
+          "marker-color": "#ffae00",
+          "marker-size": "medium",
+          "marker-symbol": "circle"
+        },
+        "geometry": {
+          "coordinates": [
+            115.65194996785942,
+            -32.58014518254114
+          ],
+          "type": "Point"
+        },
+        "id": 3
+      }
+    ]
+  }

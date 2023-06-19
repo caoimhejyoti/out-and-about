@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl";
-import geoJSON from "./map-data/kings-park-markers.json";
-import geoJSONroutes from "./map-data/kings-park-route.json";
+import geoJSON from "./map-data/falcon-markers.json";
+import geoJSONroutes from "./map-data/falcon-route.json";
 import Tooltip from "@mui/material/Tooltip";
 
 import "./../../style/map.css";
@@ -34,12 +34,11 @@ const Marker = ({ onClick, children, feature }) => {
   );
 };
 
-export default function KingsParkMap() {
+export default function Fremantle() {
   const mapContainer = useRef(null);
-  const [lng, setLng] = useState(115.842544);
-  const [lat, setLat] = useState(-31.960848);
-  const [zoom, setZoom] = useState(16);
-  // const [projection, setProjection] = useState("globe");
+  const [lng, setLng] = useState(115.65211);
+  const [lat, setLat] = useState(-32.580234);
+  const [zoom, setZoom] = useState(15);
 
   const waypoints = geoJSONroutes.features[0].geometry.coordinates;
 

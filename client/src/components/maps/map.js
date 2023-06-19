@@ -1,6 +1,8 @@
 import Uwamap from "./uwa-grad";
 import MandurahMap from "./mandurah-forshore";
 import KingsParkMap from "./kings-park";
+import FremantleMap from "./fremantle";
+import FalconMap from "./falcon.js";
 import React from "react";
 
 export default function Map(props) {
@@ -15,9 +17,9 @@ export default function Map(props) {
   } else if (tier === "Wayfairer") {
     return KingsParkMap();
   } else if (tier === "Traveller") {
-    return KingsParkMap();
+    return FremantleMap();
   } else if (tier === "Explorer") {
-    return KingsParkMap();
+    return FalconMap();
   } else
     return (
       <div>
