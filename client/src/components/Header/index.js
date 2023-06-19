@@ -6,7 +6,11 @@ import Auth from "../../utils/auth";
 
 const buttonStyle = {
   marginInline: 10,
-  paddingInline: 5,
+  paddingBlock: 5,
+  paddingInline: 10,
+  borderRadius: 5,
+  color: "white",
+  backgroundColor: "#C854a5",
 };
 const navStyle = {
   paddingLeft: 10,
@@ -72,7 +76,12 @@ const Header = () => {
               <Link to="/about" style={navStyle}>
                 About
               </Link>
-              <Link to="/login">Login</Link>
+              <Link to="/faq" style={navStyle}>
+                FAQs
+              </Link>
+              <Link to="/login" style={buttonStyle}>
+                Login
+              </Link>
             </>
           )}
         </div>
