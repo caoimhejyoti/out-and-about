@@ -62,7 +62,7 @@ const Dashboard = () => {
         maxWidth: "75%",
       }}
     >
-      <Box
+      <Box 
         sx={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
@@ -71,6 +71,7 @@ const Dashboard = () => {
           gridTemplateAreas: `"header header header header"
   "sidebar main main main"`,
         }}
+        className="riddleBox"
       >
         <Box className="my-4" sx={{ gridArea: "header" }}>
           <Typography gutterBottom variant="h4" color="white">

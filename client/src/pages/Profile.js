@@ -103,6 +103,7 @@ const Profile = () => {
           gridTemplateAreas: `"header header header header"
   "sidebar main main main"`,
         }}
+        className="profileBox"
       >
         <Box className="my-4" sx={{ gridArea: "header" }}>
           <Typography gutterBottom variant="h4" color="white">

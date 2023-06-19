@@ -29,7 +29,7 @@ const Header = () => {
   };
   return (
     <header>
-      <div
+      <div className="navbar"
         style={{
           display: "flex",
           flexDirection: "row",
@@ -38,7 +38,7 @@ const Header = () => {
           marginInline: "10%",
         }}
       >
-        <div>
+        <div className="smallerScn">
           {Auth.loggedIn() ? (
             <>
               <Link to="/dashboard">
@@ -54,7 +54,7 @@ const Header = () => {
           )}
         </div>
 
-        <div>
+        <div className="smallerScn">
           {Auth.loggedIn() ? (
             <>
               <Link to="/dashboard" style={navStyle}>
