@@ -44,15 +44,16 @@ const client = new ApolloClient({
 export default function App() {
   const bgStyle = {
     backgroundImage: `url(${background})`,
-    backgroundSize: "cover",
+    // backgroundSize: "100%",
     backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
   };
 
   return (
     <ApolloProvider client={client}>
       <Router>
         <div
-          className="flex-column justify-flex-start min-100-vh"
+          className="flex-column justify-flex-start min-100-vh background-IMG"
           style={bgStyle}
         >
           <Header />

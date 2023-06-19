@@ -23,14 +23,50 @@
   width: 10vw;
 }
 
-.title {
-  
+.background-IMG {
+  background-size: 100%;
+  @media only screen and (max-width: 1920px) {
+    background-size: 1920px !important;
+  }
 }
 
-/* @media (max-width:950px){
-  .hero-image{
-    background-image: url("./../assets/heroMini.png") ;
-    background-size: cover;
-    background-position: center 40%;
+@media (max-width:555px){
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
   }
-} */
+}
+
+@media (max-width:756px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-inline: 0% !important;
+  }
+  .smallerScn {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .riddleBox {
+    grid-template-areas: "header header header header""main main main main""sidebar sidebar sidebar sidebar" !important;
+  }
+  .profileBox {
+    grid-template-areas: "header header header header""sidebar sidebar sidebar sidebar""main main main main" !important;
+  }
+  .css-o69gx8-MuiCardMedia-root {
+    width: 20% !important;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  .css-1mdbsto {
+    grid-template-areas: "header header header header""sidebar sidebar sidebar sidebar""main main main main" !important;
+  }
+  .badge-img {
+    width: 20% !important;
+  }
+}
