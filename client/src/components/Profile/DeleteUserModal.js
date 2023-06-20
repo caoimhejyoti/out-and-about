@@ -63,10 +63,11 @@ const DeleteUser = () => {
     // console.log("formstate email", formState.email); //used for debugging
     if (formState.correctEmail === formState.email) {
       console.log("in if statement");
-      navigate("/");
+      navigate("/signup");
       const { data } = await deleteUserProfile({
         variables: { Id: formState.userId },
       });
+      Auth.logout();
     } else {
       console.log("FAILED DELETE");
       e.preventDefault();
