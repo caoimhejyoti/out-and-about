@@ -66,8 +66,7 @@ const DeleteUser = () => {
       const { data } = await deleteUserProfile({
         variables: { Id: formState.userId },
       });
-      Auth.logout();
-      navigate("/");
+      navigate("/signup");
     } else {
       console.log("FAILED DELETE");
       e.preventDefault();
