@@ -25,13 +25,13 @@ const About = () => {
               <Typography variant="body1" marginBottom={2}>
                 The idea for Out and About came from a desire to help people get
                 out and see their local area. We wanted to create a platform
-                that would allow users to explore the area while completed
+                that would allow users to explore the area while completing
                 quests designed by us.
               </Typography>
               <Typography variant="body1" marginBottom={2}>
                 We understand the need to have movement in your life, but this
                 app is not designed with fitness in mind. We encourage you to
-                use this app as an oportunity to meet with friends, visit
+                use this app as an opportunity to meet with friends, visit
                 somewhere new and have fun!
               </Typography>
               <Typography variant="body1" marginBottom={2}>
