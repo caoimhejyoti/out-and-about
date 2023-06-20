@@ -6,10 +6,18 @@ import { DELETE_USER_PROFILE } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
 // CSS/Component Libraries
 import { PlusOutlined } from "@ant-design/icons";
-import { Alert, Form, Input } from "antd";
-import { Modal, Button, Box, Typography, TextField } from "@mui/material";
+// import { Alert, Form, Input } from "antd";
+import {
+  Alert,
+  Modal,
+  Button,
+  Box,
+  Typography,
+  TextField,
+} from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import inputTheme from "../../style/theme";
+import Auth from "../../utils/auth";
 
 const DeleteStyle = {
   position: "absolute",
@@ -51,15 +59,18 @@ const DeleteUser = () => {
 
   // console.log(formState); //used for debugging
 
-  const handleDelClick = async () => {
+  const handleDelClick = async (e) => {
     // console.log("formstate email", formState.email); //used for debugging
     if (formState.correctEmail === formState.email) {
+      console.log("in if statement");
       const { data } = await deleteUserProfile({
         variables: { Id: formState.userId },
       });
-      navigate("/signup");
+      Auth.logout();
+      navigate("/");
     } else {
       console.log("FAILED DELETE");
+      e.preventDefault();
       console.error();
     }
     //FIXME: add alert
